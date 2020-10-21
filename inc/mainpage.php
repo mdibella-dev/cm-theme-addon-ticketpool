@@ -26,13 +26,12 @@ function cm_kk_add_mainpage_to_admin_menu()
         __( 'Kartenkontingente', 'cm_kk' ),
         __( 'Kartenkontingente', 'cm_kk' ),
         'manage_options',
-        'cm_kk_main',
+        __FILE__,
         'cm_kk_show_mainpage',
-        0,
     );
 }
 
-add_action( 'admin_menu', 'cm_kk_add_mainpage_to_admin_menu' );
+add_action( 'admin_menu', 'cm_kk_add_mainpage_to_admin_menu', 50 );
 
 
 
@@ -75,7 +74,7 @@ function cm_kk_show_mainpage()
         break;
 
         case 'tab-02' :
-
+            echo 'this';
         break;
     endswitch
 ?>
