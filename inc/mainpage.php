@@ -12,26 +12,26 @@ defined( 'ABSPATH' ) OR exit;
 
 
 /**
- * Integriert die Hauptseite in das 'Congressomat'-Menü
+ * Erzeugt einen Menüpunkt im Backend
  *
  * @since   0.0.1
+ * @todo    In das Congressomat-Menü verschieben (setzt Umbau voraus)
  */
 
 function cm_kk_add_mainpage_to_admin_menu()
 {
-    $admin_menu_slug = 'edit.php?post_type=session'; // // von Congressomat
-
-    add_submenu_page(
-        $admin_menu_slug,
+    add_menu_page(
         __( 'Kartenkontingente', 'cm_kk' ),
         __( 'Kartenkontingente', 'cm_kk' ),
         'manage_options',
-        __FILE__,
+        'cm_kk_mainpage',
         'cm_kk_show_mainpage',
+		'dashicons-tickets',
+		20,
     );
 }
 
-add_action( 'admin_menu', 'cm_kk_add_mainpage_to_admin_menu', 50 );
+add_action( 'admin_menu', 'cm_kk_add_mainpage_to_admin_menu' );
 
 
 
@@ -64,13 +64,13 @@ function cm_kk_show_mainpage()
     endif;
 ?>
 <h2 class="nav-tab-wrapper">
-<a href="?page=cm_kk_main&tab=tab-01" class="nav-tab <?php if( $active_tab == 'tab-01'){ echo 'nav-tab-active'; } ?>"><?php _e( 'Übersicht', 'cm_kk'); ?></a>
-<a href="?page=cm_kk_main&tab=tab-02" class="nav-tab <?php if( $active_tab == 'tab-02'){ echo 'nav-tab-active'; } ?>"><?php _e( 'Kartenkontigent', 'cm_kk'); ?></a>
+<a href="?page=cm_kk_mainpage&tab=tab-01" class="nav-tab <?php if( $active_tab == 'tab-01'){ echo 'nav-tab-active'; } ?>"><?php _e( 'Übersicht', 'cm_kk'); ?></a>
+<a href="?page=cm_kk_mainpage&tab=tab-02" class="nav-tab <?php if( $active_tab == 'tab-02'){ echo 'nav-tab-active'; } ?>"><?php _e( 'Kartenkontigent', 'cm_kk'); ?></a>
 </h2>
 <?php
     switch( $active_tab ) :
         case 'tab-01' :
-            echo cm_kk_get_used_amount() . ' of ' . cm_kk_get_total_amount() . 'used';
+            echo cm_kk_get_used_amount() . ' of ' . cm_kk_get_total_amount() . ' used (' . cm_kk_get_free_amount() .' free)';
         break;
 
         case 'tab-02' :

@@ -30,8 +30,13 @@ function cm_kk_get_total_amount( $event_id = 0 ) {
         $query = "SELECT kontingent_groesse FROM $table_name WHERE event_id=$event_id";
     endif;
 
-    $table_data = $wpdb->get_results( $query, 'ARRAY_A' );
-    return $table_data[ 0 ];
+    $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
+
+    if( NULL != $table_data ) :
+        return $table_data[ 0 ][ 0 ];
+    else :
+        return 0;
+    endif;
 }
 
 
@@ -54,8 +59,13 @@ function cm_kk_get_used_amount( $event_id = 0 ) {
         $query = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
     endif;
 
-    $table_data = $wpdb->get_results( $query, 'ARRAY_A' );
-    return $table_data[ 0 ];
+    $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
+
+    if( NULL != $table_data ) :
+        return $table_data[ 0 ][ 0 ];
+    else :
+        return 0;
+    endif;
 }
 
 
@@ -63,7 +73,7 @@ function cm_kk_get_used_amount( $event_id = 0 ) {
  * Ermittelt die Anzahl der vom Gesamtkontingent noch zur Verfügung stehenden Plätze
  *
  * @since   1.0.0
- * @return  int     die noch freien Plätze
+ * @return  int     die noch freien Plätze (im Zweifel 0)
  */
 
 function cm_kk_get_free_amount( $event_id = 0 ) {
@@ -72,5 +82,5 @@ function cm_kk_get_free_amount( $event_id = 0 ) {
     $total = cm_kk_get_total_amount( $event_id );
     $used  = cm_kk_get_used_amount( $event_id );
 
-    return $total - $used;
+    return max( 0, $total - $used );
 }
