@@ -12,15 +12,17 @@ Version:         0.0.1
 defined( 'ABSPATH' ) OR exit;
 
 
-
 /** Konstanten **/
 
 define( 'TABLE_KONTINGENT', 'cm_kartenkontingent_kontingent' );
 define( 'TABLE_TEILNEHMER', 'cm_kartenkontingent_teilnehmer' );
+define( 'PLUGIN_PATH', __DIR__ );
 
 
 /** Funktionsbibliothek einbinden **/
 
+require_once( __DIR__ . '/inc/class-kontingent-list-table.php' );
+require_once( __DIR__ . '/inc/class-teilnehmer-list-table.php' );
 require_once( __DIR__ . '/inc/core.php' );
 require_once( __DIR__ . '/inc/mainpage.php' );
 
@@ -46,15 +48,18 @@ function cm_kk_plugin_activation()
     $table_name__teilnehmer = $wpdb->prefix . TABLE_TEILNEHMER;
 
 
+
     // Tabelle für Kontingente einrichten
 
     if( $table_name__kontingent != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__kontingent'" ) ) :
 
         $sql = "CREATE TABLE $table_name__kontingent (
-            event_id            int UNSIGNED NOT NULL,
-            kontingent_groesse  int UNSIGNED DEFAULT 0,
-            kontingent_anbieter mediumtext DEFAULT '' NOT NULL,
-            PRIMARY KEY (event_id)
+            event_id            INT UNSIGNED NOT NULL,
+            id                  INT UNSIGNED NOT NULL,
+            groesse             INT UNSIGNED DEFAULT 0,
+            bereitgestellt_von  VARCHAR(255) DEFAULT '' NOT NULL,
+            bereitgestellt_am   DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
             )
             COLLATE $table_charset_collate;";
 
@@ -68,13 +73,13 @@ function cm_kk_plugin_activation()
     if( $table_name__teilnehmer != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__teilnehmer'" ) ) :
 
         $sql = "CREATE TABLE $table_name__teilnehmer (
-            event_id            int UNSIGNED NOT NULL,
-            teilnehmer_id       int UNSIGNED NOT NULL,
-            teilnehmer_nachname varchar(255) DEFAULT '' NOT NULL,
-            teilnehmer_vorname  varchar(255) DEFAULT '' NOT NULL,
-            teilnehmer_email    varchar(255) DEFAULT '' NOT NULL,
-            PRIMARY KEY (teilnehmer_id),
-            FOREIGN KEY (event_id) REFERENCES $table_name__kontingent(event_id)
+            event_id    INT UNSIGNED NOT NULL,
+            id          INT UNSIGNED NOT NULL,
+            nachname    VARCHAR(255) DEFAULT '' NOT NULL,
+            vorname     VARCHAR(255) DEFAULT '' NOT NULL,
+            email       VARCHAR(255) DEFAULT '' NOT NULL,
+            zeitpunkt   DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
             )
             COLLATE $table_charset_collate;";
 
