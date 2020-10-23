@@ -19,11 +19,11 @@ defined( 'ABSPATH' ) OR exit;
  * @todo    nach Event filtern
  */
 
-function cm_kk_export_teilnehmer( $event_id = 0 )
+function cm_kk_export_teilnehmer( $event_id )
 {
     /** Neue Datei erstellen **/
 
-    $file_name = 'kartenkontingent-export-' . date("Y-m-d") . 'csv';
+    $file_name = 'kartenkontingent-export-' . date("Y-m-d") . '.csv';
     $file      = fopen( PLUGIN_PATH . '/' . $file_name, 'w' );
 
 
@@ -71,25 +71,22 @@ function cm_kk_export_teilnehmer( $event_id = 0 )
  * @return  int     die Gesamtzahl der Tickets
  */
 
-function cm_kk_get_total_amount( $event_id = 0 )
+function cm_kk_get_total_amount( $event_id )
 {
     global $wpdb;
+           $amount = 0;
 
     $table_name = $wpdb->prefix . TABLE_KONTINGENT;
-
-    if( 0 == $event_id ) :  // nur solange keine Koppelung zur Event-Verwaltung besteht
-        $query = "SELECT kontingent_groesse FROM $table_name";
-    else :
-        $query = "SELECT kontingent_groesse FROM $table_name WHERE event_id=$event_id";
-    endif;
-
+    $query      = "SELECT groesse FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
 
     if( NULL != $table_data ) :
-        return $table_data[ 0 ][ 0 ];
-    else :
-        return 0;
+        foreach( $table_data as $value ) :
+            $amount += $value[0];
+        endforeach;
     endif;
+
+    return $amount;
 }
 
 
@@ -102,18 +99,12 @@ function cm_kk_get_total_amount( $event_id = 0 )
  * @return  int     die genutzten Plätze
  */
 
-function cm_kk_get_used_amount( $event_id = 0 )
+function cm_kk_get_used_amount( $event_id )
 {
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_TEILNEHMER;
-
-    if( 0 == $event_id ) : // nur solange keine Koppelung zur Event-Verwaltung besteht
-        $query = "SELECT COUNT(*) FROM $table_name";
-    else :
-        $query = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
-    endif;
-
+    $query      = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
 
     if( NULL != $table_data ) :
@@ -132,7 +123,7 @@ function cm_kk_get_used_amount( $event_id = 0 )
  * @return  int     die noch freien Plätze (im Zweifel 0)
  */
 
-function cm_kk_get_free_amount( $event_id = 0 )
+function cm_kk_get_free_amount( $event_id )
 {
     global $wpdb;
 
@@ -140,4 +131,20 @@ function cm_kk_get_free_amount( $event_id = 0 )
     $used  = cm_kk_get_used_amount( $event_id );
 
     return max( 0, $total - $used );
+}
+
+
+
+function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
+{
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . TABLE_KONTINGENT;
+    $result     = $wpdb->insert( $table_name, array(
+        'event_id'           => $event_id,
+        'groesse'            => $groesse,
+        'bereitgestellt_von' => $anbieter,
+    ) );
+
+    return $result;
 }
