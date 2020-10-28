@@ -135,10 +135,19 @@ function cm_kk_get_free_amount( $event_id )
 
 
 
+/**
+ * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
+ *
+ * @since   1.0.0
+ * @param   int     $event_id
+ * @param   int     $groesse
+ * @param   string  $anbieter
+ */
+
 function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
 {
     global $wpdb;
-
+/* add checks ?? */
     $table_name = $wpdb->prefix . TABLE_KONTINGENT;
     $result     = $wpdb->insert( $table_name, array(
         'event_id'           => $event_id,
@@ -146,5 +155,42 @@ function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
         'bereitgestellt_von' => $anbieter,
     ) );
 
-    return $result;
+    return $result;  // true or false?
+}
+
+
+/**
+ * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
+ *
+ * @since   1.0.0
+ * @param   int     $event_id
+ * @param   string  $nachname
+ * @param   string  $vorname
+ * @param   string  $email
+ */
+
+function cm_kk_add_beneficiary( $event_id, $nachname, $vorname, $email )
+{
+    global $wpdb;
+//echo $event_id .' '. $nachname .' '. $vorname .' '. $email;
+
+    if( 0 != cm_kk_get_free_amount( $event_id ) ) :
+
+        /* add checks ?? */
+
+        $table_name = $wpdb->prefix . TABLE_TEILNEHMER;
+        $result     = $wpdb->insert( $table_name, array(
+            'event_id' => $event_id,
+            'nachname' => $nachname,
+            'vorname'  => $vorname,
+            'email'    => $email,
+        ) );
+
+        if( 1 == $result ) :
+            /* sendmail */
+            return true;
+        endif;
+    endif;
+
+    return false;
 }

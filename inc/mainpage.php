@@ -96,6 +96,19 @@ function cm_kk_show_tab_01()
     $teilnehmer_table->prepare_items();
     $teilnehmer_table->display();
 ?>
+<p class="cm-kk-amount-info"><?php
+    $total_amount = cm_kk_get_total_amount( EVENT_ID ); // $_POST[ 'event_id' ]
+    $free_amount  = cm_kk_get_free_amount( EVENT_ID );
+
+    if( 0 == $total_amount ) :
+        _e( 'Derzeit stehen keine Plätze zur Verfügung.', 'cm_kk' );
+    else :
+        echo sprintf( __( 'Insgesamt stehen %1$s Plätze zur Verfügung, davon sind Plätze %2$s unbesetzt.', 'cm_kk' ),
+            $total_amount,
+            $free_amount,
+        );
+    endif;
+?></p>
 <form method="post">
     <button type="submit" name="action" class="button button-primary" value="export"><?php _e( 'Daten als CSV exportieren', 'cm_kk'); ?></button>
 </form>

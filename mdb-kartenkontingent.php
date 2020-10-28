@@ -24,6 +24,7 @@ define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once( PLUGIN_PATH . 'inc/class-kontingent-list-table.php' );
 require_once( PLUGIN_PATH . 'inc/class-teilnehmer-list-table.php' );
+require_once( PLUGIN_PATH . 'inc/shortcode-form.php' );
 require_once( PLUGIN_PATH . 'inc/core.php' );
 require_once( PLUGIN_PATH . 'inc/mainpage.php' );
 
