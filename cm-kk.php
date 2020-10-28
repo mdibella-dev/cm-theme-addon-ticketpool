@@ -14,16 +14,16 @@ defined( 'ABSPATH' ) OR exit;
 
 /** Konstanten **/
 
-define( 'TABLE_KONTINGENT', 'cm_kartenkontingent_kontingent' );
-define( 'TABLE_TEILNEHMER', 'cm_kartenkontingent_teilnehmer' );
+define( 'TABLE_POOL', 'cm_kk_contingent_pool' );
+define( 'TABLE_USER', 'cm_kk_contingent_user' );
 define( 'EVENT_ID', '1' );              // todo: automatisieren
 define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 
 /** Funktionsbibliothek einbinden **/
 
-require_once( PLUGIN_PATH . 'inc/class-kontingent-list-table.php' );
-require_once( PLUGIN_PATH . 'inc/class-teilnehmer-list-table.php' );
+require_once( PLUGIN_PATH . 'inc/class-pool-list-table.php' );
+require_once( PLUGIN_PATH . 'inc/class-user-list-table.php' );
 require_once( PLUGIN_PATH . 'inc/shortcode-form.php' );
 require_once( PLUGIN_PATH . 'inc/core.php' );
 require_once( PLUGIN_PATH . 'inc/mainpage.php' );
@@ -45,16 +45,16 @@ function cm_kk_plugin_activation()
 
     /** Wichtige Variablen setzen **/
 
-    $table_charset_collate  = $wpdb->get_charset_collate();
-    $table_name__kontingent = $wpdb->prefix . TABLE_KONTINGENT;
-    $table_name__teilnehmer = $wpdb->prefix . TABLE_TEILNEHMER;
+    $table_charset_collate = $wpdb->get_charset_collate();
+    $table_name__pool      = $wpdb->prefix . TABLE_POOL;
+    $table_name__user      = $wpdb->prefix . TABLE_USER;
 
 
     /** Tabelle für Kontingente einrichten **/
 
-    if( $table_name__kontingent != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__kontingent'" ) ) :
+    if( $table_name__pool != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__pool'" ) ) :
 
-        $sql = "CREATE TABLE $table_name__kontingent (
+        $sql = "CREATE TABLE $table_name__pool (
             event_id            INT UNSIGNED NOT NULL,
             id                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
             groesse             INT UNSIGNED DEFAULT 0,
@@ -71,9 +71,9 @@ function cm_kk_plugin_activation()
 
     /** Tabelle für Kartenkontingent-Teilnehmer einrichten **/
 
-    if( $table_name__teilnehmer != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__teilnehmer'" ) ) :
+    if( $table_name__user != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__user'" ) ) :
 
-        $sql = "CREATE TABLE $table_name__teilnehmer (
+        $sql = "CREATE TABLE $table_name__user (
             event_id    INT UNSIGNED NOT NULL,
             id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
             nachname    VARCHAR(255) DEFAULT '' NOT NULL,

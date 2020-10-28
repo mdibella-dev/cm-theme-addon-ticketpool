@@ -1,6 +1,6 @@
 <?php
 /**
- * Klasse MDB_Kontingent_List_Table
+ * Klasse MDB_User_List_Table
  *
  * @author Marco Di Bella <mdb@marcodibella.de>
  */
@@ -23,16 +23,15 @@ endif;
  * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
-class MDB_Kontingent_List_Table extends WP_List_Table
+class MDB_User_List_Table extends WP_List_Table
 {
 
     function get_columns()
     {
         $columns = array(
-        //    'event_id'                  => __( 'Event', 'cc_kk' ),
-            'spalte_kontingentgroesse'  => __( 'Kontingentgröße', 'cc_kk' ),
-            'spalte_bereitgestellt_von' => __( 'Bereitgestellt von', 'cc_kk' ),
-            'spalte_bereitgestellt_am'  => __( 'Bereitgestellt am', 'cc_kk' ),
+            'col_name'      => __( 'Teilnehmer', 'cc_kk' ),
+            'col_email'     => __( 'E-Mail', 'cc_kk' ),
+            'col_zeitpunkt' => __( 'Anmeldung am', 'cc_kk' ),
         );
 
         return $columns;
@@ -50,7 +49,7 @@ class MDB_Kontingent_List_Table extends WP_List_Table
 
         global $wpdb;
 
-        $table_name  = $wpdb->prefix . TABLE_KONTINGENT;
+        $table_name  = $wpdb->prefix . TABLE_USER;
         $table_data  = $wpdb->get_results( "SELECT * FROM $table_name", 'ARRAY_A' );
         $this->items = $table_data;
     }
@@ -59,20 +58,20 @@ class MDB_Kontingent_List_Table extends WP_List_Table
     function column_default( $item, $column_name )
     {
         switch( $column_name ) :
-            case 'event_id':
-                return $item[ 'event_id' ];
+            case 'col_name':
+                return sprintf(
+                    '%1$s %2$s',
+                    $item[ 'vorname' ],
+                    $item[ 'nachname' ]
+                );
             break;
 
-            case 'spalte_kontingentgroesse':
-                return $item[ 'groesse' ];
+            case 'col_email':
+                return $item[ 'email' ];
             break;
 
-            case 'spalte_bereitgestellt_von':
-                return $item[ 'bereitgestellt_von' ];
-            break;
-
-            case 'spalte_bereitgestellt_am':
-                return $item[ 'bereitgestellt_am' ];
+            case 'col_zeitpunkt':
+                return $item[ 'zeitpunkt' ];
             break;
 
             default:

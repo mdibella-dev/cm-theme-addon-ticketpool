@@ -92,7 +92,7 @@ function cm_kk_show_mainpage()
 
 function cm_kk_show_tab_01()
 {
-    $teilnehmer_table = new MDB_Teilnehmer_List_Table();
+    $teilnehmer_table = new MDB_User_List_Table();
     $teilnehmer_table->prepare_items();
     $teilnehmer_table->display();
 ?>
@@ -137,7 +137,7 @@ function cm_kk_show_tab_02()
 
     endif;
 
-    $kontingent_table = new MDB_Kontingent_List_Table();
+    $kontingent_table = new MDB_Pool_List_Table();
     $kontingent_table->prepare_items();
     $kontingent_table->display();
 ?>

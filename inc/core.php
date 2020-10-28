@@ -37,7 +37,7 @@ function cm_kk_export_teilnehmer( $event_id )
 
     global $wpdb;
 
-    $table_name = $wpdb->prefix . TABLE_TEILNEHMER;
+    $table_name = $wpdb->prefix . TABLE_USER;
     $table_data = $wpdb->get_results( "SELECT nachname, vorname, email, zeitpunkt FROM $table_name", 'ARRAY_A' );
 
     foreach( $table_data as $row ) :
@@ -76,7 +76,7 @@ function cm_kk_get_total_amount( $event_id )
     global $wpdb;
            $amount = 0;
 
-    $table_name = $wpdb->prefix . TABLE_KONTINGENT;
+    $table_name = $wpdb->prefix . TABLE_POOL;
     $query      = "SELECT groesse FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
 
@@ -103,7 +103,7 @@ function cm_kk_get_used_amount( $event_id )
 {
     global $wpdb;
 
-    $table_name = $wpdb->prefix . TABLE_TEILNEHMER;
+    $table_name = $wpdb->prefix . TABLE_POOL;
     $query      = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
 
@@ -148,7 +148,7 @@ function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
 {
     global $wpdb;
 /* add checks ?? */
-    $table_name = $wpdb->prefix . TABLE_KONTINGENT;
+    $table_name = $wpdb->prefix . TABLE_POOL;
     $result     = $wpdb->insert( $table_name, array(
         'event_id'           => $event_id,
         'groesse'            => $groesse,
@@ -178,7 +178,7 @@ function cm_kk_add_beneficiary( $event_id, $nachname, $vorname, $email )
 
         /* add checks ?? */
 
-        $table_name = $wpdb->prefix . TABLE_TEILNEHMER;
+        $table_name = $wpdb->prefix . TABLE_POOL;
         $result     = $wpdb->insert( $table_name, array(
             'event_id' => $event_id,
             'nachname' => $nachname,
