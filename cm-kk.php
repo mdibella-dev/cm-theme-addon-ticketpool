@@ -58,10 +58,10 @@ function cmkk_plugin_activation()
 
         $sql = "CREATE TABLE $pool_table_name (
             event_id            INT UNSIGNED NOT NULL,
-            id                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
-            groesse             INT UNSIGNED DEFAULT 0,
-            bereitgestellt_von  VARCHAR(255) DEFAULT '' NOT NULL,
-            bereitgestellt_am   DATETIME DEFAULT CURRENT_TIMESTAMP,
+            contingent_id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            contingent_size     INT UNSIGNED DEFAULT 0,
+            contingent_provider VARCHAR(255) DEFAULT '' NOT NULL,
+            contingent_provided DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
             )
             COLLATE $charset_collate;";
@@ -73,13 +73,13 @@ function cmkk_plugin_activation()
     if( $user_table_name != $wpdb->get_var( "SHOW TABLES LIKE '$user_table_name'" ) ) :
 
         $sql = "CREATE TABLE $user_table_name (
-            event_id    INT UNSIGNED NOT NULL,
-            id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
-            nachname    VARCHAR(255) DEFAULT '' NOT NULL,
-            vorname     VARCHAR(255) DEFAULT '' NOT NULL,
-            email       VARCHAR(255) DEFAULT '' NOT NULL,
-            zeitpunkt   DATETIME DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (id)
+            event_id            INT UNSIGNED NOT NULL,
+            user_id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            user_forename       VARCHAR(255) DEFAULT '' NOT NULL,
+            user_lastname       VARCHAR(255) DEFAULT '' NOT NULL,
+            user_email          VARCHAR(255) DEFAULT '' NOT NULL,
+            user_registered     DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (user_id)
             )
             COLLATE $charset_collate;";
 

@@ -55,7 +55,7 @@ function cmkk_show_mainpage()
 
     if( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) :
         $tab_active = $_GET['tab'];
-    else :
+    endif; :
         $tab_active = 'tab-01';
     endif;
 ?>

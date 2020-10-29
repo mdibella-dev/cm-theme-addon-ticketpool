@@ -134,22 +134,28 @@ function cmkk_get_free_amount( $event_id )
  *          - Rückgabe auf true/false begrenzen?
  *
  * @param   int     $event_id
- * @param   int     $groesse
- * @param   string  $anbieter
+ * @param   int     $contingent_size
+ * @param   string  $contingent_provider
  */
 
-function cmkk_add_contingent( $event_id, $groesse, $anbieter )
+function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider )
 {
-    global $wpdb;
+    if( ( $contingent_size < 1 ) and ! empty( $contingent_provider) ) :
+        global $wpdb;
 
-    $table_name = $wpdb->prefix . TABLE_POOL;
-    $result     = $wpdb->insert( $table_name, array(
-        'event_id'           => $event_id,
-        'groesse'            => $groesse,
-        'bereitgestellt_von' => $anbieter,
-    ) );
+        $pool_table_name = $wpdb->prefix . TABLE_POOL;
+        $pool_table_data = array(
+            'event_id'            => $event_id,
+            'contingent_size'     => $contingent_size,
+            'contingent_provider' => $contingent_provider,
+        );
 
-    return $result;
+        if( 1 == $wpdb->insert( $pool_table_name, $pool_table_data ) :
+            return TRUE;
+        endif;
+    endif;
+    
+    return FALSE;
 }
 
 
@@ -161,25 +167,25 @@ function cmkk_add_contingent( $event_id, $groesse, $anbieter )
  *          - Versendung einer Informationsmail an den Benutzer
  *
  * @param   int     $event_id
- * @param   string  $nachname
- * @param   string  $vorname
- * @param   string  $email
+ * @param   string  $user_lastname
+ * @param   string  $user_forename
+ * @param   string  $user_email
  */
 
-function cmkk_add_user( $event_id, $nachname, $vorname, $email )
+function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 {
     global $wpdb;
 
     if( 0 != cmkk_get_free_amount( $event_id ) ) :
-        $table_name = $wpdb->prefix . TABLE_POOL;
-        $result     = $wpdb->insert( $table_name, array(
-            'event_id' => $event_id,
-            'nachname' => $nachname,
-            'vorname'  => $vorname,
-            'email'    => $email,
+        $user_table_name = $wpdb->prefix . TABLE_USER;
+        $user_table_data = array(
+            'event_id'      => $event_id,
+            'user_lastname' => $user_lastname,
+            'user_forename' => $user_forename,
+            'user_email'    => $user_email,
         ) );
 
-        if( 1 == $result ) :
+        if( 1 == $wpdb->insert( $user_table_name, $user_table_data ) :
 
             // Versand der E-Mail
 
