@@ -53,11 +53,9 @@ class MDB_User_List_Table extends WP_List_Table
 
         global $wpdb;
 
-        $user_table_name = $wpdb->prefix . TABLE_USER;
-        $this->items     = $wpdb->get_results(
-            "SELECT * FROM $user_table_name",
-            'ARRAY_A'
-        );
+        $table_name  = $wpdb->prefix . TABLE_USER;
+        $sql         = "SELECT * FROM $table_name";
+        $this->items = $wpdb->get_results( $sql, 'ARRAY_A' );
     }
 
 

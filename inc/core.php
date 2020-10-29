@@ -36,13 +36,11 @@ function cmkk_export_teilnehmer( $event_id )
     // Daten abrufen und in Datei schreiben
     global $wpdb;
 
-    $user_table_name = $wpdb->prefix . TABLE_USER;
-    $user_table_data = $wpdb->get_results(
-        "SELECT user_lastname, user_forename, user_mail, user_registered FROM $user_table_name",
-        'ARRAY_A'
-    );
+    $table_name = $wpdb->prefix . TABLE_USER;
+    $sql        = "SELECT user_lastname, user_forename, user_mail, user_registered FROM $table_name";
+    $table_data = $wpdb->get_results( $sql, 'ARRAY_A' );
 
-    foreach( $user_table_data as $row ) :
+    foreach( $table_data as $row ) :
         fputcsv( $file, $row );
     endforeach;
 
@@ -67,15 +65,13 @@ function cmkk_get_total_amount( $event_id )
     global $wpdb;
            $amount = 0;
 
-    $pool_table_name = $wpdb->prefix . TABLE_POOL;
-    $pool_table_data = $wpdb->get_results(
-        "SELECT contingent_size FROM $pool_table_name WHERE event_id=$event_id";
-        'ARRAY_N'
-    );
+    $table_name = $wpdb->prefix . TABLE_POOL;
+    $sql        = "SELECT contingent_size FROM $table_name WHERE event_id=$event_id";
+    $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
-    if( NULL != $pool_table_data ) :
-        foreach( $pool_table_data as $value ) :
-            $amount += $value[0];
+    if( NULL != $table_data ) :
+        foreach( $table_data as $size ) :
+            $amount += $size[0];
         endforeach;
     endif;
 
@@ -97,14 +93,12 @@ function cmkk_get_used_amount( $event_id )
 {
     global $wpdb;
 
-    $pool_table_name = $wpdb->prefix . TABLE_POOL;
-    $pool_table_data = $wpdb->get_results(
-        "SELECT COUNT(*) FROM $pool_table_name WHERE event_id=$event_id",
-        'ARRAY_N'
-    );
+    $table_name = $wpdb->prefix . TABLE_USER;
+    $sql        = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
+    $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
-    if( NULL != $pool_table_data ) :
-        return $pool_table_data[ 0 ][ 0 ];
+    if( NULL != $table_data ) :
+        return $table_data[ 0 ][ 0 ];
     else :
         return 0;
     endif;
@@ -147,17 +141,17 @@ function cmkk_get_free_amount( $event_id )
 
 function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider )
 {
-    if( ( $contingent_size < 1 ) and ! empty( $contingent_provider) ) :
+    if( ( $contingent_size > 0 ) and ! empty( $contingent_provider) ) :
         global $wpdb;
 
-        $pool_table_name = $wpdb->prefix . TABLE_POOL;
-        $pool_table_data = array(
+        $table_name = $wpdb->prefix . TABLE_POOL;
+        $table_data = array(
             'event_id'            => $event_id,
             'contingent_size'     => $contingent_size,
             'contingent_provider' => $contingent_provider,
         );
 
-        if( 1 == $wpdb->insert( $pool_table_name, $pool_table_data ) :
+        if( 1 == $wpdb->insert( $table_name, $table_data ) ) :
             return TRUE;
         endif;
     endif;
@@ -184,17 +178,27 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
     global $wpdb;
 
     if( 0 != cmkk_get_free_amount( $event_id ) ) :
-        $user_table_name = $wpdb->prefix . TABLE_USER;
-        $user_table_data = array(
+        $table_name = $wpdb->prefix . TABLE_USER;
+        $table_data = array(
             'event_id'      => $event_id,
             'user_lastname' => $user_lastname,
             'user_forename' => $user_forename,
             'user_email'    => $user_email,
-        ) );
+        );
 
-        if( 1 == $wpdb->insert( $user_table_name, $user_table_data ) :
+        if( 1 == $wpdb->insert( $table_name, $table_data ) ) :
 
-            // Versand der E-Mail
+            $mail_to      = $user_email;
+            $mail_subject = 'Vielen Dank für Ihre Teilnahme';
+            $mail_message = 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert.';
+            $mail_headers = array(
+                'Content-Type: text/html; charset=UTF-8',
+                'From: Interdisziplinärer WundCongress',
+            );
+
+            $result = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
+
+            print_r( $result );
 
             return TRUE;
         endif;

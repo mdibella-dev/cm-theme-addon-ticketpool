@@ -55,11 +55,9 @@ class MDB_Pool_List_Table extends WP_List_Table
 
         global $wpdb;
 
-        $pool_table_name  = $wpdb->prefix . TABLE_POOL;
-        $this->items = $wpdb->get_results(
-            "SELECT * FROM $pool_table_name",
-            'ARRAY_A'
-        );
+        $table_name  = $wpdb->prefix . TABLE_POOL;
+        $sql         = "SELECT * FROM $table_name";
+        $this->items = $wpdb->get_results( $sql, 'ARRAY_A' );
     }
 
 
@@ -75,10 +73,10 @@ class MDB_Pool_List_Table extends WP_List_Table
             break;
 
             case 'col_anbieter':
-                return $item['$contingent_provider'];
+                return $item['contingent_provider'];
             break;
 
-            case 'col_zeitpunkz':
+            case 'col_zeitpunkt':
                 return $item['contingent_provided'];
             break;
 

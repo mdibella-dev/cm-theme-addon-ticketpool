@@ -55,7 +55,7 @@ function cmkk_show_mainpage()
 
     if( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) :
         $tab_active = $_GET['tab'];
-    endif; :
+    else :
         $tab_active = 'tab-01';
     endif;
 ?>
@@ -105,7 +105,7 @@ function cmkk_show_tab_01()
 
     // Poolgröße und bereits belegte Plätze anzeigen
 ?>
-<p class="cm-kk-amount-info"><?php
+<p class="cmkk-amount-info"><?php
     $total_amount = cmkk_get_total_amount( EVENT_ID ); // $_POST[ 'event_id' ]
     $free_amount  = cmkk_get_free_amount( EVENT_ID );
 
@@ -183,7 +183,7 @@ function cmkk_show_tab_02()
 ?>
 <div class="form-wrap">
 <h2><?php echo __( 'Neues Kontingent hinzufügen', 'cmkk'); ?></h2>
-<form id="cm-kk-add-contingent-form" method="post" class="validate">
+<form id="cmkk-add-contingent-form" method="post" class="validate">
 
     <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
