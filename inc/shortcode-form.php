@@ -44,7 +44,8 @@ function cmkk_shortcode_form( $atts, $content = null )
         $vorname  = $_POST['vorname'];
         $email    = $_POST['email'];
 
-        if ( true == cmkk_add_user( $event_id, $nachname, $vorname, $email ) ) :
+        if ( TRUE == cmkk_add_user( $event_id, $nachname, $vorname, $email ) ) :
+
         endif;
 
     endif;

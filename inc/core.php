@@ -198,8 +198,6 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 
             $result = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
 
-            print_r( $result );
-
             return TRUE;
         endif;
     endif;
