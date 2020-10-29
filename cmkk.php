@@ -41,6 +41,8 @@ require_once( PLUGIN_PATH . 'inc/mainpage.php' );
 
 function cmkk_plugin_activation()
 {
+    global $wpdb;
+
     /* Funktionsbibliothek einbinden */
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -48,31 +50,33 @@ function cmkk_plugin_activation()
 
     /* Tabellen einrichten falls nicht vorhanden */
 
-    global $wpdb;
 
-    $charset_collate = $wpdb->get_charset_collate();
-    $pool_table_name = $wpdb->prefix . TABLE_POOL;
-    $user_table_name = $wpdb->prefix . TABLE_USER;
 
-    if( $pool_table_name != $wpdb->get_var( "SHOW TABLES LIKE '$pool_table_name'" ) ) :
+    $table_charset_collate = $wpdb->get_charset_collate();
+    $table_name            = $wpdb->prefix . TABLE_POOL;
 
-        $sql = "CREATE TABLE $pool_table_name (
+    if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
+
+        $sql = "CREATE TABLE $table_name (
             event_id            INT UNSIGNED NOT NULL,
             contingent_id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
             contingent_size     INT UNSIGNED DEFAULT 0,
             contingent_provider VARCHAR(255) DEFAULT '' NOT NULL,
             contingent_provided DATETIME DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (id)
+            PRIMARY KEY (contingent_id)
             )
-            COLLATE $charset_collate;";
+            COLLATE $table_charset_collate;";
 
         dbDelta( $sql );
 
     endif;
 
-    if( $user_table_name != $wpdb->get_var( "SHOW TABLES LIKE '$user_table_name'" ) ) :
 
-        $sql = "CREATE TABLE $user_table_name (
+    $table_name = $wpdb->prefix . TABLE_USER;
+
+    if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
+
+        $sql = "CREATE TABLE $table_name (
             event_id            INT UNSIGNED NOT NULL,
             user_id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
             user_forename       VARCHAR(255) DEFAULT '' NOT NULL,
@@ -81,7 +85,7 @@ function cmkk_plugin_activation()
             user_registered     DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (user_id)
             )
-            COLLATE $charset_collate;";
+            COLLATE $table_charset_collate;";
 
         dbDelta( $sql );
     endif;
