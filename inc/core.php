@@ -2,12 +2,12 @@
 /**
  * Core-Funktionen
  *
- * @author Marco Di Bella <mdb@marcodibella.de>
- **/
+ * @since   1.0.0
+ * @author  Marco Di Bella <mdb@marcodibella.de>
+ */
 
 
-// Check & Quit
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -15,26 +15,25 @@ defined( 'ABSPATH' ) OR exit;
  * Exportiert die Teilnehmerliste als CSV
  *
  * @since   1.0.0
+ * @todo    - Anwendung von $event-id innerhalb der SQL-Abfrage
+ *          - Download der Datei vom Server
+ *
  * @param   int     $event_id
- * @todo    nach Event filtern
  */
 
-function cm_kk_export_teilnehmer( $event_id )
+function cmkk_export_teilnehmer( $event_id )
 {
-    /** Neue Datei erstellen **/
-
+    // Neue Datei erstellen
     $file_name = 'kartenkontingent-export-' . date("Y-m-d") . '.csv';
     $file      = fopen( PLUGIN_PATH . '/' . $file_name, 'w' );
 
 
-    /** Kopfzeile in Datei schreiben **/
-
+    // Kopfzeile in Datei schreiben
     $row = array( 'Nachname', 'Vorname', 'E-Mail', 'Anmeldezeitpunkt' );
     fputcsv( $file, $row);
 
 
-    /** Daten abrufen und in Datei schreiben **/
-
+    // Daten abrufen und in Datei schreiben
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_USER;
@@ -45,19 +44,7 @@ function cm_kk_export_teilnehmer( $event_id )
     endforeach;
 
 
-    /** Datei schließen **/
-
-    /*//fclose( $file );
-    header( 'Content-type: text/csv' );
-    header( 'Content-disposition:attachment; filename="' . PLUGIN_PATH . '/' . $file_name.'"' );
-    readfile( PLUGIN_PATH . '/' . $file_name );
-*/
-/*
-    fseek( $file, 0 );
-    header( 'Content-Type: application/csv' );
-    header( 'Content-Disposition: attachment; filename="'. PLUGIN_PATH . '/' . $file_name.'"' );
-    fpassthru( $file );
-*/
+    // Datei schließen
     fclose( $file );
 }
 
@@ -67,11 +54,12 @@ function cm_kk_export_teilnehmer( $event_id )
  * Gibt die Gesamtzahl der zur Verfügung stehenden Karten zurück
  *
  * @since   1.0.0
+ *
  * @param   int     $event_id
  * @return  int     die Gesamtzahl der Tickets
  */
 
-function cm_kk_get_total_amount( $event_id )
+function cmkk_get_total_amount( $event_id )
 {
     global $wpdb;
            $amount = 0;
@@ -95,11 +83,12 @@ function cm_kk_get_total_amount( $event_id )
  * Ermittelt die Anzahl der vom Gesamtkontingent bereits genutzten Plätze
  *
  * @since   1.0.0
+ *
  * @param   int     $event_id
  * @return  int     die genutzten Plätze
  */
 
-function cm_kk_get_used_amount( $event_id )
+function cmkk_get_used_amount( $event_id )
 {
     global $wpdb;
 
@@ -119,16 +108,18 @@ function cm_kk_get_used_amount( $event_id )
  * Ermittelt die Anzahl der vom Gesamtkontingent noch zur Verfügung stehenden Plätze
  *
  * @since   1.0.0
+ * @todo    - Validation der Übergabewerte
+ *
  * @param   int     $event_id
  * @return  int     die noch freien Plätze (im Zweifel 0)
  */
 
-function cm_kk_get_free_amount( $event_id )
+function cmkk_get_free_amount( $event_id )
 {
     global $wpdb;
 
-    $total = cm_kk_get_total_amount( $event_id );
-    $used  = cm_kk_get_used_amount( $event_id );
+    $total = cmkk_get_total_amount( $event_id );
+    $used  = cmkk_get_used_amount( $event_id );
 
     return max( 0, $total - $used );
 }
@@ -139,15 +130,18 @@ function cm_kk_get_free_amount( $event_id )
  * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
  *
  * @since   1.0.0
+ * @todo    - Validation der Übergabewerte
+ *          - Rückgabe auf true/false begrenzen?
+ *
  * @param   int     $event_id
  * @param   int     $groesse
  * @param   string  $anbieter
  */
 
-function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
+function cmkk_add_contingent( $event_id, $groesse, $anbieter )
 {
     global $wpdb;
-/* add checks ?? */
+
     $table_name = $wpdb->prefix . TABLE_POOL;
     $result     = $wpdb->insert( $table_name, array(
         'event_id'           => $event_id,
@@ -155,7 +149,7 @@ function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
         'bereitgestellt_von' => $anbieter,
     ) );
 
-    return $result;  // true or false?
+    return $result;
 }
 
 
@@ -163,21 +157,20 @@ function cm_kk_add_contingent( $event_id, $groesse, $anbieter )
  * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
  *
  * @since   1.0.0
+ * @todo    - Validation der Übergabewerte
+ *          - Versendung einer Informationsmail an den Benutzer
+ *
  * @param   int     $event_id
  * @param   string  $nachname
  * @param   string  $vorname
  * @param   string  $email
  */
 
-function cm_kk_add_beneficiary( $event_id, $nachname, $vorname, $email )
+function cmkk_add_user( $event_id, $nachname, $vorname, $email )
 {
     global $wpdb;
-//echo $event_id .' '. $nachname .' '. $vorname .' '. $email;
 
-    if( 0 != cm_kk_get_free_amount( $event_id ) ) :
-
-        /* add checks ?? */
-
+    if( 0 != cmkk_get_free_amount( $event_id ) ) :
         $table_name = $wpdb->prefix . TABLE_POOL;
         $result     = $wpdb->insert( $table_name, array(
             'event_id' => $event_id,
@@ -187,7 +180,9 @@ function cm_kk_add_beneficiary( $event_id, $nachname, $vorname, $email )
         ) );
 
         if( 1 == $result ) :
-            /* sendmail */
+
+            // Versand der E-Mail
+
             return true;
         endif;
     endif;

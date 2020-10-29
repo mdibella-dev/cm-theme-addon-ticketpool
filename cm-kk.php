@@ -4,23 +4,26 @@ Plugin Name:     Marco Di Bella - Kartenkontingent
 Author:          Marco Di Bella
 Author URI:      https://www.marcodibella.de
 Description:     Addon zu Congressomat
-Version:         0.0.1
+Version:         1.0.0
 */
 
 
-// Check & Quit
 defined( 'ABSPATH' ) OR exit;
 
 
-/** Konstanten **/
 
-define( 'TABLE_POOL', 'cm_kk_contingent_pool' );
-define( 'TABLE_USER', 'cm_kk_contingent_user' );
-define( 'EVENT_ID', '1' );              // todo: automatisieren
+/* Konstanten */
+
+define( 'TABLE_POOL', 'cmkk_contingent_pool' );
+define( 'TABLE_USER', 'cmkk_contingent_user' );
 define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
+// Workaround: gegenwärtig Unterstützung nur für ein Event
+define( 'EVENT_ID', '1' );
 
-/** Funktionsbibliothek einbinden **/
+
+
+/* Funktionsbibliothek einbinden */
 
 require_once( PLUGIN_PATH . 'inc/class-pool-list-table.php' );
 require_once( PLUGIN_PATH . 'inc/class-user-list-table.php' );
@@ -33,28 +36,27 @@ require_once( PLUGIN_PATH . 'inc/mainpage.php' );
 /**
  * Zentrale Aktivierungsfunktion für das Plugin
  *
- * @since   0.0.1
+ * @since   1.0.0
  */
 
-function cm_kk_plugin_activation()
+function cmkk_plugin_activation()
 {
-    global $wpdb;
+    /* Funktionsbibliothek einbinden */
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
 
-    /** Wichtige Variablen setzen **/
+    /* Tabellen einrichten falls nicht vorhanden */
 
-    $table_charset_collate = $wpdb->get_charset_collate();
-    $table_name__pool      = $wpdb->prefix . TABLE_POOL;
-    $table_name__user      = $wpdb->prefix . TABLE_USER;
+    global $wpdb;
 
+    $charset_collate = $wpdb->get_charset_collate();
+    $pool_table_name = $wpdb->prefix . TABLE_POOL;
+    $user_table_name = $wpdb->prefix . TABLE_USER;
 
-    /** Tabelle für Kontingente einrichten **/
+    if( $pool_table_name != $wpdb->get_var( "SHOW TABLES LIKE '$pool_table_name'" ) ) :
 
-    if( $table_name__pool != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__pool'" ) ) :
-
-        $sql = "CREATE TABLE $table_name__pool (
+        $sql = "CREATE TABLE $pool_table_name (
             event_id            INT UNSIGNED NOT NULL,
             id                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
             groesse             INT UNSIGNED DEFAULT 0,
@@ -62,18 +64,15 @@ function cm_kk_plugin_activation()
             bereitgestellt_am   DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
             )
-            COLLATE $table_charset_collate;";
+            COLLATE $charset_collate;";
 
         dbDelta( $sql );
 
     endif;
 
+    if( $user_table_name != $wpdb->get_var( "SHOW TABLES LIKE '$user_table_name'" ) ) :
 
-    /** Tabelle für Kartenkontingent-Teilnehmer einrichten **/
-
-    if( $table_name__user != $wpdb->get_var( "SHOW TABLES LIKE '$table_name__user'" ) ) :
-
-        $sql = "CREATE TABLE $table_name__user (
+        $sql = "CREATE TABLE $user_table_name (
             event_id    INT UNSIGNED NOT NULL,
             id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
             nachname    VARCHAR(255) DEFAULT '' NOT NULL,
@@ -82,13 +81,13 @@ function cm_kk_plugin_activation()
             zeitpunkt   DATETIME DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
             )
-            COLLATE $table_charset_collate;";
+            COLLATE $charset_collate;";
 
         dbDelta( $sql );
     endif;
 }
 
-register_activation_hook( __FILE__, 'cm_kk_plugin_activation' );
+register_activation_hook( __FILE__, 'cmkk_plugin_activation' );
 
 
 
@@ -98,13 +97,13 @@ register_activation_hook( __FILE__, 'cm_kk_plugin_activation' );
  * @since 0.0.1
  */
 
-function cm_kk_admin_enqueue_scripts()
+function cmkk_admin_enqueue_scripts()
 {
     $screen = get_current_screen();
 
-    if( 'toplevel_page_cm_kk_mainpage' === $screen->id ) :
-        wp_enqueue_style( 'cm_kartenkontingent', plugins_url( 'assets/css/admin.min.css', __FILE__ ) );
+    if( 'toplevel_page_cmkk_mainpage' === $screen->id ) :
+        wp_enqueue_style( 'cmkk-style', plugins_url( 'assets/css/admin.min.css', __FILE__ ) );
     endif;
 }
 
-add_action( 'admin_enqueue_scripts', 'cm_kk_admin_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'cmkk_admin_enqueue_scripts' );

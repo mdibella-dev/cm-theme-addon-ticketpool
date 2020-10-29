@@ -2,15 +2,18 @@
 /**
  * Klasse MDB_User_List_Table
  *
- * @author Marco Di Bella <mdb@marcodibella.de>
+ * @since   1.0.0
+ * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
 
-
-// Check & Quit
 defined( 'ABSPATH' ) OR exit;
 
 
+
+/**
+ * Funktionsbibliothek einbinden
+ */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -19,8 +22,11 @@ endif;
 
 
 /**
- * @see http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
- * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
+ * Zeigt die Teilnehmer an, die über Karten aus dem Pool verfügen
+ *
+ * @since   1.0.0
+ * @see     http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
+ * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
 class MDB_User_List_Table extends WP_List_Table
@@ -61,21 +67,21 @@ class MDB_User_List_Table extends WP_List_Table
             case 'col_name':
                 return sprintf(
                     '%1$s %2$s',
-                    $item[ 'vorname' ],
-                    $item[ 'nachname' ]
+                    $item['vorname'],
+                    $item['nachname']
                 );
             break;
 
             case 'col_email':
-                return $item[ 'email' ];
+                return $item['email'];
             break;
 
             case 'col_zeitpunkt':
-                return $item[ 'zeitpunkt' ];
+                return $item['zeitpunkt'];
             break;
 
             default:
-                return print_r( $item, true ); //Show the whole array for troubleshooting purposes
+                return print_r( $item, true ); 
         endswitch;
     }
 }

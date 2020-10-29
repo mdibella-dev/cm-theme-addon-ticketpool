@@ -2,39 +2,61 @@
 /**
  * Shortcode [cm-kk-form]
  *
- * Erzeugt ein Formular, mit denen sich Personen als Teilnehmer eintragen können
- *
- * Folgende Parameter können verwendet werden:
- * @param   event-id
- *
+ * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
-function cm_kk_shortcode_form( $atts, $content = null )
-{
-    /* Übergebene Parameter ermitteln */
 
+defined( 'ABSPATH' ) OR exit;
+
+
+
+/**
+ * Shortcode zum Erzeugen eines Formulars, mit denen sich Personen als Teilnehmer eintragen können
+ *
+ * @since   1.0.0
+ * @todo    - Validierung der Eingabe
+ *          - Korrekte Reaktion auf bereits abgesendete Formular ergänzen
+ *
+ * @param   array   $atts   die Attribute (Parameter) des Shorcodes
+ * @return  string          die vom Shortcode erzeugte Ausgabe
+ */
+
+function cmkk_shortcode_form( $atts, $content = null )
+{
     $default_atts = array(
         'event_id' => '',
     );
 
     extract( shortcode_atts( $default_atts, $atts ) );
 
-    if( !empty( $event_id ) ) :
 
-        if( isset( $_POST[ 'action' ] ) ) :
+    if( empty( $event_id ) ) :
+        return '';
+    endif;
 
-            $nachname = $_POST[ 'nachname' ];
-            $vorname  = $_POST[ 'vorname' ];
-            $email    = $_POST[ 'email' ];
 
-            if ( true == cm_kk_add_beneficiary( $event_id, $nachname, $vorname, $email ) ) :
-            endif;
-        else :
+    /*
+     * Formular bearbeiten, wenn bereits abgesendet
+     */
 
-            /* Ausgabenpufferung starten */
+    if( isset( $_POST['action'] ) ) :
 
-            ob_start();
+        $nachname = $_POST['nachname'];
+        $vorname  = $_POST['vorname'];
+        $email    = $_POST['email'];
+
+        if ( true == cmkk_add_user( $event_id, $nachname, $vorname, $email ) ) :
+        endif;
+
+    endif;
+
+
+    /*
+     * Ausgabe des Shortcodes
+     */
+
+    ob_start();
 ?>
 <form method="post" action="">
     <div class="form-row">
@@ -54,16 +76,10 @@ function cm_kk_shortcode_form( $atts, $content = null )
         <button type="submit" name="action" class="button button-primary" value="add">Absenden</button>
     </div>
 </form>
-
 <?php
-            /* Ausgabenpufferung beenden und Puffer ausgeben */
-            $output_buffer = ob_get_contents();
-            ob_end_clean();
-            return $output_buffer;
-        endif;
-    endif;
-
-    return null;
+    $output_buffer = ob_get_contents();
+    ob_end_clean();
+    return $output_buffer;
 }
 
-add_shortcode( 'cm-kk-form', 'cm_kk_shortcode_form' );
+add_shortcode( 'cm-kk-form', 'cmkk_shortcode_form' );

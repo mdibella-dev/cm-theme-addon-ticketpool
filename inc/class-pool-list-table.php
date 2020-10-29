@@ -2,15 +2,18 @@
 /**
  * Klasse MDB_Pool_List_Table
  *
- * @author Marco Di Bella <mdb@marcodibella.de>
+ * @since   1.0.0
+ * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
 
-
-// Check & Quit
 defined( 'ABSPATH' ) OR exit;
 
 
+
+/**
+ * Funktionsbibliothek einbinden
+ */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -19,9 +22,13 @@ endif;
 
 
 /**
- * @see http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
- * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
+ * Zeigt die Kontingente an, die den Pool bilden
+ *
+ * @since   1.0.0
+ * @see     http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
+ * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
+
 
 class MDB_Pool_List_Table extends WP_List_Table
 {
@@ -60,23 +67,23 @@ class MDB_Pool_List_Table extends WP_List_Table
     {
         switch( $column_name ) :
             case 'event_id':
-                return $item[ 'event_id' ];
+                return $item['event_id'];
             break;
 
             case 'col_kontingentgroesse':
-                return $item[ 'groesse' ];
+                return $item['groesse'];
             break;
 
             case 'col_bereitgestellt_von':
-                return $item[ 'bereitgestellt_von' ];
+                return $item['bereitgestellt_von'];
             break;
 
             case 'col_bereitgestellt_am':
-                return $item[ 'bereitgestellt_am' ];
+                return $item['bereitgestellt_am'];
             break;
 
             default:
-                return print_r( $item, true ); //Show the whole array for troubleshooting purposes
+                return print_r( $item, true );
         endswitch;
     }
 }
