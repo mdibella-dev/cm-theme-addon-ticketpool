@@ -11,9 +11,7 @@ defined( 'ABSPATH' ) OR exit;
 
 
 
-/**
- * Funktionsbibliothek einbinden
- */
+/* Funktionsbibliothek einbinden */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -55,9 +53,11 @@ class MDB_User_List_Table extends WP_List_Table
 
         global $wpdb;
 
-        $table_name  = $wpdb->prefix . TABLE_USER;
-        $table_data  = $wpdb->get_results( "SELECT * FROM $table_name", 'ARRAY_A' );
-        $this->items = $table_data;
+        $user_table_name = $wpdb->prefix . TABLE_USER;
+        $this->items     = $wpdb->get_results(
+            "SELECT * FROM $user_table_name",
+            'ARRAY_A'
+        );
     }
 
 
@@ -67,21 +67,21 @@ class MDB_User_List_Table extends WP_List_Table
             case 'col_name':
                 return sprintf(
                     '%1$s %2$s',
-                    $item['vorname'],
-                    $item['nachname']
+                    $item['user_forename'],
+                    $item['user_lastname']
                 );
             break;
 
             case 'col_email':
-                return $item['email'];
+                return $item['user_email'];
             break;
 
             case 'col_zeitpunkt':
-                return $item['zeitpunkt'];
+                return $item['user_registered'];
             break;
 
             default:
-                return print_r( $item, true ); 
+                return print_r( $item, TRUE );
         endswitch;
     }
 }

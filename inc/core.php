@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
 function cmkk_export_teilnehmer( $event_id )
 {
     // Neue Datei erstellen
-    $file_name = 'kartenkontingent-export-' . date("Y-m-d") . '.csv';
+    $file_name = 'kartenkontingent-export-' . date( "Y-m-d" ) . '.csv';
     $file      = fopen( PLUGIN_PATH . '/' . $file_name, 'w' );
 
 
@@ -36,10 +36,13 @@ function cmkk_export_teilnehmer( $event_id )
     // Daten abrufen und in Datei schreiben
     global $wpdb;
 
-    $table_name = $wpdb->prefix . TABLE_USER;
-    $table_data = $wpdb->get_results( "SELECT nachname, vorname, email, zeitpunkt FROM $table_name", 'ARRAY_A' );
+    $user_table_name = $wpdb->prefix . TABLE_USER;
+    $user_table_data = $wpdb->get_results(
+        "SELECT user_lastname, user_forename, user_mail, user_registered FROM $user_table_name",
+        'ARRAY_A'
+    );
 
-    foreach( $table_data as $row ) :
+    foreach( $user_table_data as $row ) :
         fputcsv( $file, $row );
     endforeach;
 
@@ -64,12 +67,14 @@ function cmkk_get_total_amount( $event_id )
     global $wpdb;
            $amount = 0;
 
-    $table_name = $wpdb->prefix . TABLE_POOL;
-    $query      = "SELECT groesse FROM $table_name WHERE event_id=$event_id";
-    $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
+    $pool_table_name = $wpdb->prefix . TABLE_POOL;
+    $pool_table_data = $wpdb->get_results(
+        "SELECT contingent_size FROM $pool_table_name WHERE event_id=$event_id";
+        'ARRAY_N'
+    );
 
-    if( NULL != $table_data ) :
-        foreach( $table_data as $value ) :
+    if( NULL != $pool_table_data ) :
+        foreach( $pool_table_data as $value ) :
             $amount += $value[0];
         endforeach;
     endif;
@@ -92,12 +97,14 @@ function cmkk_get_used_amount( $event_id )
 {
     global $wpdb;
 
-    $table_name = $wpdb->prefix . TABLE_POOL;
-    $query      = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
-    $table_data = $wpdb->get_results( $query, 'ARRAY_N' );
+    $pool_table_name = $wpdb->prefix . TABLE_POOL;
+    $pool_table_data = $wpdb->get_results(
+        "SELECT COUNT(*) FROM $pool_table_name WHERE event_id=$event_id",
+        'ARRAY_N'
+    );
 
-    if( NULL != $table_data ) :
-        return $table_data[ 0 ][ 0 ];
+    if( NULL != $pool_table_data ) :
+        return $pool_table_data[ 0 ][ 0 ];
     else :
         return 0;
     endif;
@@ -154,7 +161,7 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
             return TRUE;
         endif;
     endif;
-    
+
     return FALSE;
 }
 
@@ -189,9 +196,9 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 
             // Versand der E-Mail
 
-            return true;
+            return TRUE;
         endif;
     endif;
 
-    return false;
+    return FALSE;
 }

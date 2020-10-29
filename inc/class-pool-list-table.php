@@ -11,9 +11,7 @@ defined( 'ABSPATH' ) OR exit;
 
 
 
-/**
- * Funktionsbibliothek einbinden
- */
+/* Funktionsbibliothek einbinden */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -37,9 +35,9 @@ class MDB_Pool_List_Table extends WP_List_Table
     {
         $columns = array(
         //    'event_id'                  => __( 'Event', 'cc_kk' ),
-            'col_kontingentgroesse'  => __( 'Kontingentgröße', 'cc_kk' ),
-            'col_bereitgestellt_von' => __( 'Bereitgestellt von', 'cc_kk' ),
-            'col_bereitgestellt_am'  => __( 'Bereitgestellt am', 'cc_kk' ),
+            'col_groesse'   => __( 'Kontingentgröße', 'cc_kk' ),
+            'col_anbieter'  => __( 'Bereitgestellt von', 'cc_kk' ),
+            'col_zeitpunkt' => __( 'Bereitgestellt am', 'cc_kk' ),
         );
 
         return $columns;
@@ -57,9 +55,11 @@ class MDB_Pool_List_Table extends WP_List_Table
 
         global $wpdb;
 
-        $table_name  = $wpdb->prefix . TABLE_POOL;
-        $table_data  = $wpdb->get_results( "SELECT * FROM $table_name", 'ARRAY_A' );
-        $this->items = $table_data;
+        $pool_table_name  = $wpdb->prefix . TABLE_POOL;
+        $this->items = $wpdb->get_results(
+            "SELECT * FROM $pool_table_name",
+            'ARRAY_A'
+        );
     }
 
 
@@ -70,20 +70,20 @@ class MDB_Pool_List_Table extends WP_List_Table
                 return $item['event_id'];
             break;
 
-            case 'col_kontingentgroesse':
-                return $item['groesse'];
+            case 'col_groesse':
+                return $item['contingent_size'];
             break;
 
-            case 'col_bereitgestellt_von':
-                return $item['bereitgestellt_von'];
+            case 'col_anbieter':
+                return $item['$contingent_provider'];
             break;
 
-            case 'col_bereitgestellt_am':
-                return $item['bereitgestellt_am'];
+            case 'col_zeitpunkz':
+                return $item['contingent_provided'];
             break;
 
             default:
-                return print_r( $item, true );
+                return print_r( $item, TRUE );
         endswitch;
     }
 }

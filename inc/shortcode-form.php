@@ -36,9 +36,7 @@ function cmkk_shortcode_form( $atts, $content = null )
     endif;
 
 
-    /*
-     * Formular bearbeiten, wenn bereits abgesendet
-     */
+    /* Formular bearbeiten, wenn bereits abgesendet */
 
     if( isset( $_POST['action'] ) ) :
 
@@ -52,9 +50,7 @@ function cmkk_shortcode_form( $atts, $content = null )
     endif;
 
 
-    /*
-     * Ausgabe des Shortcodes
-     */
+    /* Ausgabe des Shortcodes */
 
     ob_start();
 ?>

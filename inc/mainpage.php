@@ -80,9 +80,7 @@ function cmkk_show_mainpage()
 
 function cmkk_show_tab_01()
 {
-    /*
-     * Formular bearbeiten, wenn bereits abgesendet
-     */
+    /* Formular bearbeiten, wenn bereits abgesendet */
 
     if( isset( $_POST['action'] ) ) :
 
@@ -96,9 +94,7 @@ function cmkk_show_tab_01()
     endif;
 
 
-    /*
-     * Ausgabe des Tabs
-     */
+    /* Ausgabe des Tabs */
 
 
     // Tabelle anzeigen
@@ -143,9 +139,7 @@ function cmkk_show_tab_01()
 
 function cmkk_show_tab_02()
 {
-    /*
-     * Formular bearbeiten, wenn bereits abgesendet
-     */
+    /* Formular bearbeiten, wenn bereits abgesendet */
 
     if( isset( $_POST['action'] ) ) :
 
@@ -160,9 +154,7 @@ function cmkk_show_tab_02()
     endif;
 
 
-    /*
-     * Ausgabe des Tabs
-     */
+    /* Ausgabe des Tabs */
 
 
     // Tabelle anzeigen
