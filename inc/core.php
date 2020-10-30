@@ -105,6 +105,7 @@ function cmkk_get_used_amount( $event_id )
 }
 
 
+
 /**
  * Ermittelt die Anzahl der vom Gesamtkontingent noch zur Verfügung stehenden Plätze
  *
@@ -160,6 +161,30 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
 }
 
 
+
+/**
+ * Prüft, ob die angegebene $user_email für ein bestimmtes Event ($event_id) bereits genutzt wurde
+ *
+ * @since   1.0.0
+ *
+ * @param   int     $event_id
+ * @param   string  $user_email
+ * @return  bool    TRUE wenn die E-Mail-Adresse bereits im Gebrauch ist, ansonsten FALSE
+ */
+
+function cmkk_is_email_in_use( $event_id, $user_email )
+{
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . TABLE_USER;
+    $sql        = "SELECT * FROM $table_name WHERE event_id='$event_id' AND user_email='$user_email'";
+    $table_data = $wpdb->get_results( $sql, 'ARRAY_A' );
+
+    return (bool) ( NULL != $table_data );
+}
+
+
+
 /**
  * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
  *
@@ -175,32 +200,38 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
 
 function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 {
-    global $wpdb;
-
-    if( 0 != cmkk_get_free_amount( $event_id ) ) :
-        $table_name = $wpdb->prefix . TABLE_USER;
-        $table_data = array(
-            'event_id'      => $event_id,
-            'user_lastname' => $user_lastname,
-            'user_forename' => $user_forename,
-            'user_email'    => $user_email,
-        );
-
-        if( 1 == $wpdb->insert( $table_name, $table_data ) ) :
-
-            $mail_to      = $user_email;
-            $mail_subject = 'Vielen Dank für Ihre Teilnahme';
-            $mail_message = 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert.';
-            $mail_headers = array(
-                'Content-Type: text/html; charset=UTF-8',
-                'From: Interdisziplinärer WundCongress',
-            );
-
-            $result = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
-
-            return TRUE;
-        endif;
+    // Ist noch ein Platz frei?
+    if( 0 == cmkk_get_free_amount( $event_id ) ) :
+        return FALSE;
     endif;
 
-    return FALSE;
+
+    // Ist die E-Mail des Users bereits im Gebrauch?
+    if( TRUE == cmkk_is_email_in_use( $event_id, $user_email ) ) :
+        return FALSE;
+    endif;
+
+
+    // User eintragen
+    global  $wpdb;
+            $table_name = $wpdb->prefix . TABLE_USER;
+            $table_data = array(
+                'event_id'      => $event_id,
+                'user_lastname' => $user_lastname,
+                'user_forename' => $user_forename,
+                'user_email'    => $user_email,
+            );
+
+
+    // Usereintragung erfolgreich?
+    if( 0 === $wpdb->insert( $table_name, $table_data ) ) :
+        return FALSE;
+    endif;
+
+    $mail_to      = $user_email;
+    $mail_subject = get_option( OPTION_MAIL_SUBJECT );
+    $mail_message = get_option( OPTION_MAIL_MESSAGE );
+    $result       = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
+
+    return TRUE;
 }

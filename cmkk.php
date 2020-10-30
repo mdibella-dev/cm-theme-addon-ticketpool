@@ -17,6 +17,8 @@ defined( 'ABSPATH' ) OR exit;
 define( 'TABLE_POOL', 'cmkk_contingent_pool' );
 define( 'TABLE_USER', 'cmkk_contingent_user' );
 define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
+define( 'OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
 
 // Workaround: gegenwärtig Unterstützung nur für ein Event
 define( 'EVENT_ID', '1' );
@@ -49,8 +51,6 @@ function cmkk_plugin_activation()
 
 
     /* Tabellen einrichten falls nicht vorhanden */
-
-
 
     $table_charset_collate = $wpdb->get_charset_collate();
     $table_name            = $wpdb->prefix . TABLE_POOL;
@@ -88,6 +88,17 @@ function cmkk_plugin_activation()
             COLLATE $table_charset_collate;";
 
         dbDelta( $sql );
+    endif;
+
+
+    /* Optionen einrichten falls nicht vorhanden */
+
+    if( FALSE == get_option( OPTION_MAIL_SUBJECT ) ) :
+        add_option( OPTION_MAIL_SUBJECT, 'Vielen Dank für Ihre Teilnahme' );
+    endif;
+
+    if( FALSE == get_option( OPTION_MAIL_MESSAGE ) ) :
+        add_option( OPTION_MAIL_MESSAGE, 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert.' );
     endif;
 }
 
