@@ -1,6 +1,6 @@
 <?php
 /**
- * Shortcode [cm-kk-form]
+ * Shortcode [cmkk-form]
  *
  * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
@@ -79,4 +79,4 @@ function cmkk_shortcode_form( $atts, $content = null )
     return $output_buffer;
 }
 
-add_shortcode( 'cm-kk-form', 'cmkk_shortcode_form' );
+add_shortcode( 'cmkk-form', 'cmkk_shortcode_form' );
