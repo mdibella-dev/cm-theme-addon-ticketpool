@@ -233,5 +233,8 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
     $mail_message = get_option( OPTION_MAIL_MESSAGE );
     $result       = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
 
+    $_GET['cmkk-status'] = '1';
+    do_action( 'admin_notices' );
+
     return TRUE;
 }

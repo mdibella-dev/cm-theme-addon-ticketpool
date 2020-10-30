@@ -30,6 +30,8 @@ function cmkk_show_tab_03()
             case 'update-template' :
                 update_option( OPTION_MAIL_SUBJECT, $_POST['subject'] );
                 update_option( OPTION_MAIL_MESSAGE, $_POST['message'] );
+                $_GET['cmkk-status'] = '2';
+                do_action( 'admin_notices' );
             break;
 
         endswitch;
@@ -52,19 +54,28 @@ function cmkk_show_tab_03()
 
     <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
-    <div class="form-field form-required subject-wrap">
-    	<label for="subject"><?php echo __( 'Betreffzeile', 'cmkk' ); ?></label>
-    	<input type="text" name="subject" id="subject" type="text" value="<?php echo $subject; ?>" size="40" aria-required="true">
-    </div>
+    <table class="form-table">
+        <tr>
+            <th><?php echo __( 'Betreffzeile', 'cmkk' ); ?></th>
+            <td>
+                <input type="text" name="subject" id="subject" type="text" value="<?php echo $subject; ?>" size="40" aria-required="true">
+            </td>
+        </tr>
 
-    <div class="form-field form-required message-wrap">
-    	<label for="message"><?php echo __( 'Nachricht', 'cmkk' ); ?></label>
-    	<textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
-    </div>
+        <tr>
+            <th><?php echo __( 'Nachricht', 'cmkk' ); ?></th>
+            <td>
+    	        <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
+            </td>
+        </tr>
 
-    <p class="submit">
-        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
-    </p>
+        <tr>
+            <th></th>
+            <td>
+    	        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
+            </td>
+        </tr>
+    </table>
 
 </form>
 <?php

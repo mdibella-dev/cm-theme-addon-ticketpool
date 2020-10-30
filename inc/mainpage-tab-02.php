@@ -28,6 +28,8 @@ function cmkk_show_tab_02()
 
             case 'add-contingent' :
                 cmkk_add_contingent( $_POST['event_id'], $_POST['groesse'], $_POST['anbieter'] );
+                $_GET['cmkk-status'] = '3';
+                do_action( 'admin_notices' );
             break;
 
         endswitch;
