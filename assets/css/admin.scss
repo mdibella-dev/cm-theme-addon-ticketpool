@@ -15,3 +15,17 @@
     }
 
 }
+
+
+#cmkk-mail-template-form {
+
+    input#subject,
+    textarea#message {
+        width: 100%;
+    }
+
+    textarea#message {
+        height: 20rem;
+    }
+
+}
