@@ -16,37 +16,48 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since   1.0.0
  * @todo    - Anwendung von $event-id innerhalb der SQL-Abfrage
- *          - Download der Datei vom Server
  *
  * @param   int     $event_id
+ * @return  bool    FALSE im Fehlerfall
+ * @return  array   Informationen zur Export-Datei im Erfolgsfall
  */
 
-function cmkk_export_teilnehmer( $event_id )
+function cmkk_create_user_export_file( $event_id )
 {
-    // Neue Datei erstellen
+    $uploads   = wp_upload_dir();
     $file_name = 'kartenkontingent-export-' . date( "Y-m-d" ) . '.csv';
-    $file      = fopen( PLUGIN_PATH . '/' . $file_name, 'w' );
+    $file_info = array(
+        'name' => $file_name,
+        'path' => $uploads['basedir'] . '/' . EXPORT_FOLDER . '/' . $file_name,
+        'url'  => $uploads['baseurl'] . '/' . EXPORT_FOLDER . '/' . $file_name,
+    );
 
+    // Datei öffnen
+    $file = fopen( $file_info['path'], 'w' );
+
+    if( FALSE === $file) :
+        return NULL;
+    endif;
 
     // Kopfzeile in Datei schreiben
     $row = array( 'Nachname', 'Vorname', 'E-Mail', 'Anmeldezeitpunkt' );
     fputcsv( $file, $row);
 
-
     // Daten abrufen und in Datei schreiben
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_USER;
-    $sql        = "SELECT user_lastname, user_forename, user_mail, user_registered FROM $table_name";
+    $sql        = "SELECT user_lastname, user_forename, user_email, user_registered FROM $table_name";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_A' );
 
     foreach( $table_data as $row ) :
         fputcsv( $file, $row );
     endforeach;
 
-
     // Datei schließen
     fclose( $file );
+
+    return $file_info;
 }
 
 

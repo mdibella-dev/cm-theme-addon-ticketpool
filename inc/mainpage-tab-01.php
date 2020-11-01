@@ -20,17 +20,10 @@ defined( 'ABSPATH' ) OR exit;
 
 function cmkk_show_tab_01()
 {
-    /* Formular bearbeiten, wenn bereits abgesendet */
+    $file_info = cmkk_create_user_export_file( EVENT_ID );
 
-    if( isset( $_POST['action'] ) ) :
-
-        switch( $_POST['action'] ) :
-            case 'export' :
-                cmkk_export_teilnehmer( EVENT_ID );
-            break;
-
-        endswitch;
-
+    if( FALSE === $file_info ) :
+        // Fehlermeldung?;
     endif;
 
 
@@ -61,10 +54,10 @@ function cmkk_show_tab_01()
 ?></p>
 <?php
 
-    // Formular, um den Download der Teilnehmerliste zu initiieren, anzeigen
+    // Möglichkeit zum Download der Exportdatei anzeigen
+    if( FALSE !== $file_info ) :
 ?>
-<form method="post">
-    <button type="submit" name="action" class="button button-primary" value="export"><?php echo __( 'Daten als CSV exportieren', 'cmkk'); ?></button>
-</form>
+<a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo __( 'Daten als CSV exportieren', 'cmkk'); ?></a>
 <?php
+    endif;
 }

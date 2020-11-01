@@ -17,6 +17,7 @@ defined( 'ABSPATH' ) OR exit;
 define( 'TABLE_POOL', 'cmkk_contingent_pool' );
 define( 'TABLE_USER', 'cmkk_contingent_user' );
 define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'EXPORT_FOLDER', 'cmkk' );
 define( 'OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
 define( 'OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
 
@@ -71,7 +72,6 @@ function cmkk_plugin_activation()
 
     endif;
 
-
     $table_name = $wpdb->prefix . TABLE_USER;
 
     if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
@@ -100,6 +100,13 @@ function cmkk_plugin_activation()
     if( FALSE == get_option( OPTION_MAIL_MESSAGE ) ) :
         add_option( OPTION_MAIL_MESSAGE, 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert.' );
     endif;
+
+
+    /* Pfad für Export-Dateien anlegen */
+
+    $upload_dir = wp_upload_dir();
+
+    wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
 }
 
 register_activation_hook( __FILE__, 'cmkk_plugin_activation' );
