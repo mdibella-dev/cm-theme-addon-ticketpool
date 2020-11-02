@@ -142,7 +142,7 @@ function cmkk_admin_notice()
             </div>
             <?php
             break;
-            
+
         endswitch;
 
     endif;

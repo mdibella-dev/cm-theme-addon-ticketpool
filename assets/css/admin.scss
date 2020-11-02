@@ -1,6 +1,5 @@
 .cmkk-amount-info {
     margin-bottom: 60px;
-    margin-top: -20px;
 }
 
 
@@ -28,4 +27,21 @@
         height: 20rem;
     }
 
+}
+
+.toplevel_page_cmkk_mainpage  {
+
+    .wrap h1.wp-heading-inline {
+        margin-bottom: 40px;
+    }
+
+    .nav-tab-wrapper,
+    .wrap h2.nav-tab-wrapper,
+    h1.nav-tab-wrapper {
+        margin-bottom: 40px;
+
+        & > *:first-child {
+            margin-top: 0;
+        }
+    }
 }

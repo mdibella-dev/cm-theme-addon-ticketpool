@@ -28,6 +28,7 @@ define( 'EVENT_ID', '1' );
 
 /* Funktionsbibliothek einbinden */
 
+require_once( PLUGIN_PATH . 'inc/class-modified-list-table.php' );
 require_once( PLUGIN_PATH . 'inc/class-pool-list-table.php' );
 require_once( PLUGIN_PATH . 'inc/class-user-list-table.php' );
 require_once( PLUGIN_PATH . 'inc/shortcode-form.php' );

@@ -27,7 +27,7 @@ endif;
  * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
-class MDB_User_List_Table extends WP_List_Table
+class MDB_User_List_Table extends MDB_Modified_List_Table
 {
 
     function get_columns()

@@ -28,7 +28,7 @@ endif;
  */
 
 
-class MDB_Pool_List_Table extends WP_List_Table
+class MDB_Pool_List_Table extends MDB_Modified_List_Table
 {
 
     function get_columns()
@@ -84,4 +84,5 @@ class MDB_Pool_List_Table extends WP_List_Table
                 return print_r( $item, TRUE );
         endswitch;
     }
+    
 }
