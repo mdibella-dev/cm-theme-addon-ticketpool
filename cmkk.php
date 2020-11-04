@@ -14,12 +14,23 @@ defined( 'ABSPATH' ) OR exit;
 
 /* Konstanten */
 
-define( 'TABLE_POOL', 'cmkk_contingent_pool' );
-define( 'TABLE_USER', 'cmkk_contingent_user' );
-define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'TABLE_POOL',  'cmkk_contingent_pool' );
+define( 'TABLE_USER',  'cmkk_contingent_user' );
+
+define( 'OPTION_MAIL_SUBJECT',  'cmkk_plugin_mail_subject' );
+define( 'OPTION_MAIL_MESSAGE',  'cmkk_plugin_mail_message' );
+
+define( 'STATUS_USER_ADDED',            100 );
+define( 'STATUS_NOTHING_FREE',          200 );
+define( 'STATUS_USER_FIELDS_EMPTY',     201 );
+define( 'STATUS_USER_EMAIL_MALFORMED',  202 );
+define( 'STATUS_USER_EMAIL_IN_USE',     203 );
+define( 'STATUS_CANT_STORE_USER',       204 );
+
+//define( 'PLUGIN_URL',    plugins_url() );
+define( 'PLUGIN_PATH',   plugin_dir_path( __FILE__ ) );
 define( 'EXPORT_FOLDER', 'cmkk' );
-define( 'OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
-define( 'OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
+
 
 // Workaround: gegenwärtig Unterstützung nur für ein Event
 define( 'EVENT_ID', '1' );

@@ -197,29 +197,40 @@ function cmkk_is_email_in_use( $event_id, $user_email )
 
 
 /**
- * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
+ * Fügt einen Benutzer hinzu
  *
  * @since   1.0.0
- * @todo    - Validation der Übergabewerte
- *          - Versendung einer Informationsmail an den Benutzer
  *
  * @param   int     $event_id
  * @param   string  $user_lastname
  * @param   string  $user_forename
  * @param   string  $user_email
+ * @return  int     ein Statuscode
  */
 
 function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 {
     // Ist noch ein Platz frei?
-    if( 0 == cmkk_get_free_amount( $event_id ) ) :
-        return FALSE;
+    if( 0 === cmkk_get_free_amount( $event_id ) ) :
+        return STATUS_NOTHING_FREE;
+    endif;
+
+
+    // Leere Felder übergeben?
+    if( empty( $user_forename ) or empty( $user_lastname ) or empty( $user_email ) ):
+        return STATUS_USER_FIELDS_EMPTY;
+    endif;
+
+
+    // Ist das Format der E-Mail gültig?
+    if( !filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) :
+        return STATUS_USER_EMAIL_MALFORMED;
     endif;
 
 
     // Ist die E-Mail des Users bereits im Gebrauch?
-    if( TRUE == cmkk_is_email_in_use( $event_id, $user_email ) ) :
-        return FALSE;
+    if( TRUE === cmkk_is_email_in_use( $event_id, $user_email ) ) :
+        return STATUS_USER_EMAIL_IN_USE;
     endif;
 
 
@@ -234,18 +245,66 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
             );
 
 
-    // Usereintragung erfolgreich?
+    // War die Eintragung des Users erfolgreich?
     if( 0 === $wpdb->insert( $table_name, $table_data ) ) :
-        return FALSE;
+        return STATUS_CANT_STORE_USER;
     endif;
 
+
+    // E-Mail an User senden
     $mail_to      = $user_email;
     $mail_subject = get_option( OPTION_MAIL_SUBJECT );
     $mail_message = get_option( OPTION_MAIL_MESSAGE );
     $result       = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
 
-    $_GET['cmkk-status'] = '1';
-    do_action( 'admin_notices' );
+    return STATUS_USER_ADDED;
+}
 
-    return TRUE;
+
+
+/**
+ * Gibt einen Hinweis passend zum jeweiligen Statuscode aus
+ *
+ * @since   1.0.0
+ *
+ * @param   int     $code    der Statuscode
+ */
+
+function cmkk_display_notice( $code )
+{
+    $status = array(
+        STATUS_USER_ADDED           => array(
+            'notice' => __( 'Erfolgreich!', 'cmkk' ),
+            'style'  => 'cmkk-notice-sucess',
+        ),
+        STATUS_NOTHING_FREE         => array(
+            'notice' => __( 'Es ist leider kein freier Platz im Kartenkontingent verfügbar!', 'cmkk' ),
+            'style'  => 'cmkk-notice-info',
+        ),
+        STATUS_USER_FIELDS_EMPTY    => array(
+            'notice' => __( 'Ein oder mehrere Felder sind nicht ausgefüllt.', 'cmkk' ),
+            'style'  => 'cmkk-notice-warning',
+        ),
+        STATUS_USER_EMAIL_MALFORMED => array(
+            'notice' => __( 'Bitte geben Sie eine korrekte E-Mail-Adresse ein.', 'cm_kk' ),
+            'style'  => 'cmkk-notice-warning',
+        ),
+        STATUS_USER_EMAIL_IN_USE    => array(
+            'notice' => __( 'Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht ein weiteres mal verwendet werden.', 'cm_kk' ),
+            'style'  => 'cmkk-notice-warning',
+        ),
+        STATUS_CANT_STORE_USER      => array(
+            'notice' => __( 'Ein technischer Fehler hat verhindert, dass Sie eingetragen werden konnten.', 'cmkk' ),
+            'style'  => 'cmkk-notice-error',
+        ),
+    );
+
+    if( array_key_exists( $code, $status ) ) :
+?>
+<div class="cmkk-notice <?php echo $status[ $code ]['style']; ?>">
+    <p><?php echo $status[ $code ]['notice']; ?></p>
+</div>
+<?php
+    endif;
+
 }
