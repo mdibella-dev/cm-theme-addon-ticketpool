@@ -15,7 +15,6 @@ defined( 'ABSPATH' ) OR exit;
  * Shortcode zum Erzeugen eines Formulars, mit denen sich Personen als Teilnehmer eintragen können
  *
  * @since   1.0.0
- * @todo    - Korrekte Reaktion auf bereits abgesendete Formular ergänzen
  *
  * @param   array   $atts   die Attribute (Parameter) des Shorcodes
  * @return  string          die vom Shortcode erzeugte Ausgabe

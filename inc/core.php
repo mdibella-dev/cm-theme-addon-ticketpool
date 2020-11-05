@@ -144,7 +144,8 @@ function cmkk_get_free_amount( $event_id )
  *
  * @since   1.0.0
  * @todo    - Validation der Übergabewerte
- *          - Rückgabe auf true/false begrenzen?
+ *          - Early Return notwendig
+ *          - Yoda-Condition
  *
  * @param   int     $event_id
  * @param   int     $contingent_size
@@ -200,6 +201,7 @@ function cmkk_is_email_in_use( $event_id, $user_email )
  * Fügt einen Benutzer hinzu
  *
  * @since   1.0.0
+ * @todo    - BCC-Adresse im Backend einrichten
  *
  * @param   int     $event_id
  * @param   string  $user_lastname
@@ -255,7 +257,8 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
     $mail_to      = $user_email;
     $mail_subject = get_option( OPTION_MAIL_SUBJECT );
     $mail_message = get_option( OPTION_MAIL_MESSAGE );
-    $result       = wp_mail( $mail_to, $mail_subject, $mail_message ); //, $mail_headers );
+    $mail_headers = array( 'bcc:r.keller@pwg-seminare.de' );
+    $result       = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
 
     return STATUS_USER_ADDED;
 }
@@ -274,11 +277,11 @@ function cmkk_display_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED           => array(
-            'notice' => __( 'Erfolgreich!', 'cmkk' ),
+            'notice' => __( 'Ihre Anmeldung war erfolgreich!', 'cmkk' ),
             'style'  => 'cmkk-notice-sucess',
         ),
         STATUS_NOTHING_FREE         => array(
-            'notice' => __( 'Es ist leider kein freier Platz im Kartenkontingent verfügbar!', 'cmkk' ),
+            'notice' => __( 'Leider ist derzeit kein freier Platz im Kartenkontingent verfügbar!<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.', 'cmkk' ),
             'style'  => 'cmkk-notice-info',
         ),
         STATUS_USER_FIELDS_EMPTY    => array(
@@ -294,7 +297,7 @@ function cmkk_display_notice( $code )
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_CANT_STORE_USER      => array(
-            'notice' => __( 'Ein technischer Fehler hat verhindert, dass Sie eingetragen werden konnten.', 'cmkk' ),
+            'notice' => __( 'Ein technischer Fehler ist aufgetreten.', 'cmkk' ),
             'style'  => 'cmkk-notice-error',
         ),
     );

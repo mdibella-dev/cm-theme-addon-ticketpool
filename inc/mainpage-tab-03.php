@@ -17,6 +17,9 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since   1.0.0
  * @todo    - Verschiedene E-Mails für unterschiedliche Events?
+ *          - Keine leeren Felder zulassen
+ *          - Reset auf Standard-Text
+ *          - E-Mail-Adresse für Benachrichtigung
  */
 
 function cmkk_show_tab_03()

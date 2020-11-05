@@ -110,7 +110,7 @@ function cmkk_plugin_activation()
     endif;
 
     if( FALSE == get_option( OPTION_MAIL_MESSAGE ) ) :
-        add_option( OPTION_MAIL_MESSAGE, 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert.' );
+        add_option( OPTION_MAIL_MESSAGE, 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert. In den kommenden Tagen erhalten Sie eine weitere E-Mails mit zusätzlichen Informationen sowie den Zugangsdaten zur Veranstaltung.<br><br>Bis dahin alles Gute,<br>Ihr Team vom IWC.<br><br>Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht hierauf.' );
     endif;
 
 
