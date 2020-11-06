@@ -2,7 +2,6 @@
 /**
  * Klasse MDB_Pool_List_Table
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
@@ -84,5 +83,5 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
                 return print_r( $item, TRUE );
         endswitch;
     }
-    
+
 }

@@ -31,7 +31,6 @@ define( 'STATUS_CANT_STORE_USER',       204 );
 define( 'PLUGIN_PATH',   plugin_dir_path( __FILE__ ) );
 define( 'EXPORT_FOLDER', 'cmkk' );
 
-
 // Workaround: gegenwärtig Unterstützung nur für ein Event
 define( 'EVENT_ID', '1' );
 

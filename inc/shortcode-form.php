@@ -2,7 +2,6 @@
 /**
  * Shortcode [cmkk-form]
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 

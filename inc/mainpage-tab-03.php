@@ -2,7 +2,6 @@
 /**
  * Tab-03 der Hauptseite
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 

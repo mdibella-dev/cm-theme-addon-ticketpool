@@ -2,7 +2,6 @@
 /**
  * Klasse MDB_User_List_Table
  *
- * @since   1.0.0
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
