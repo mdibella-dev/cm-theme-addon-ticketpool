@@ -6,19 +6,19 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
 
 /**
- * Zeigt Tab-03 mit der Verwaltung des E-Mail-Templates an
+ * Zeigt Tab-03 mit der Verwaltung des E-Mail-Templates an (QUICK AND DIRTY)
  *
- * @since   1.0.0
- * @todo    - Verschiedene E-Mails für unterschiedliche Events?
- *          - Keine leeren Felder zulassen
- *          - Reset auf Standard-Text
- *          - E-Mail-Adresse für Benachrichtigung
+ * @since 1.0.0
+ * @todo Verschiedene E-Mails für unterschiedliche Events?
+ * @todo Keine leeren Felder zulassen
+ * @todo Reset auf Standard-Text
+ * @todo E-Mail-Adresse für Benachrichtigung
  */
 
 function cmkk_show_tab_03()
@@ -43,7 +43,6 @@ function cmkk_show_tab_03()
     $subject = get_option( OPTION_MAIL_SUBJECT );
     $message = get_option( OPTION_MAIL_MESSAGE );
 
-
     /* Ausgabe des Tabs */
     ?>
 <?php
@@ -67,14 +66,14 @@ function cmkk_show_tab_03()
         <tr>
             <th><?php echo __( 'Nachricht', 'cmkk' ); ?></th>
             <td>
-    	        <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
+                <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
             </td>
         </tr>
 
         <tr>
             <th></th>
             <td>
-    	        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
+                <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
             </td>
         </tr>
     </table>

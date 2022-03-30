@@ -6,7 +6,7 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Zeigt Tab-01 mit der Übersicht der Teilnehmer sowie der Download-Funktionalität an
  *
- * @since   1.0.0
+ * @since 1.0.0
  */
 
 function cmkk_show_tab_01()

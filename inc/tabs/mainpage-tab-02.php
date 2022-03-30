@@ -6,7 +6,7 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Zeigt Tab-02 mit der Verwaltung der Kartenkontingente an
  *
- * @since   1.0.0
+ * @since 1.0.0
  */
 
 function cmkk_show_tab_02()
