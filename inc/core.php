@@ -171,7 +171,7 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
  *
  * @since  1.0.0
  * @param  int    $event_id      Die ID des Events.
- * @param  string $user_email    Die angegebene E-Mail-Adresse
+ * @param  string $user_email    Die angegebene E-Mail-Adresse.
  * @return bool                  Das Prüfungsergebnis (true: E-Mail-Adresse ist bereits im Gebrauch, andernfalls: false)
  */
 
