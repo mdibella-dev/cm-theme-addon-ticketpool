@@ -6,23 +6,23 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
-/* Funktionsbibliothek einbinden */
+/** Funktionsbibliothek einbinden */
 
-require_once( PLUGIN_PATH . 'inc/mainpage-tab-01.php' );
-require_once( PLUGIN_PATH . 'inc/mainpage-tab-02.php' );
-require_once( PLUGIN_PATH . 'inc/mainpage-tab-03.php' );
+require_once( PLUGIN_PATH . 'inc/tabs/mainpage-tab-01.php' );
+require_once( PLUGIN_PATH . 'inc/tabs/mainpage-tab-02.php' );
+require_once( PLUGIN_PATH . 'inc/tabs/mainpage-tab-03.php' );
 
 
 
 /**
- * Erzeugt einen Menüpunkt im Backend
+ * Erzeugt einen Menüpunkt im Backend.
  *
- * @since   1.0.0
- * @todo    - In das Congressomat-Menü verschieben (setzt Umbau von Congressomat voraus)
+ * @since 1.0.0
+ * @todo  In das Congressomat-Menü verschieben (setzt Umbau von Congressomat voraus).
  */
 
 function cmkk_add_mainpage_to_admin_menu()
@@ -33,8 +33,8 @@ function cmkk_add_mainpage_to_admin_menu()
         'manage_options',
         'cmkk_mainpage',
         'cmkk_show_mainpage',
-		'dashicons-tickets',
-		20,
+        'dashicons-tickets',
+        20,
     );
 }
 
@@ -43,10 +43,10 @@ add_action( 'admin_menu', 'cmkk_add_mainpage_to_admin_menu' );
 
 
 /**
- * Anzeige der Hauptseite
+ * Anzeige der Hauptseite.
  *
- * @since   1.0.0
- * @source  http://qnimate.com/add-tabs-using-wordpress-settings-api/
+ * @since  1.0.0
+ * @source http://qnimate.com/add-tabs-using-wordpress-settings-api/
  */
 
 function cmkk_show_mainpage()
@@ -106,10 +106,10 @@ function cmkk_show_mainpage()
 
 
 /**
- * Anzeige der administrativen Hinweise
+ * Anzeige der administrativen Hinweise.
  *
- * @since   1.0.0
- * @see     https://digwp.com/2016/05/wordpress-admin-notices/
+ * @since 1.0.0
+ * @see   https://digwp.com/2016/05/wordpress-admin-notices/
  */
 
 function cmkk_admin_notice()

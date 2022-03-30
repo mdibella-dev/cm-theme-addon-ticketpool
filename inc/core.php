@@ -11,17 +11,16 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Exportiert die Teilnehmerliste als CSV
+ * Exportiert die Teilnehmerliste als CSV.
  *
- * @since   1.0.0
- * @todo    - Anwendung von $event-id innerhalb der SQL-Abfrage
- *
- * @param   int     $event_id
- * @return  bool    FALSE im Fehlerfall
- * @return  array   Informationen zur Export-Datei im Erfolgsfall
+ * @since  1.0.0
+ * @param  int    $event_id    Das Event dessen Daten abgefragt werden soll (in Zukunft).
+ * @return bool                false im Fehlerfall
+ * @return array               Informationen zur Export-Datei im Erfolgsfall
+ * @todo   Anwendung von $event-id innerhalb der SQL-Abfrage
  */
 
-function cmkk_create_user_export_file( $event_id )
+function cmkk_create_user_export_file( $event_id = 0 )
 {
     $uploads   = wp_upload_dir();
     $file_name = 'kartenkontingent-export-' . date( "Y-m-d" ) . '.csv';
@@ -34,8 +33,8 @@ function cmkk_create_user_export_file( $event_id )
     // Datei öffnen
     $file = fopen( $file_info['path'], 'w' );
 
-    if( FALSE === $file) :
-        return NULL;
+    if( false === $file) :
+        return null;
     endif;
 
     // Kopfzeile in Datei schreiben
@@ -62,12 +61,11 @@ function cmkk_create_user_export_file( $event_id )
 
 
 /**
- * Gibt die Gesamtzahl der zur Verfügung stehenden Karten zurück
+ * Gibt die Gesamtzahl der zur Verfügung stehenden Karten zurück.
  *
- * @since   1.0.0
- *
- * @param   int     $event_id
- * @return  int     die Gesamtzahl der Tickets
+ * @since  1.0.0
+ * @param  int $event_id    Die ID des Events.
+ * @return int              Die Gesamtzahl der Tickets.
  */
 
 function cmkk_get_total_amount( $event_id )
@@ -79,7 +77,7 @@ function cmkk_get_total_amount( $event_id )
     $sql        = "SELECT contingent_size FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
-    if( NULL != $table_data ) :
+    if( null != $table_data ) :
         foreach( $table_data as $size ) :
             $amount += $size[0];
         endforeach;
@@ -91,12 +89,11 @@ function cmkk_get_total_amount( $event_id )
 
 
 /**
- * Ermittelt die Anzahl der vom Gesamtkontingent bereits genutzten Plätze
+ * Ermittelt die Anzahl der vom Gesamtkontingent bereits genutzten Plätze.
  *
- * @since   1.0.0
- *
- * @param   int     $event_id
- * @return  int     die genutzten Plätze
+ * @since  1.0.0
+ * @param  int $event_id    Die ID des Events.
+ * @return int              Die genutzten Plätz.e
  */
 
 function cmkk_get_used_amount( $event_id )
@@ -117,13 +114,12 @@ function cmkk_get_used_amount( $event_id )
 
 
 /**
- * Ermittelt die Anzahl der vom Gesamtkontingent noch zur Verfügung stehenden Plätze
+ * Ermittelt die Anzahl der vom Gesamtkontingent noch zur Verfügung stehenden Plätze.
  *
- * @since   1.0.0
- * @todo    - Validation der Übergabewerte
- *
- * @param   int     $event_id
- * @return  int     die noch freien Plätze (im Zweifel 0)
+ * @since  1.0.0
+ * @param  int $event_id    Die ID des Events.
+ * @return int              Die noch freien Plätze (im Zweifel 0).
+ * @todo   Validation der Übergabewerte
  */
 
 function cmkk_get_free_amount( $event_id )
@@ -139,16 +135,13 @@ function cmkk_get_free_amount( $event_id )
 
 
 /**
- * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents
+ * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents.
  *
- * @since   1.0.0
- * @todo    - Validation der Übergabewerte
- *          - Early Return notwendig
- *          - Yoda-Condition
- *
- * @param   int     $event_id
- * @param   int     $contingent_size
- * @param   string  $contingent_provider
+ * @since 1.0.0
+ * @param int    $event_id               Die ID des Events.
+ * @param int    $contingent_size        Die Anzahl der Plätze im Kartenkontingent.
+ * @param string $contingent_provider    Name des Sponsors des Kartengontingents.
+ * @todo  Validation der Übergabewerte
  */
 
 function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider )
@@ -164,23 +157,22 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
         );
 
         if( 1 == $wpdb->insert( $table_name, $table_data ) ) :
-            return TRUE;
+            return true;
         endif;
     endif;
 
-    return FALSE;
+    return false;
 }
 
 
 
 /**
- * Prüft, ob die angegebene $user_email für ein bestimmtes Event ($event_id) bereits genutzt wurde
+ * Prüft, ob die angegebene $user_email für ein bestimmtes Event ($event_id) bereits genutzt wurde.
  *
- * @since   1.0.0
- *
- * @param   int     $event_id
- * @param   string  $user_email
- * @return  bool    TRUE wenn die E-Mail-Adresse bereits im Gebrauch ist, ansonsten FALSE
+ * @since  1.0.0
+ * @param  int    $event_id      Die ID des Events.
+ * @param  string $user_email    Die angegebene E-Mail-Adresse
+ * @return bool                  Das Prüfungsergebnis (true: E-Mail-Adresse ist bereits im Gebrauch, andernfalls: false)
  */
 
 function cmkk_is_email_in_use( $event_id, $user_email )
@@ -191,22 +183,21 @@ function cmkk_is_email_in_use( $event_id, $user_email )
     $sql        = "SELECT * FROM $table_name WHERE event_id='$event_id' AND user_email='$user_email'";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_A' );
 
-    return (bool) ( NULL != $table_data );
+    return (bool) ( null != $table_data );
 }
 
 
 
 /**
- * Fügt einen Benutzer hinzu
+ * Fügt einen Benutzer hinzu.
  *
- * @since   1.0.0
- * @todo    - BCC-Adresse im Backend einrichten
- *
- * @param   int     $event_id
- * @param   string  $user_lastname
- * @param   string  $user_forename
- * @param   string  $user_email
- * @return  int     ein Statuscode
+ * @since 1.0.0
+ * @param  int    $event_id        Die ID des Events.
+ * @param  string $user_lastname   Der angegebene Vorname.
+ * @param  string $user_forename   Der angegebene Nachname.
+ * @param  string $user_email      Die angegebene E-Mail-Adresse
+ * @return int                     Ein Statuscode.
+ * @todo   BCC-Adresse im Backend einrichten
  */
 
 function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
@@ -267,23 +258,22 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 /**
  * Gibt einen Hinweis passend zum jeweiligen Statuscode aus
  *
- * @since   1.0.0
- *
- * @param   int     $code    der Statuscode
+ * @since 1.0.0
+ * @param int $code    Der Statuscode.
  */
 
 function cmkk_display_notice( $code )
 {
     $status = array(
-        STATUS_USER_ADDED           => array(
+        STATUS_USER_ADDED => array(
             'notice' => __( 'Ihre Anmeldung war erfolgreich!', 'cmkk' ),
             'style'  => 'cmkk-notice-sucess',
         ),
-        STATUS_NOTHING_FREE         => array(
+        STATUS_NOTHING_FREE => array(
             'notice' => __( 'Leider ist derzeit kein freier Platz im Kartenkontingent verfügbar!<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.', 'cmkk' ),
             'style'  => 'cmkk-notice-info',
         ),
-        STATUS_USER_FIELDS_EMPTY    => array(
+        STATUS_USER_FIELDS_EMPTY => array(
             'notice' => __( 'Ein oder mehrere Felder sind nicht ausgefüllt.', 'cmkk' ),
             'style'  => 'cmkk-notice-warning',
         ),
@@ -291,11 +281,11 @@ function cmkk_display_notice( $code )
             'notice' => __( 'Bitte geben Sie eine korrekte E-Mail-Adresse ein.', 'cm_kk' ),
             'style'  => 'cmkk-notice-warning',
         ),
-        STATUS_USER_EMAIL_IN_USE    => array(
+        STATUS_USER_EMAIL_IN_USE => array(
             'notice' => __( 'Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht ein weiteres mal verwendet werden.', 'cm_kk' ),
             'style'  => 'cmkk-notice-warning',
         ),
-        STATUS_CANT_STORE_USER      => array(
+        STATUS_CANT_STORE_USER => array(
             'notice' => __( 'Ein technischer Fehler ist aufgetreten.', 'cmkk' ),
             'style'  => 'cmkk-notice-error',
         ),

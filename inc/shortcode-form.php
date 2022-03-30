@@ -6,17 +6,17 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
 /**
  * Shortcode zum Erzeugen eines Formulars, mit denen sich Personen als Teilnehmer eintragen können
  *
- * @since   1.0.0
- *
- * @param   array   $atts   die Attribute (Parameter) des Shorcodes
- * @return  string          die vom Shortcode erzeugte Ausgabe
+ * @since  1.0.0
+ * @param  array  $atts       Die Attribute (Parameter) des Shorcodes.
+ * @param  string $content    Der vom Shortcode geklammerte Inhalt.
+ * @return string             Die vom Shortcode erzeugte Ausgabe
  */
 
 function cmkk_shortcode_form( $atts, $content = null )
