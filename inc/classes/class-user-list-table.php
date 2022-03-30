@@ -6,7 +6,7 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
@@ -43,12 +43,11 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
 
     function prepare_items()
     {
-        $columns  = $this->get_columns();
-        $hidden   = array();
-        $sortable = array(); //$this->get_sortable_columns();
-
-        $this->_column_headers = array( $columns, $hidden, $sortable );
-
+        $this->_column_headers = array(
+            $this->get_columns(),    // columns
+            array(),                 // hidden,
+            array(),                 // sortable
+        );
 
         global $wpdb;
 

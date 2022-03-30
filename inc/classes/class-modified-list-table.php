@@ -6,11 +6,11 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
-/* Funktionsbibliothek einbinden */
+/** Funktionsbibliothek einbinden */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -21,9 +21,8 @@ endif;
 /**
  * Tabelle mit modifizierter Ausgabe der TableNav
  *
- * @since   1.0.0
+ * @since 1.0.0
  */
-
 
 class MDB_Modified_List_Table extends WP_List_Table
 {
@@ -44,7 +43,7 @@ class MDB_Modified_List_Table extends WP_List_Table
         <div class="alignleft actions bulkactions">
             <?php $this->bulk_actions( $which ); ?>
         </div>
-            <?php
+        <?php
         endif;
         $this->extra_tablenav( $which );
         $this->pagination( $which );

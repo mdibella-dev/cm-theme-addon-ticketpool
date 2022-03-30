@@ -6,11 +6,11 @@
  */
 
 
-defined( 'ABSPATH' ) OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 
-/* Funktionsbibliothek einbinden */
+/** Funktionsbibliothek einbinden */
 
 if( ! class_exists( 'WP_List_Table' ) ) :
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -26,14 +26,13 @@ endif;
  * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
-
 class MDB_Pool_List_Table extends MDB_Modified_List_Table
 {
 
     function get_columns()
     {
         $columns = array(
-        //    'event_id'                  => __( 'Event', 'cc_kk' ),
+            // 'event_id' => __( 'Event', 'cc_kk' ),
             'col_groesse'   => __( 'Kontingentgröße', 'cc_kk' ),
             'col_anbieter'  => __( 'Bereitgestellt von', 'cc_kk' ),
             'col_zeitpunkt' => __( 'Bereitgestellt am', 'cc_kk' ),
@@ -45,12 +44,11 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
 
     function prepare_items()
     {
-        $columns  = $this->get_columns();
-        $hidden   = array();
-        $sortable = array(); //$this->get_sortable_columns();
-
-        $this->_column_headers = array( $columns, $hidden, $sortable );
-
+        $this->_column_headers = array(
+            $this->get_columns(),    // columns
+            array(),                 // hidden,
+            array(),                 // sortable
+        );
 
         global $wpdb;
 
