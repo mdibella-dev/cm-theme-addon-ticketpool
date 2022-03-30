@@ -15,8 +15,8 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since  1.0.0
  * @param  int    $event_id    Das Event dessen Daten abgefragt werden soll (in Zukunft).
- * @return bool                false im Fehlerfall
- * @return array               Informationen zur Export-Datei im Erfolgsfall
+ * @return bool                false im Fehlerfall.
+ * @return array               Informationen zur Export-Datei im Erfolgsfall.
  * @todo   Anwendung von $event-id innerhalb der SQL-Abfrage
  */
 
@@ -93,7 +93,7 @@ function cmkk_get_total_amount( $event_id )
  *
  * @since  1.0.0
  * @param  int $event_id    Die ID des Events.
- * @return int              Die genutzten Plätz.e
+ * @return int              Die genutzten Plätze.
  */
 
 function cmkk_get_used_amount( $event_id )
