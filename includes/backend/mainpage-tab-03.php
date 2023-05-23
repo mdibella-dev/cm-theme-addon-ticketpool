@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) or exit;
 
 function cmkk_show_tab_03()
 {
-    /* Formular bearbeiten, wenn bereits abgesendet */
+    /** Process form if already submitted */
 
     if( isset( $_POST['action'] ) ) :
 
@@ -45,41 +45,40 @@ function cmkk_show_tab_03()
     $subject = get_option( OPTION_MAIL_SUBJECT );
     $message = get_option( OPTION_MAIL_MESSAGE );
 
-    /* Ausgabe des Tabs */
+
+    /** Output the tab */
+    
     ?>
-<?php
+    <div class="form-wrap">
+        <h2><?php echo __( 'E-Mail-Vorlage für Teilnehmer', 'cmkk'); ?></h2>
+        <form id="cmkk-mail-template-form" method="post" class="validate">
 
-    // Anzeige des Formulars
-?>
-<div class="form-wrap">
-<h2><?php echo __( 'E-Mail-Vorlage für Teilnehmer', 'cmkk'); ?></h2>
-<form id="cmkk-mail-template-form" method="post" class="validate">
+            <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
-    <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
+            <table class="form-table">
+                <tr>
+                    <th><?php echo __( 'Betreffzeile', 'cmkk' ); ?></th>
+                    <td>
+                        <input type="text" name="subject" id="subject" type="text" value="<?php echo $subject; ?>" size="40" aria-required="true">
+                    </td>
+                </tr>
 
-    <table class="form-table">
-        <tr>
-            <th><?php echo __( 'Betreffzeile', 'cmkk' ); ?></th>
-            <td>
-                <input type="text" name="subject" id="subject" type="text" value="<?php echo $subject; ?>" size="40" aria-required="true">
-            </td>
-        </tr>
+                <tr>
+                    <th><?php echo __( 'Nachricht', 'cmkk' ); ?></th>
+                    <td>
+                        <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
+                    </td>
+                </tr>
 
-        <tr>
-            <th><?php echo __( 'Nachricht', 'cmkk' ); ?></th>
-            <td>
-                <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
-            </td>
-        </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
+                    </td>
+                </tr>
+            </table>
 
-        <tr>
-            <th></th>
-            <td>
-                <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
-            </td>
-        </tr>
-    </table>
-
-</form>
-<?php
+        </form>
+    </div>
+    <?php
 }

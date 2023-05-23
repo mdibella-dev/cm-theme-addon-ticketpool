@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) or exit;
 
 function cmkk_show_tab_02()
 {
-    /* Formular bearbeiten, wenn bereits abgesendet */
+    /** Process form if already submitted */
 
     if( isset( $_POST['action'] ) ) :
 
@@ -37,53 +37,46 @@ function cmkk_show_tab_02()
     endif;
 
 
-    /* Ausgabe des Tabs */
+    /** Output the tab */
 
-
-    // Tabelle anzeigen
     $pool_table = new MDB_Pool_List_Table();
     $pool_table->prepare_items();
     $pool_table->display();
 
+    ?>
+    <p class="cmkk-amount-info"><?php
+        $total_amount = cmkk_get_total_amount( EVENT_ID );
 
-    // Poolgröße anzeigen
-?>
-<p class="cmkk-amount-info"><?php
-    $total_amount = cmkk_get_total_amount( EVENT_ID ); // $_POST['event_id']
+        if( 0 == $total_amount) :
+            echo __( 'Derzeit stehen keine Plätze zur Verfügung.', 'cmkk' );
+        else :
+            echo sprintf(
+                __( 'Insgesamt stehen %1$s Plätze zur Verfügung.', 'cmkk' ),
+                $total_amount
+            );
+        endif;
+    ?></p>
+    <div class="form-wrap">
+        <h2><?php echo __( 'Neues Kontingent hinzufügen', 'cmkk'); ?></h2>
+        <form id="cmkk-add-contingent-form" method="post" class="validate">
 
-    if( 0 == $total_amount) :
-        echo __( 'Derzeit stehen keine Plätze zur Verfügung.', 'cmkk' );
-    else :
-        echo sprintf(
-            __( 'Insgesamt stehen %1$s Plätze zur Verfügung.', 'cmkk' ),
-            $total_amount
-        );
-    endif;
-?></p>
-<?php
+            <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
-    // Anzeige des Formulars
-?>
-<div class="form-wrap">
-<h2><?php echo __( 'Neues Kontingent hinzufügen', 'cmkk'); ?></h2>
-<form id="cmkk-add-contingent-form" method="post" class="validate">
+            <div class="form-field form-required groesse-wrap">
+                <label for="groesse"><?php echo __( 'Anzahl Plätze', 'cmkk' ); ?></label>
+                <input type="number" min="1" name="groesse" id="groesse" type="text" value="1" size="3" aria-required="true">
+            </div>
 
-    <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
+            <div class="form-field form-required bereitgestellt-von-wrap">
+                <label for="anbieter"><?php echo __( 'Plätze werden bereitgestellt von', 'cmkk' ); ?></label>
+                <input type="text" name="anbieter" id="anbieter" type="text" value="" size="40" aria-required="true">
+            </div>
 
-    <div class="form-field form-required groesse-wrap">
-    	<label for="groesse"><?php echo __( 'Anzahl Plätze', 'cmkk' ); ?></label>
-    	<input type="number" min="1" name="groesse" id="groesse" type="text" value="1" size="3" aria-required="true">
+            <p class="submit">
+                <button type="submit" name="action" class="button button-primary" value="add-contingent"><?php echo __( 'Kontingent hinzufügen', 'cmkk' ); ?></button>
+            </p>
+
+        </form>
     </div>
-
-    <div class="form-field form-required bereitgestellt-von-wrap">
-    	<label for="anbieter"><?php echo __( 'Plätze werden bereitgestellt von', 'cmkk' ); ?></label>
-    	<input type="text" name="anbieter" id="anbieter" type="text" value="" size="40" aria-required="true">
-    </div>
-
-    <p class="submit">
-        <button type="submit" name="action" class="button button-primary" value="add-contingent"><?php echo __( 'Kontingent hinzufügen', 'cmkk' ); ?></button>
-    </p>
-
-</form>
-<?php
+    <?php
 }

@@ -47,10 +47,7 @@ add_action( 'admin_menu', __NAMESPACE__ . '\add_mainpage' );
 
 function show_mainpage()
 {
-?>
-<div class="wrap">
-<h1 class="wp-heading-inline"><?php echo __( 'Kartenkontingente', 'cmkk' )?></h1>
-<?php
+    // setup all tabs
     $tabs = array(
         'tab-01' => array(
             'callback' => "cmkk_show_tab_01",
@@ -66,35 +63,44 @@ function show_mainpage()
         ),
     );
 
+    // get the current tab
     if( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) :
         $tab_active = $_GET['tab'];
     else :
         $tab_active = 'tab-01';
     endif;
-?>
-<h2 class="nav-tab-wrapper">
-<?php
-    foreach( $tabs as $key => $config ) :
 
-        if( $tab_active == $key ) :
-            $nav_tab_class = 'nav-tab-active';
-        else :
-            $nav_tab_class = '';
-        endif;
 
-        echo sprintf(
-            '<a href="?page=cmkk_mainpage&tab=%1$s" class="nav-tab %2$s">%3$s</a>',
-            $key,
-            $nav_tab_class,
-            $config['title'],
-        );
+    /** Output the main page */
 
-    endforeach;
-?>
-</h2>
-<?php
-    call_user_func( (string) $tabs[ $tab_active ]['callback'] );
-?>
-</div>
-<?php
+    ?>
+    <div class="wrap">
+        <h1 class="wp-heading-inline"><?php echo __( 'Kartenkontingente', 'cmkk' )?></h1>
+        <h2 class="nav-tab-wrapper">
+        <?php
+        foreach( $tabs as $key => $config ) :
+
+            if( $tab_active == $key ) :
+                $nav_tab_class = 'nav-tab-active';
+            else :
+                $nav_tab_class = '';
+            endif;
+
+            echo sprintf(
+                '<a href="?page=cmkk_mainpage&tab=%1$s" class="nav-tab %2$s">%3$s</a>',
+                $key,
+                $nav_tab_class,
+                $config['title'],
+            );
+
+        endforeach;
+        ?>
+        </h2>
+        <?php
+        /** Output the specific tab */
+
+        call_user_func( (string) $tabs[ $tab_active ]['callback'] );
+        ?>
+    </div>
+    <?php
 }
