@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Zeigt Tab-02 mit der Verwaltung der Kartenkontingente an
+ * Displays the tab.
  *
  * @since 1.0.0
  */

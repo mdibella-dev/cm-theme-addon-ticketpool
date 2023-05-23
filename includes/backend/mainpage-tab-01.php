@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Zeigt Tab-01 mit der Übersicht der Teilnehmer sowie der Download-Funktionalität an
+ * Displays the tab.
  *
  * @since 1.0.0
  */

@@ -13,13 +13,14 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Zeigt Tab-03 mit der Verwaltung des E-Mail-Templates an (QUICK AND DIRTY)
+ * Displays the tab.
  *
  * @since 1.0.0
- * @todo Verschiedene E-Mails für unterschiedliche Events?
- * @todo Keine leeren Felder zulassen
- * @todo Reset auf Standard-Text
- * @todo E-Mail-Adresse für Benachrichtigung
+ *
+ * @todo Different emails for different events?
+ * @todo Do not allow empty fields
+ * @todo Reset to default text
+ * @todo E-mail address for notification
  */
 
 function cmkk_show_tab_03()
