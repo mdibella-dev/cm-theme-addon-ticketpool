@@ -106,7 +106,7 @@ function cmkk_get_used_amount( $event_id )
     $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
     if( null != $table_data ) :
-        return $table_data[ 0 ][ 0 ];
+        return $table_data[0][0];
     else :
         return 0;
     endif;
@@ -294,8 +294,8 @@ function cmkk_display_notice( $code )
 
     if( array_key_exists( $code, $status ) ) :
     ?>
-    <div class="cmkk-notice <?php echo $status[ $code ]['style']; ?>">
-        <p><?php echo $status[ $code ]['notice']; ?></p>
+    <div class="cmkk-notice <?php echo $status[$code]['style']; ?>">
+        <p><?php echo $status[$code]['notice']; ?></p>
     </div>
     <?php
     endif;

@@ -21,7 +21,7 @@ function cmkk_show_tab_01()
 {
     $file_info = cmkk_create_user_export_file( EVENT_ID );
 
-    if( FALSE === $file_info ) :
+    if( false === $file_info ) :
         // error message?;
     endif;
 

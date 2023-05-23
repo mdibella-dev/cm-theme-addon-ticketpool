@@ -99,7 +99,7 @@ function show_mainpage()
         <?php
         /** Output the specific tab */
 
-        call_user_func( (string) $tabs[ $tab_active ]['callback'] );
+        call_user_func( (string) $tabs[$tab_active]['callback'] );
         ?>
     </div>
     <?php
