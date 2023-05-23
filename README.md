@@ -35,6 +35,7 @@ translation-ready, shortcodes
 * Improve: Move all backend files to /backend/
 * Improve: Translate documentation to EN
 * Improve: Change translation domain
+* Improve: Change menu icon
 
 
 
