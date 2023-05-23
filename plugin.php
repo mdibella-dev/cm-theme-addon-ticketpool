@@ -40,7 +40,7 @@ define( 'EVENT_ID', '1' ); // Workaround: gegenwärtig Unterstützung nur für e
 require_once( PLUGIN_PATH . 'includes/classes/class-modified-list-table.php' );
 require_once( PLUGIN_PATH . 'includes/classes/class-pool-list-table.php' );
 require_once( PLUGIN_PATH . 'includes/classes/class-user-list-table.php' );
-require_once( PLUGIN_PATH . 'includes/shortcode-form.php' );
+require_once( PLUGIN_PATH . 'includes/shortcodes/shortcode-form.php' );
 require_once( PLUGIN_PATH . 'includes/core.php' );
 require_once( PLUGIN_PATH . 'includes/mainpage.php' );
 

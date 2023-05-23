@@ -28,7 +28,9 @@ translation-ready
 * New: Add README.md
 * New: Add CHANGELOG.md template
 * New: Add MIT license
+* Improve: Assets folder and file naming
 * Improve: Change /inc/ to /includes/
+* Improve: Move shortcode to /shortcodes/
 
 
 
