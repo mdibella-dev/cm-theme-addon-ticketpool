@@ -50,7 +50,7 @@ function cmkk_show_tab_01()
     <?php
 
     // Show possibility to download the export file
-    if( FALSE !== $file_info ) :
+    if( false !== $file_info ) :
     ?>
         <a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo __( 'Daten als CSV exportieren', 'cmkk'); ?></a>
     <?php

@@ -105,7 +105,7 @@ function cmkk_get_used_amount( $event_id )
     $sql        = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
-    if( NULL != $table_data ) :
+    if( null != $table_data ) :
         return $table_data[ 0 ][ 0 ];
     else :
         return 0;
@@ -216,13 +216,13 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 
 
     // Ist das Format der E-Mail gültig?
-    if( !filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) :
+    if( ! filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) :
         return STATUS_USER_EMAIL_MALFORMED;
     endif;
 
 
     // Ist die E-Mail des Users bereits im Gebrauch?
-    if( TRUE === cmkk_is_email_in_use( $event_id, $user_email ) ) :
+    if( true === cmkk_is_email_in_use( $event_id, $user_email ) ) :
         return STATUS_USER_EMAIL_IN_USE;
     endif;
 
@@ -293,11 +293,10 @@ function cmkk_display_notice( $code )
     );
 
     if( array_key_exists( $code, $status ) ) :
-?>
-<div class="cmkk-notice <?php echo $status[ $code ]['style']; ?>">
-    <p><?php echo $status[ $code ]['notice']; ?></p>
-</div>
-<?php
+    ?>
+    <div class="cmkk-notice <?php echo $status[ $code ]['style']; ?>">
+        <p><?php echo $status[ $code ]['notice']; ?></p>
+    </div>
+    <?php
     endif;
-
 }
