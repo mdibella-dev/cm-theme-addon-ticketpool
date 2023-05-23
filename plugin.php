@@ -17,12 +17,20 @@
  * @package cm-theme-addon-kartenkontingent
  */
 
+namespace cm_theme_addon_kartenkontingent;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
 
 
-/** Konstanten */
+/** Variables and definitions */
+
+define( __NAMESPACE__ . '\PLUGIN_VERSION', '1.0.0' );
+define( __NAMESPACE__ . '\PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( __NAMESPACE__ . '\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 define( 'TABLE_POOL', 'cmkk_contingent_pool' );
 define( 'TABLE_USER', 'cmkk_contingent_user' );
@@ -37,96 +45,29 @@ define( 'STATUS_USER_EMAIL_MALFORMED', 202 );
 define( 'STATUS_USER_EMAIL_IN_USE',    203 );
 define( 'STATUS_CANT_STORE_USER',      204 );
 
-define( 'PLUGIN_PATH',   plugin_dir_path( __FILE__ ) );
-define( 'EXPORT_FOLDER', 'cmkk' );
+define( 'EXPORT_FOLDER', 'cm-kk' );
 
 
-define( 'EVENT_ID', '1' ); // Workaround: gegenwärtig Unterstützung nur für ein Event
+// Workaround: currently support only one event
 
-
-
-/* Funktionsbibliothek einbinden */
-
-require_once( PLUGIN_PATH . 'includes/classes/class-modified-list-table.php' );
-require_once( PLUGIN_PATH . 'includes/classes/class-pool-list-table.php' );
-require_once( PLUGIN_PATH . 'includes/classes/class-user-list-table.php' );
-require_once( PLUGIN_PATH . 'includes/shortcodes/shortcode-form.php' );
-require_once( PLUGIN_PATH . 'includes/backend/mainpage.php' );
-require_once( PLUGIN_PATH . 'includes/core.php' );
+define( 'EVENT_ID', '1' );
 
 
 
-/**
- * Zentrale Aktivierungsfunktion für das Plugin
- *
- * @since 1.0.0
- */
+/** Include files */
 
-function cmkk_plugin_activation()
-{
-    global $wpdb;
-
-
-    // Funktionsbibliothek einbinden
-    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+require_once( PLUGIN_DIR . 'includes/classes/class-modified-list-table.php' );
+require_once( PLUGIN_DIR . 'includes/classes/class-pool-list-table.php' );
+require_once( PLUGIN_DIR . 'includes/classes/class-user-list-table.php' );
+require_once( PLUGIN_DIR . 'includes/shortcodes/shortcode-form.php' );
+require_once( PLUGIN_DIR . 'includes/admin/mainpage.php' );
+require_once( PLUGIN_DIR . 'includes/core.php' );
+require_once( PLUGIN_DIR . 'includes/backend.php' );
+require_once( PLUGIN_DIR . 'includes/setup.php' );
 
 
-    // Tabellen einrichten falls nicht vorhanden.
-    $table_charset_collate = $wpdb->get_charset_collate();
-    $table_name            = $wpdb->prefix . TABLE_POOL;
-
-    if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
-
-        $sql = "CREATE TABLE $table_name (
-            event_id            INT UNSIGNED NOT NULL,
-            contingent_id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
-            contingent_size     INT UNSIGNED DEFAULT 0,
-            contingent_provider VARCHAR(255) DEFAULT '' NOT NULL,
-            contingent_provided DATETIME DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (contingent_id)
-            )
-            COLLATE $table_charset_collate;";
-
-        dbDelta( $sql );
-
-    endif;
-
-    $table_name = $wpdb->prefix . TABLE_USER;
-
-    if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
-
-        $sql = "CREATE TABLE $table_name (
-            event_id            INT UNSIGNED NOT NULL,
-            user_id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
-            user_forename       VARCHAR(255) DEFAULT '' NOT NULL,
-            user_lastname       VARCHAR(255) DEFAULT '' NOT NULL,
-            user_email          VARCHAR(255) DEFAULT '' NOT NULL,
-            user_registered     DATETIME DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (user_id)
-            )
-            COLLATE $table_charset_collate;";
-
-        dbDelta( $sql );
-    endif;
 
 
-    // Optionen einrichten falls nicht vorhanden
-    if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, 'Vielen Dank für Ihre Teilnahme' );
-    endif;
-
-    if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
-        add_option( OPTION_MAIL_MESSAGE, 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert. In den kommenden Tagen erhalten Sie eine weitere E-Mails mit zusätzlichen Informationen sowie den Zugangsdaten zur Veranstaltung.<br><br>Bis dahin alles Gute,<br>Ihr Team vom IWC.<br><br>Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht hierauf.' );
-    endif;
-
-
-    // Pfad für Export-Dateien anlegen
-    $upload_dir = wp_upload_dir();
-
-    wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
-}
-
-register_activation_hook( __FILE__, 'cmkk_plugin_activation' );
 
 
 
