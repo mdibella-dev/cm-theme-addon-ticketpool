@@ -39,14 +39,11 @@ add_action( 'init', __NAMESPACE__ . '\plugin_init' );
 
 function plugin_activation()
 {
+    // Set up tables if they do not exist
     global $wpdb;
 
-
-    // Include files
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-
-    // Set up tables if they do not exist
     $table_charset_collate = $wpdb->get_charset_collate();
     $table_name            = $wpdb->prefix . TABLE_POOL;
 
@@ -128,9 +125,37 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
 
 function plugin_uninstall()
 {
-    // Do something!
-    // Delete options!
-    // Delete custom tables!
+    // Remove tables if present
+    global $wpdb;
+
+    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+    $table_name = $wpdb->prefix . TABLE_POOL;
+
+    if( $table_name == $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
+        $sql = "DROP TABLE $table_name;";
+
+        dbDelta( $sql );
+    endif;
+
+    $table_name = $wpdb->prefix . TABLE_USER;
+
+    if( $table_name == $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
+        $sql = "DROP TABLE $table_name;";
+
+        dbDelta( $sql );
+    endif;
+
+
+
+    // Remove options if present
+    if( true == get_option( OPTION_MAIL_SUBJECT ) ) :
+        delete_option( OPTION_MAIL_SUBJECT );
+    endif;
+
+    if( true == get_option( OPTION_MAIL_MESSAGE ) ) :
+        delete_option( OPTION_MAIL_MESSAGE );
+    endif;
 }
 
 register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );

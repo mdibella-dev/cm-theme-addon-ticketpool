@@ -28,6 +28,7 @@ translation-ready, shortcodes
 * New: Add README.md
 * New: Add CHANGELOG.md template
 * New: Add MIT license
+* New: Remove table and options on uninstall
 * Improve: Assets folder and file naming
 * Improve: Change /inc/ to /includes/
 * Improve: Move shortcode to /shortcodes/
