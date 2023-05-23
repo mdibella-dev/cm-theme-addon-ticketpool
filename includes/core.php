@@ -12,13 +12,16 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Exportiert die Teilnehmerliste als CSV.
+ * Exports the list of participants as CSV.
  *
- * @since  1.0.0
- * @param  int    $event_id    Das Event dessen Daten abgefragt werden soll (in Zukunft).
- * @return bool                false im Fehlerfall.
- * @return array               Informationen zur Export-Datei im Erfolgsfall.
- * @todo   Anwendung von $event-id innerhalb der SQL-Abfrage
+ * @since 1.0.0
+ *
+ * @param int $event_id The ID of the event.
+ *
+ * @return bool  In case of error: false.
+ * @return array In case of success Information about the export file.
+ *
+ * @todo Use of $event-id within the SQL query.
  */
 
 function cmkk_create_user_export_file( $event_id = 0 )
@@ -31,18 +34,18 @@ function cmkk_create_user_export_file( $event_id = 0 )
         'url'  => $uploads['baseurl'] . '/' . EXPORT_FOLDER . '/' . $file_name,
     );
 
-    // Datei öffnen
+    // Open file
     $file = fopen( $file_info['path'], 'w' );
 
     if( false === $file) :
         return null;
     endif;
 
-    // Kopfzeile in Datei schreiben
+    // Write header into file
     $row = array( 'Nachname', 'Vorname', 'E-Mail', 'Anmeldezeitpunkt' );
     fputcsv( $file, $row);
 
-    // Daten abrufen und in Datei schreiben
+    // Retrieve data and write to file
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_USER;
@@ -53,7 +56,7 @@ function cmkk_create_user_export_file( $event_id = 0 )
         fputcsv( $file, $row );
     endforeach;
 
-    // Datei schließen
+    // Close file
     fclose( $file );
 
     return $file_info;
@@ -62,11 +65,13 @@ function cmkk_create_user_export_file( $event_id = 0 )
 
 
 /**
- * Gibt die Gesamtzahl der zur Verfügung stehenden Karten zurück.
+ * Returns the total number of tickets available.
  *
- * @since  1.0.0
- * @param  int $event_id    Die ID des Events.
- * @return int              Die Gesamtzahl der Tickets.
+ * @since 1.0.0
+ *
+ * @param int $event_id The ID of the event.
+ *
+ * @return int The total number of tickets.
  */
 
 function cmkk_get_total_amount( $event_id )
@@ -90,11 +95,13 @@ function cmkk_get_total_amount( $event_id )
 
 
 /**
- * Ermittelt die Anzahl der vom Gesamtkontingent bereits genutzten Plätze.
+ * Determines the number of tickets already used from the total quota.
  *
- * @since  1.0.0
- * @param  int $event_id    Die ID des Events.
- * @return int              Die genutzten Plätze.
+ * @since 1.0.0
+ *
+ * @param int $event_id The ID of the event.
+ *
+ * @return int The tickets used.
  */
 
 function cmkk_get_used_amount( $event_id )
@@ -115,12 +122,13 @@ function cmkk_get_used_amount( $event_id )
 
 
 /**
- * Ermittelt die Anzahl der vom Gesamtkontingent noch zur Verfügung stehenden Plätze.
+ * Determines the number of tickets still available from the total quota.
  *
- * @since  1.0.0
- * @param  int $event_id    Die ID des Events.
- * @return int              Die noch freien Plätze (im Zweifel 0).
- * @todo   Validation der Übergabewerte
+ * @since 1.0.0
+ *
+ * @param int $event_id The ID of the event.
+ *
+ * @return int The tickets that are still free (in doubt 0).
  */
 
 function cmkk_get_free_amount( $event_id )
@@ -136,13 +144,15 @@ function cmkk_get_free_amount( $event_id )
 
 
 /**
- * Erweitert den Kartenpool durch Hinzufügen eines Kartenkontingents.
+ * Expands the ticket pool by adding a ticket quota.
  *
  * @since 1.0.0
- * @param int    $event_id               Die ID des Events.
- * @param int    $contingent_size        Die Anzahl der Plätze im Kartenkontingent.
- * @param string $contingent_provider    Name des Sponsors des Kartengontingents.
- * @todo  Validation der Übergabewerte
+ *
+ * @param int    $event_id            The ID of the event.
+ * @param int    $contingent_size     The number of tickets in the ticket contingent.
+ * @param string $contingent_provider Name of the sponsor of the ticket quota.
+ *
+ * @return bool true/false depending on the outcome.
  */
 
 function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider )
@@ -168,12 +178,16 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
 
 
 /**
- * Prüft, ob die angegebene $user_email für ein bestimmtes Event ($event_id) bereits genutzt wurde.
+ * Checks if the given $user_email has already been used for a given event ($event_id).
  *
  * @since  1.0.0
- * @param  int    $event_id      Die ID des Events.
- * @param  string $user_email    Die angegebene E-Mail-Adresse.
- * @return bool                  Das Prüfungsergebnis (true: E-Mail-Adresse ist bereits im Gebrauch, andernfalls: false)
+ *
+ * @param  int    $event_id   The ID of the event.
+ * @param  string $user_email The specified email.
+ *
+ * @return bool The check result
+ *              - true:  the email is already in use.
+ *              - false: any other case.
  */
 
 function cmkk_is_email_in_use( $event_id, $user_email )
@@ -190,77 +204,81 @@ function cmkk_is_email_in_use( $event_id, $user_email )
 
 
 /**
- * Fügt einen Benutzer hinzu.
+ * Adds a user.
  *
  * @since 1.0.0
- * @param  int    $event_id        Die ID des Events.
- * @param  string $user_lastname   Der angegebene Vorname.
- * @param  string $user_forename   Der angegebene Nachname.
- * @param  string $user_email      Die angegebene E-Mail-Adresse
- * @return int                     Ein Statuscode.
- * @todo   BCC-Adresse im Backend einrichten
+ *
+ * @param int    $event_id      The ID of the event.
+ * @param string $user_lastname The given last name.
+ * @param string $user_forename The given fore name.
+ * @param string $user_email    The given email.
+ *
+ * @return int A status code.
  */
 
 function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 {
-    // Ist noch ein Platz frei?
+    // Is there still a ticket available?
     if( 0 === cmkk_get_free_amount( $event_id ) ) :
         return STATUS_NOTHING_FREE;
     endif;
 
 
-    // Leere Felder übergeben?
+    // Pass empty fields?
     if( empty( $user_forename ) or empty( $user_lastname ) or empty( $user_email ) ):
         return STATUS_USER_FIELDS_EMPTY;
     endif;
 
 
-    // Ist das Format der E-Mail gültig?
+    // Is the format of the email valid?
     if( ! filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) :
         return STATUS_USER_EMAIL_MALFORMED;
     endif;
 
 
-    // Ist die E-Mail des Users bereits im Gebrauch?
+    // Is the email already in use?
     if( true === cmkk_is_email_in_use( $event_id, $user_email ) ) :
         return STATUS_USER_EMAIL_IN_USE;
     endif;
 
 
-    // User eintragen
-    global  $wpdb;
-            $table_name = $wpdb->prefix . TABLE_USER;
-            $table_data = array(
-                'event_id'      => $event_id,
-                'user_lastname' => $user_lastname,
-                'user_forename' => $user_forename,
-                'user_email'    => $user_email,
-            );
+    // Register user
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . TABLE_USER;
+    $table_data = array(
+        'event_id'      => $event_id,
+        'user_lastname' => $user_lastname,
+        'user_forename' => $user_forename,
+        'user_email'    => $user_email,
+    );
 
 
-    // War die Eintragung des Users erfolgreich?
-    if( 0 === $wpdb->insert( $table_name, $table_data ) ) :
-        return STATUS_CANT_STORE_USER;
+    // Was the user's registration successful?
+    if( 0 !== $wpdb->insert( $table_name, $table_data ) ) :
+
+        // Send confirmation mail to user
+        $mail_to      = $user_email;
+        $mail_subject = get_option( OPTION_MAIL_SUBJECT );
+        $mail_message = get_option( OPTION_MAIL_MESSAGE );
+        $mail_headers = array( 'bcc:kongress@pwg-seminare.de' );
+        $result       = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
+
+        return STATUS_USER_ADDED;
+
     endif;
 
-
-    // E-Mail an User senden
-    $mail_to      = $user_email;
-    $mail_subject = get_option( OPTION_MAIL_SUBJECT );
-    $mail_message = get_option( OPTION_MAIL_MESSAGE );
-    $mail_headers = array( 'bcc:r.keller@pwg-seminare.de' );
-    $result       = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
-
-    return STATUS_USER_ADDED;
+    return STATUS_CANT_STORE_USER;
 }
 
 
 
 /**
- * Gibt einen Hinweis passend zum jeweiligen Statuscode aus
+ * Outputs a message matching the respective status code.
  *
  * @since 1.0.0
- * @param int $code    Der Statuscode.
+ *
+ * @param int The status code.
  */
 
 function cmkk_display_notice( $code )
