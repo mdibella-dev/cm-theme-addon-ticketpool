@@ -50,21 +50,21 @@ function cmkk_show_tab_03()
 
     ?>
     <div class="form-wrap">
-        <h2><?php echo __( 'E-Mail-Vorlage für Teilnehmer', 'cmkk'); ?></h2>
+        <h2><?php echo __( 'E-Mail-Vorlage für Teilnehmer', 'cm-tp'); ?></h2>
         <form id="cmkk-mail-template-form" method="post" class="validate">
 
             <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
             <table class="form-table">
                 <tr>
-                    <th><?php echo __( 'Betreffzeile', 'cmkk' ); ?></th>
+                    <th><?php echo __( 'Betreffzeile', 'cm-tp' ); ?></th>
                     <td>
                         <input type="text" name="subject" id="subject" type="text" value="<?php echo $subject; ?>" size="40" aria-required="true">
                     </td>
                 </tr>
 
                 <tr>
-                    <th><?php echo __( 'Nachricht', 'cmkk' ); ?></th>
+                    <th><?php echo __( 'Nachricht', 'cm-tp' ); ?></th>
                     <td>
                         <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
                     </td>
@@ -73,7 +73,7 @@ function cmkk_show_tab_03()
                 <tr>
                     <th></th>
                     <td>
-                        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cmkk' ); ?></button>
+                        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Aktualisieren', 'cm-tp' ); ?></button>
                     </td>
                 </tr>
             </table>

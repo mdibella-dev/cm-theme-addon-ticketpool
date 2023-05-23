@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
 function plugin_init()
 {
     // Load text domain, use relative path to the plugin's language folder
-    load_plugin_textdomain( 'cm-kk', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
+    load_plugin_textdomain( 'cm-tp', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
 }
 
 add_action( 'init', __NAMESPACE__ . '\plugin_init' );
@@ -84,11 +84,11 @@ function plugin_activation()
 
     /// Set up options if not present
     if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, 'Vielen Dank für Ihre Teilnahme' );
+        add_option( OPTION_MAIL_SUBJECT, __( 'Vielen Dank für Ihre Teilnahme', 'cm-tp' ) );
     endif;
 
     if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
-        add_option( OPTION_MAIL_MESSAGE, 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert. In den kommenden Tagen erhalten Sie eine weitere E-Mails mit zusätzlichen Informationen sowie den Zugangsdaten zur Veranstaltung.<br><br>Bis dahin alles Gute,<br>Ihr Team vom IWC.<br><br>Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht hierauf.' );
+        add_option( OPTION_MAIL_MESSAGE, __( 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert. In den kommenden Tagen erhalten Sie eine weitere E-Mails mit zusätzlichen Informationen sowie den Zugangsdaten zur Veranstaltung.<br><br>Bis dahin alles Gute,<br>Ihr Team vom IWC.<br><br>Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht hierauf.', 'cm-tp' ) );
     endif;
 
 

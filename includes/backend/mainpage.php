@@ -24,8 +24,8 @@ defined( 'ABSPATH' ) or exit;
 function add_mainpage()
 {
     add_menu_page(
-        __( 'Kartenkontingente', 'cmkk' ),
-        __( 'Kartenkontingente', 'cmkk' ),
+        __( 'Kartenkontingente', 'cm-tp' ),
+        __( 'Kartenkontingente', 'cm-tp' ),
         'manage_options',
         'cmkk_mainpage',
         __NAMESPACE__ . '\show_mainpage',
@@ -51,15 +51,15 @@ function show_mainpage()
     $tabs = array(
         'tab-01' => array(
             'callback' => "cmkk_show_tab_01",
-            'title'    => __( 'Übersicht', 'cmkk'),
+            'title'    => __( 'Übersicht', 'cm-tp'),
         ),
         'tab-02' => array(
             'callback' => "cmkk_show_tab_02",
-            'title'    => __( 'Einzelne Kartenkontigente', 'cmkk'),
+            'title'    => __( 'Einzelne Kartenkontigente', 'cm-tp'),
         ),
         'tab-03' => array(
             'callback' => "cmkk_show_tab_03",
-            'title'    => __( 'E-Mail-Benachrichtigung', 'cmkk'),
+            'title'    => __( 'E-Mail-Benachrichtigung', 'cm-tp'),
         ),
     );
 
@@ -75,7 +75,7 @@ function show_mainpage()
 
     ?>
     <div class="wrap">
-        <h1 class="wp-heading-inline"><?php echo __( 'Kartenkontingente', 'cmkk' )?></h1>
+        <h1 class="wp-heading-inline"><?php echo __( 'Kartenkontingente', 'cm-tp' )?></h1>
         <h2 class="nav-tab-wrapper">
         <?php
         foreach( $tabs as $key => $config ) :

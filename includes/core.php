@@ -46,7 +46,12 @@ function cmkk_create_user_export_file( $event_id = 0 )
     endif;
 
     // Write header into file
-    $row = array( 'Nachname', 'Vorname', 'E-Mail', 'Anmeldezeitpunkt' );
+    $row = array(
+        __( 'Nachname','cm-tp' ),
+        __( 'Vorname','cm-tp' ),
+        __( 'E-Mail','cm-tp' ),
+        __( 'Anmeldezeitpunkt','cm-tp' )
+    );
     fputcsv( $file, $row);
 
     // Retrieve data and write to file
@@ -289,27 +294,27 @@ function cmkk_display_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED => array(
-            'notice' => __( 'Ihre Anmeldung war erfolgreich!', 'cmkk' ),
+            'notice' => __( 'Ihre Anmeldung war erfolgreich!', 'cm-tp' ),
             'style'  => 'cmkk-notice-sucess',
         ),
         STATUS_NOTHING_FREE => array(
-            'notice' => __( 'Leider ist derzeit kein freier Platz im Kartenkontingent verfügbar!<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.', 'cmkk' ),
+            'notice' => __( 'Leider ist derzeit kein freier Platz im Kartenkontingent verfügbar!<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.', 'cm-tp' ),
             'style'  => 'cmkk-notice-info',
         ),
         STATUS_USER_FIELDS_EMPTY => array(
-            'notice' => __( 'Ein oder mehrere Felder sind nicht ausgefüllt.', 'cmkk' ),
+            'notice' => __( 'Ein oder mehrere Felder sind nicht ausgefüllt.', 'cm-tp' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_MALFORMED => array(
-            'notice' => __( 'Bitte geben Sie eine korrekte E-Mail-Adresse ein.', 'cm_kk' ),
+            'notice' => __( 'Bitte geben Sie eine korrekte E-Mail-Adresse ein.', 'cm-tp' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_IN_USE => array(
-            'notice' => __( 'Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht ein weiteres mal verwendet werden.', 'cm_kk' ),
+            'notice' => __( 'Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht ein weiteres mal verwendet werden.', 'cm-tp' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_CANT_STORE_USER => array(
-            'notice' => __( 'Ein technischer Fehler ist aufgetreten.', 'cmkk' ),
+            'notice' => __( 'Ein technischer Fehler ist aufgetreten.', 'cm-tp' ),
             'style'  => 'cmkk-notice-error',
         ),
     );

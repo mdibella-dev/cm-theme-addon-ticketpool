@@ -38,10 +38,10 @@ function cmkk_show_tab_01()
         $free_amount  = cmkk_get_free_amount( EVENT_ID );
 
         if( 0 == $total_amount ) :
-            echo __( 'Derzeit stehen keine Plätze zur Verfügung.', 'cmkk' );
+            echo __( 'Derzeit stehen keine Plätze zur Verfügung.', 'cm-tp' );
         else :
             echo sprintf(
-                __( 'Insgesamt stehen %1$s Plätze zur Verfügung, davon sind Plätze %2$s unbesetzt.', 'cmkk' ),
+                __( 'Insgesamt stehen %1$s Plätze zur Verfügung, davon sind Plätze %2$s unbesetzt.', 'cm-tp' ),
                 $total_amount,
                 $free_amount,
             );
@@ -52,7 +52,7 @@ function cmkk_show_tab_01()
     // Show possibility to download the export file
     if( false !== $file_info ) :
     ?>
-        <a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo __( 'Daten als CSV exportieren', 'cmkk'); ?></a>
+        <a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo __( 'Daten als CSV exportieren', 'cm-tp'); ?></a>
     <?php
     endif;
 }

@@ -78,19 +78,19 @@ function cmkk_shortcode_form( $atts, $content = null )
     <form class="cmkk-form" method="post" action="">
         <table>
             <tr>
-                <th><?php echo __( 'Ihr Vorname', 'cmkk'); ?></th>
+                <th><?php echo __( 'Ihr Vorname', 'cm-tp'); ?></th>
                 <td>
                     <input id="vorname" name="cmkk_forename" type="text" value="<?php echo $user_forename; ?>">
                 </td>
             </tr>
             <tr>
-                <th><?php echo __( 'Ihr Nachname', 'cmkk'); ?></th>
+                <th><?php echo __( 'Ihr Nachname', 'cm-tp'); ?></th>
                 <td>
                     <input id="nachname" name="cmkk_lastname" type="text"value="<?php echo $user_lastname; ?>">
                 </td>
             </tr>
             <tr>
-                <th><?php echo __( 'Ihre E-Mail-Adresse', 'cmkk'); ?></th>
+                <th><?php echo __( 'Ihre E-Mail-Adresse', 'cm-tp'); ?></th>
                 <td>
                     <input id="email" name="cmkk_email" type="email"value="<?php echo $user_email; ?>">
                 </td>
@@ -101,7 +101,7 @@ function cmkk_shortcode_form( $atts, $content = null )
                     <div class="cmkk-gdpr">
                         <input type="checkbox" id="gdpr" name="gdpr">
                         <label for="gdpr"><?php echo sprintf(
-                            __( 'Ich willige ein, dass meine Daten zum Zwecke der Kontaktaufnahme gespeichert und verarbeitet werden. Weitere Informationen hierzu in der <a href="%1$s">Datenschutzerklärung</a>.', 'cmkk' ),
+                            __( 'Ich willige ein, dass meine Daten zum Zwecke der Kontaktaufnahme gespeichert und verarbeitet werden. Weitere Informationen hierzu in der <a href="%1$s">Datenschutzerklärung</a>.', 'cm-tp' ),
                             get_privacy_policy_url(),
                         );
                         ?></label>
@@ -111,7 +111,7 @@ function cmkk_shortcode_form( $atts, $content = null )
             <tr>
                 <th>
                     <div class="wp-block-button">
-                        <button id="cmkk-submit" type="submit" class="wp-block-button__link" name="action" value="add" disabled="disabled"><?php echo __( 'Teilnahme anfordern', 'cmkk' );?></button>
+                        <button id="cmkk-submit" type="submit" class="wp-block-button__link" name="action" value="add" disabled="disabled"><?php echo __( 'Teilnahme anfordern', 'cm-tp' );?></button>
                     </div>
                 </th>
                 <td></td>
@@ -120,7 +120,13 @@ function cmkk_shortcode_form( $atts, $content = null )
         <input id="event-id" name="event-id" type="hidden" value="<?php echo $event_id; ?>">
     </form>
     <?php
-    wp_enqueue_script( 'cmkk-script', esc_url( plugins_url( 'assets/build/js/frontend.js', dirname( __FILE__ ) ) ) . '', array( 'jquery' ), false, true );        //?
+    wp_enqueue_script(
+        'cmkk-script',
+        esc_url( plugins_url( 'assets/build/js/frontend.js', dirname( __FILE__ ) ) ) . '',
+        array( 'jquery' ),
+        false,
+        true
+    );    
 
     $output_buffer .= ob_get_contents();
     ob_end_clean();
