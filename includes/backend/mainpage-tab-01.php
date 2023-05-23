@@ -1,6 +1,6 @@
 <?php
 /**
- * Tab-01 der Hauptseite
+ * The first tab of the main page.
  *
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */

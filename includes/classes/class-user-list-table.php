@@ -1,6 +1,6 @@
 <?php
 /**
- * Klasse MDB_User_List_Table
+ * Class MDB_User_List_Table
  *
  * @author  Marco Di Bella
  * @package cm-theme-addon-kartenkontingent

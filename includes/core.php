@@ -1,6 +1,6 @@
 <?php
 /**
- * Core-Funktionen
+ * Core functions.
  *
  * @author  Marco Di Bella
  * @package cm-theme-addon-kartenkontingent

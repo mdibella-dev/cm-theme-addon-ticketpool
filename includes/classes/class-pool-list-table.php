@@ -1,6 +1,6 @@
 <?php
 /**
- * Klasse MDB_Pool_List_Table
+ * Class MDB_Pool_List_Table
  *
  * @author  Marco Di Bella
  * @package cm-theme-addon-kartenkontingent

@@ -1,6 +1,6 @@
 <?php
 /**
- * Tab-03 der Hauptseite
+ * The third tab of the main page.
  *
  * @author  Marco Di Bella
  * @package cm-theme-addon-kartenkontingent

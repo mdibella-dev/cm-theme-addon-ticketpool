@@ -1,6 +1,6 @@
 <?php
 /**
- * Hauptseite des Plugins
+ * Main page of the plugin.
  *
  * @author  Marco Di Bella
  * @package cm-theme-addon-kartenkontingent
