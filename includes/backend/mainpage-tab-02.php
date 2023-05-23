@@ -3,7 +3,7 @@
  * The second tab of the main page.
  *
  * @author  Marco Di Bella
- * @package cm-theme-addon-kartenkontingent
+ * @package cm-theme-addon-ticketpool
  */
 
 

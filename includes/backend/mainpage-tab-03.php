@@ -3,7 +3,7 @@
  * The third tab of the main page.
  *
  * @author  Marco Di Bella
- * @package cm-theme-addon-kartenkontingent
+ * @package cm-theme-addon-ticketpool
  */
 
 
@@ -47,7 +47,7 @@ function cmkk_show_tab_03()
 
 
     /** Output the tab */
-    
+
     ?>
     <div class="form-wrap">
         <h2><?php echo __( 'E-Mail-Vorlage für Teilnehmer', 'cmkk'); ?></h2>
