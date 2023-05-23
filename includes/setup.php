@@ -27,7 +27,7 @@ function plugin_init()
     load_plugin_textdomain( 'cm-kk', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
 }
 
-add_action( 'init', 'cm_theme_addon_kartenkontingent\plugin_init' );
+add_action( 'init', __NAMESPACE__ . '\plugin_init' );
 
 
 
@@ -101,7 +101,7 @@ function plugin_activation()
     wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
 }
 
-register_activation_hook( __FILE__, 'cm_theme_addon_kartenkontingent\plugin_activation' );
+register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
 
 
 
@@ -116,7 +116,7 @@ function plugin_deactivation()
     // Do something!
 }
 
-register_deactivation_hook( __FILE__, 'cm_theme_addon_kartenkontingent\plugin_deactivation' );
+register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
 
 
 
@@ -133,7 +133,7 @@ function plugin_uninstall()
     // Delete custom tables!
 }
 
-register_uninstall_hook( __FILE__, 'cm_theme_addon_kartenkontingent\plugin_uninstall' );
+register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );
 
 
 
@@ -154,4 +154,4 @@ function plugin_enqueue_scripts()
     );
 }
 
-add_action( 'wp_enqueue_scripts', 'cm_theme_addon_kartenkontingent\plugin_enqueue_scripts', 9990 );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\plugin_enqueue_scripts', 9990 );
