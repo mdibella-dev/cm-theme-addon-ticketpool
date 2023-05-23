@@ -4,9 +4,7 @@
 
 <br>
 
-### RELEASE VERSION
-Released: RELEASE DATE (dd-mm-yyyy)
+### 1.0
+Released: 2020-11-06
 
-* New:
-* Improve:
-* Bugfix
+* Initial commit
