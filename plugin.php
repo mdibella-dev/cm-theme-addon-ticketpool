@@ -1,11 +1,18 @@
 <?php
-/*
-Plugin Name:     Marco Di Bella - Kartenkontingent
-Author:          Marco Di Bella
-Author URI:      https://www.marcodibella.de
-Description:     Addon zu Congressomat
-Version:         1.0.0
-
+/**
+ * Plugin Name:         CM &mdash; Kartenkontngent (addon to CM theme)
+ * Plugin URI:          https://github.com/mdibella-dev/cm-theme-addon-faq
+ * Description:         A system to participate from a pool of sponsored tickets.
+ * Author:              Marco Di Bella
+ * Author URI:          https://www.marcodibella.de
+ * License:             MIT License
+ * Requires at least:   5
+ * Tested up to:        6.2
+ * Requires PHP:        7
+ * Version:             1.0.0
+ * Text Domain:         cm-kk
+ * Domain Path:         /languages
+ *
  * @author  Marco Di Bella
  * @package cm-theme-addon-kartenkontingent
  */

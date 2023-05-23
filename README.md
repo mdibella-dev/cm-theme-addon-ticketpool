@@ -1,4 +1,4 @@
-#  CM &mdash; FAQ (addon to CM theme)
+#  CM &mdash; Kartenkontngent (addon to CM theme)
 This plugin is an addon to the WordPress based [CM theme](https://github.com/mdibella-dev/cm).
 
 <br>
@@ -31,7 +31,7 @@ translation-ready
 * Improve: Assets folder and file naming
 * Improve: Change /inc/ to /includes/
 * Improve: Move shortcode to /shortcodes/
-* Improve: Move all backend files to /backend/ 
+* Improve: Move all backend files to /backend/
 
 
 
