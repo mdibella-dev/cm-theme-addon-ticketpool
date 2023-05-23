@@ -5,7 +5,10 @@ Author:          Marco Di Bella
 Author URI:      https://www.marcodibella.de
 Description:     Addon zu Congressomat
 Version:         1.0.0
-*/
+
+ * @author  Marco Di Bella
+ * @package cm-theme-addon-kartenkontingent
+ */
 
 
 defined( 'ABSPATH' ) or exit;

@@ -2,7 +2,8 @@
 /**
  * Klasse MDB_Pool_List_Table
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella
+ * @package cm-theme-addon-kartenkontingent
  */
 
 

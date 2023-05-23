@@ -2,7 +2,8 @@
 /**
  * Core-Funktionen
  *
- * @author  Marco Di Bella <mdb@marcodibella.de>
+ * @author  Marco Di Bella
+ * @package cm-theme-addon-kartenkontingent
  */
 
 
