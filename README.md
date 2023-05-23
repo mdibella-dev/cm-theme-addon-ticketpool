@@ -26,6 +26,7 @@ translation-ready
 ### Latest changes to the main branch
 
 * New: Add README.md
+* New: Add CHANGELOG.md template
 * Improve: Change /inc/ to /includes/
 
 
