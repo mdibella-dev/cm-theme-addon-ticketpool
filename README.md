@@ -31,6 +31,7 @@ translation-ready
 * Improve: Assets folder and file naming
 * Improve: Change /inc/ to /includes/
 * Improve: Move shortcode to /shortcodes/
+* Improve: Move all backend files to /backend/ 
 
 
 

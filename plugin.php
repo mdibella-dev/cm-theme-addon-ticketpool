@@ -41,8 +41,8 @@ require_once( PLUGIN_PATH . 'includes/classes/class-modified-list-table.php' );
 require_once( PLUGIN_PATH . 'includes/classes/class-pool-list-table.php' );
 require_once( PLUGIN_PATH . 'includes/classes/class-user-list-table.php' );
 require_once( PLUGIN_PATH . 'includes/shortcodes/shortcode-form.php' );
+require_once( PLUGIN_PATH . 'includes/backend/mainpage.php' );
 require_once( PLUGIN_PATH . 'includes/core.php' );
-require_once( PLUGIN_PATH . 'includes/mainpage.php' );
 
 
 
