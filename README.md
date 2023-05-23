@@ -32,6 +32,7 @@ translation-ready, shortcodes
 * Improve: Change /inc/ to /includes/
 * Improve: Move shortcode to /shortcodes/
 * Improve: Move all backend files to /backend/
+* Improve: Translate documentation to EN
 
 
 
