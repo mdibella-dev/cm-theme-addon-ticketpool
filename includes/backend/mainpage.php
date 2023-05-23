@@ -6,51 +6,46 @@
  * @package cm-theme-addon-kartenkontingent
  */
 
+namespace cm_theme_addon_kartenkontingent;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
 
 
-/** Funktionsbibliothek einbinden */
-
-require_once( PLUGIN_PATH . 'inc/tabs/mainpage-tab-01.php' );
-require_once( PLUGIN_PATH . 'inc/tabs/mainpage-tab-02.php' );
-require_once( PLUGIN_PATH . 'inc/tabs/mainpage-tab-03.php' );
-
-
-
 /**
- * Erzeugt einen Menüpunkt im Backend.
+ * Creates a menu item in the backend for the main page.
  *
  * @since 1.0.0
- * @todo  In das Congressomat-Menü verschieben (setzt Umbau von Congressomat voraus).
  */
 
-function cmkk_add_mainpage_to_admin_menu()
+function add_mainpage()
 {
     add_menu_page(
         __( 'Kartenkontingente', 'cmkk' ),
         __( 'Kartenkontingente', 'cmkk' ),
         'manage_options',
         'cmkk_mainpage',
-        'cmkk_show_mainpage',
+        __NAMESPACE__ . '\show_mainpage',
         'dashicons-tickets',
         20,
     );
 }
 
-add_action( 'admin_menu', 'cmkk_add_mainpage_to_admin_menu' );
+add_action( 'admin_menu', __NAMESPACE__ . '\add_mainpage' );
 
 
 
 /**
- * Anzeige der Hauptseite.
+ * Displays the main page.
  *
  * @since  1.0.0
  * @source http://qnimate.com/add-tabs-using-wordpress-settings-api/
  */
 
-function cmkk_show_mainpage()
+function show_mainpage()
 {
 ?>
 <div class="wrap">
@@ -103,49 +98,3 @@ function cmkk_show_mainpage()
 </div>
 <?php
 }
-
-
-
-/**
- * Anzeige der administrativen Hinweise.
- *
- * @since 1.0.0
- * @see   https://digwp.com/2016/05/wordpress-admin-notices/
- */
-
-function cmkk_admin_notice()
-{
-    if( isset( $_GET['cmkk-status'] ) ) :
-
-        switch( $_GET['cmkk-status'] ) :
-
-            case '1':
-            ?>
-            <div class="notice notice-information is-dismissible">
-                <p><?php echo __( 'Ein neuer Teilnehmer hat sich über das Kartenkontingent angemeldet.' , 'cmkk' ); ?></p>
-            </div>
-            <?php
-            break;
-
-            case '2':
-            ?>
-            <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'E-Mail-Vorlage wurde aktualisiert.' , 'cmkk' ); ?></p>
-            </div>
-            <?php
-            break;
-
-            case '3':
-            ?>
-            <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'Das Kartenkontingent wurde erweitert.' , 'cmkk' ); ?></p>
-            </div>
-            <?php
-            break;
-
-        endswitch;
-
-    endif;
-}
-
-add_action( 'admin_notices', 'cmkk_admin_notice' );
