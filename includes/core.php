@@ -3,9 +3,13 @@
  * Core functions.
  *
  * @author  Marco Di Bella
- * @package cm-theme-addon-kartenkontingent
+ * @package cm-theme-addon-ticketpool
  */
 
+namespace cm_theme_addon_kartenkontingent;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
@@ -144,7 +148,7 @@ function cmkk_get_free_amount( $event_id )
 
 
 /**
- * Expands the ticket pool by adding a ticket quota.
+ * Expands the ticket pool by adding a ticket contingent.
  *
  * @since 1.0.0
  *
