@@ -127,4 +127,4 @@ function cmkk_shortcode_form( $atts, $content = null )
     return $output_buffer;
 }
 
-add_shortcode( 'cmkk-form', 'cm_theme_addon_kartenkontingent\cmkk_shortcode_form' );
+add_shortcode( 'cmkk-form', __NAMESPACE__ . '\cmkk_shortcode_form' );
