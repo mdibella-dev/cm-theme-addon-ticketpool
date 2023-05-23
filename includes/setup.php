@@ -42,11 +42,11 @@ function plugin_activation()
     global $wpdb;
 
 
-    // Funktionsbibliothek einbinden
+    // Include files
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
 
-    // Tabellen einrichten falls nicht vorhanden.
+    // Set up tables if they do not exist
     $table_charset_collate = $wpdb->get_charset_collate();
     $table_name            = $wpdb->prefix . TABLE_POOL;
 
@@ -85,7 +85,7 @@ function plugin_activation()
     endif;
 
 
-    // Optionen einrichten falls nicht vorhanden
+    /// Set up options if not present
     if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
         add_option( OPTION_MAIL_SUBJECT, 'Vielen Dank für Ihre Teilnahme' );
     endif;
@@ -95,7 +95,7 @@ function plugin_activation()
     endif;
 
 
-    // Pfad für Export-Dateien anlegen
+    // Create path for export files
     $upload_dir = wp_upload_dir();
 
     wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
