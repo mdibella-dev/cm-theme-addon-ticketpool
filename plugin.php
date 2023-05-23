@@ -17,7 +17,7 @@
  * @package cm-theme-addon-ticketpool
  */
 
-namespace cm_theme_addon_kartenkontingent;
+namespace cm_theme_addon_ticketpool;
 
 
 /** Prevent direct access */
