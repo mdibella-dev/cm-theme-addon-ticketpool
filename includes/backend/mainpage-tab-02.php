@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function cmkk_show_tab_02()
+function show_mainpage_tab_02()
 {
     /** Process form if already submitted */
 

@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function cmkk_show_tab_01()
+function show_mainpage_tab_01()
 {
     $file_info = cmkk_create_user_export_file( EVENT_ID );
 

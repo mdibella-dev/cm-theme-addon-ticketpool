@@ -50,15 +50,15 @@ function show_mainpage()
     // setup all tabs
     $tabs = array(
         'tab-01' => array(
-            'callback' => "cmkk_show_tab_01",
+            'callback' => "show_mainpage_tab_01",
             'title'    => __( 'Übersicht', 'cm-tp'),
         ),
         'tab-02' => array(
-            'callback' => "cmkk_show_tab_02",
+            'callback' => "show_mainpage_tab_02",
             'title'    => __( 'Einzelne Kartenkontigente', 'cm-tp'),
         ),
         'tab-03' => array(
-            'callback' => "cmkk_show_tab_03",
+            'callback' => "show_mainpage_tab_03",
             'title'    => __( 'E-Mail-Benachrichtigung', 'cm-tp'),
         ),
     );

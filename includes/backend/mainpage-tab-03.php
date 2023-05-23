@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) or exit;
  * @todo E-mail address for notification
  */
 
-function cmkk_show_tab_03()
+function show_mainpage_tab_03()
 {
     /** Process form if already submitted */
 
