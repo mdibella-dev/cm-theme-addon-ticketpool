@@ -6,25 +6,22 @@
  * @package cm-theme-addon-kartenkontingent
  */
 
+namespace cm_theme_addon_kartenkontingent;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
-
-
-/** Funktionsbibliothek einbinden */
-
-if( ! class_exists( 'WP_List_Table' ) ) :
-    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-endif;
 
 
 
 /**
  * Zeigt die Kontingente an, die den Pool bilden
  *
- * @since   1.0.0
- * @see     http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
- * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
+ * @since 1.0.0
+ *
+ * @see http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
+ * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
 class MDB_Pool_List_Table extends MDB_Modified_List_Table
@@ -33,7 +30,6 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
     function get_columns()
     {
         $columns = array(
-            // 'event_id' => __( 'Event', 'cc_kk' ),
             'col_groesse'   => __( 'Kontingentgröße', 'cc_kk' ),
             'col_anbieter'  => __( 'Bereitgestellt von', 'cc_kk' ),
             'col_zeitpunkt' => __( 'Bereitgestellt am', 'cc_kk' ),

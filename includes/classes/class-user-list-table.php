@@ -6,25 +6,22 @@
  * @package cm-theme-addon-kartenkontingent
  */
 
+namespace cm_theme_addon_kartenkontingent;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
-
-
-/* Funktionsbibliothek einbinden */
-
-if( ! class_exists( 'WP_List_Table' ) ) :
-    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-endif;
 
 
 
 /**
  * Zeigt die Teilnehmer an, die über Karten aus dem Pool verfügen
  *
- * @since   1.0.0
- * @see     http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
- * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
+ * @since 1.0.0
+ *
+ * @see http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
+ * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
 class MDB_User_List_Table extends MDB_Modified_List_Table

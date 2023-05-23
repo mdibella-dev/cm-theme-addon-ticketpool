@@ -6,16 +6,12 @@
  * @package cm-theme-addon-kartenkontingent
  */
 
+namespace cm_theme_addon_kartenkontingent;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
-
-
-/** Funktionsbibliothek einbinden */
-
-if( ! class_exists( 'WP_List_Table' ) ) :
-    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-endif;
 
 
 
@@ -25,7 +21,7 @@ endif;
  * @since 1.0.0
  */
 
-class MDB_Modified_List_Table extends WP_List_Table
+class MDB_Modified_List_Table extends \WP_List_Table
 {
     function display_tablenav( $which )
     {
