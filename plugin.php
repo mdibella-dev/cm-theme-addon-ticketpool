@@ -56,34 +56,9 @@ define( 'EVENT_ID', '1' );
 
 /** Include files */
 
-require_once( PLUGIN_DIR . 'includes/classes/class-modified-list-table.php' );
-require_once( PLUGIN_DIR . 'includes/classes/class-pool-list-table.php' );
-require_once( PLUGIN_DIR . 'includes/classes/class-user-list-table.php' );
 require_once( PLUGIN_DIR . 'includes/shortcodes/shortcode-form.php' );
-require_once( PLUGIN_DIR . 'includes/admin/mainpage.php' );
+require_once( PLUGIN_DIR . 'includes/classes/index.php' );
+require_once( PLUGIN_DIR . 'includes/backend/index.php' );
 require_once( PLUGIN_DIR . 'includes/core.php' );
 require_once( PLUGIN_DIR . 'includes/backend.php' );
 require_once( PLUGIN_DIR . 'includes/setup.php' );
-
-
-
-
-
-
-
-/**
- * Lädt Plugin-Scripts
- *
- * @since 1.0.0
- */
-
-function cmkk_admin_enqueue_scripts()
-{
-    $screen = get_current_screen();
-
-    if( 'toplevel_page_cmkk_mainpage' === $screen->id ) :
-        wp_enqueue_style( 'cmkk-style', plugins_url( 'assets/css/admin.min.css', __FILE__ ) );
-    endif;
-}
-
-add_action( 'admin_enqueue_scripts', 'cmkk_admin_enqueue_scripts' );
