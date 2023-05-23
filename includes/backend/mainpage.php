@@ -29,7 +29,7 @@ function add_mainpage()
         'manage_options',
         'cmkk_mainpage',
         __NAMESPACE__ . '\show_mainpage',
-        'dashicons-tickets',
+        'dashicons-tickets-alt',
         20,
     );
 }
