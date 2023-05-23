@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Zeigt die Kontingente an, die den Pool bilden
+ * Displays the card contingents that make up the card pool.
  *
  * @since 1.0.0
  *

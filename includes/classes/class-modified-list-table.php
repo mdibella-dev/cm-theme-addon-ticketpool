@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Tabelle mit modifizierter Ausgabe der TableNav
+ * Table with modified output of TableNav.
  *
  * @since 1.0.0
  */
@@ -29,7 +29,7 @@ class MDB_Modified_List_Table extends \WP_List_Table
             wp_nonce_field( 'bulk-' . $this->_args['plural'] );
         endif;
 
-        /* Modifikation */
+        /* Mofification */
         if( empty( $this->_pagination_args ) ) :
             return;
         endif;

@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Zeigt die Teilnehmer an, die über Karten aus dem Pool verfügen
+ * Displays the participants who have cards from the card pool.
  *
  * @since 1.0.0
  *
