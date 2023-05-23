@@ -9,7 +9,7 @@ This plugin is an addon to the WordPress based [CM theme](https://github.com/mdi
 [Marco Di Bella ](https://github.com/mdibella-dev)
 
 ### Tags
-translation-ready
+translation-ready, shortcodes
 
 ### Requires at least
 
