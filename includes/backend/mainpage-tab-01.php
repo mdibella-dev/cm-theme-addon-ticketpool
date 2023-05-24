@@ -38,7 +38,7 @@ function show_mainpage_tab_01()
         $free_amount  = cmkk_get_free_amount( EVENT_ID );
 
         if( 0 == $total_amount ) :
-            echo __( 'There are currently no tickets availabl.', 'cm-tp' );
+            echo __( 'There are currently no tickets available.', 'cm-tp' );
         else :
             echo sprintf(
                 __( 'A total of %1$s tickets are available, of which %2$s tickets are unused.', 'cm-tp' ),
