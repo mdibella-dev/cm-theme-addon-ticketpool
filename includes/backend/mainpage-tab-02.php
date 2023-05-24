@@ -6,9 +6,12 @@
  * @package cm-theme-addon-ticketpool
  */
 
+namespace cm_theme_addon_ticketpool;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 

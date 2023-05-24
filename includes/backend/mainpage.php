@@ -50,15 +50,15 @@ function show_mainpage()
     // setup all tabs
     $tabs = array(
         'tab-01' => array(
-            'callback' => "show_mainpage_tab_01",
+            'callback' => __NAMESPACE__ . '\show_mainpage_tab_01',
             'title'    => __( 'Overview', 'cm-tp'),
         ),
         'tab-02' => array(
-            'callback' => "show_mainpage_tab_02",
+            'callback' => __NAMESPACE__ . '\show_mainpage_tab_02',
             'title'    => __( 'Individual ticket contingents', 'cm-tp'),
         ),
         'tab-03' => array(
-            'callback' => "show_mainpage_tab_03",
+            'callback' => __NAMESPACE__ . '\show_mainpage_tab_03',
             'title'    => __( 'Email notification', 'cm-tp'),
         ),
     );

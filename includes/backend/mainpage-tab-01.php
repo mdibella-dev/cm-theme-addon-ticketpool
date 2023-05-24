@@ -5,9 +5,12 @@
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
+namespace cm_theme_addon_ticketpool;
+
+
+/** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 
