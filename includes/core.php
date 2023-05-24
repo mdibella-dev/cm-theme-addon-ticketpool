@@ -47,10 +47,10 @@ function cmkk_create_user_export_file( $event_id = 0 )
 
     // Write header into file
     $row = array(
-        __( 'Nachname','cm-tp' ),
-        __( 'Vorname','cm-tp' ),
-        __( 'E-Mail','cm-tp' ),
-        __( 'Anmeldezeitpunkt','cm-tp' )
+        __( 'Last name','cm-tp' ),
+        __( 'First name','cm-tp' ),
+        __( 'Email','cm-tp' ),
+        __( 'Registration date','cm-tp' )
     );
     fputcsv( $file, $row);
 
