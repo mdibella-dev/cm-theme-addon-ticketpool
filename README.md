@@ -29,7 +29,7 @@ translation-ready, shortcodes
 * New: Add CHANGELOG.md template
 * New: Add MIT license
 * New: Remove table and options on uninstall
-* Improve: Enqueue frontend script in a hook instead of shortcode 
+* Improve: Enqueue frontend script in a hook instead of shortcode
 * Improve: Minify frontend script
 * Improve: Assets folder and file naming
 * Improve: Change /inc/ to /includes/
