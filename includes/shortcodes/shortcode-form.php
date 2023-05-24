@@ -34,7 +34,7 @@ function shortcode_form( $atts, $content = null )
     $user_email    = '';
 
 
-    /* Process passed parameters */
+    /** Process passed parameters */
 
     $default_atts  = array(
         'event_id' => '',
@@ -47,7 +47,7 @@ function shortcode_form( $atts, $content = null )
     endif;
 
 
-    /* Process form if already submitted */
+    /** Process form if already submitted */
 
     if( isset( $_POST['action'] ) ) :
 
@@ -67,7 +67,7 @@ function shortcode_form( $atts, $content = null )
     endif;
 
 
-    /* Output the shortcode */
+    /** Output the shortcode */
 
     ob_start();
 
