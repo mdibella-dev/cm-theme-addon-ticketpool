@@ -24,8 +24,8 @@ defined( 'ABSPATH' ) or exit;
 function add_mainpage()
 {
     add_menu_page(
-        __( 'Ticket Contingents', 'cm-tp' ),
-        __( 'Ticket Contingents', 'cm-tp' ),
+        __( 'Ticket contingents', 'cm-tp' ),
+        __( 'Ticket contingents', 'cm-tp' ),
         'manage_options',
         'cmkk_mainpage',
         __NAMESPACE__ . '\show_mainpage',
@@ -75,7 +75,7 @@ function show_mainpage()
 
     ?>
     <div class="wrap">
-        <h1 class="wp-heading-inline"><?php echo __( 'Kartenkontingente', 'cm-tp' )?></h1>
+        <h1 class="wp-heading-inline"><?php echo __( 'Ticket contingents', 'cm-tp' )?></h1>
         <h2 class="nav-tab-wrapper">
         <?php
         foreach( $tabs as $key => $config ) :
