@@ -121,6 +121,8 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
  * The uninstall function for the plugin.
  *
  * @since 1.0.0
+ *
+ * @todo remove export files and folder
  */
 
 function plugin_uninstall()
@@ -171,7 +173,7 @@ register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );
 function plugin_enqueue_scripts()
 {
     wp_enqueue_script(
-        'cm-faq-script',
+        'cm-ticketpool-frontend-script',
         PLUGIN_URL . '/assets/build/js/frontend.min.js',
         array( 'jquery' ),
         PLUGIN_VERSION,

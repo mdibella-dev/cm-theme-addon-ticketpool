@@ -120,14 +120,6 @@ function shortcode_form( $atts, $content = null )
         <input id="event-id" name="event-id" type="hidden" value="<?php echo $event_id; ?>">
     </form>
     <?php
-    wp_enqueue_script(
-        'cmkk-script',
-        esc_url( plugins_url( 'assets/build/js/frontend.js', dirname( __FILE__ ) ) ) . '',
-        array( 'jquery' ),
-        false,
-        true
-    );
-
     $output_buffer .= ob_get_contents();
     ob_end_clean();
     return $output_buffer;
