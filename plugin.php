@@ -32,25 +32,28 @@ define( __NAMESPACE__ . '\PLUGIN_VERSION', '2.0.0' );
 define( __NAMESPACE__ . '\PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( __NAMESPACE__ . '\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-define( 'TABLE_POOL', 'cmkk_contingent_pool' );
-define( 'TABLE_USER', 'cmkk_contingent_user' );
+// Database table names
+define( __NAMESPACE__ . '\TABLE_POOL', 'cmkk_contingent_pool' );
+define( __NAMESPACE__ . '\TABLE_USER', 'cmkk_contingent_user' );
 
-define( 'OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
-define( 'OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
+// WordPress options
+define( __NAMESPACE__ . '\OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
+define( __NAMESPACE__ . '\OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
 
-define( 'STATUS_USER_ADDED',           100 );
-define( 'STATUS_NOTHING_FREE',         200 );
-define( 'STATUS_USER_FIELDS_EMPTY',    201 );
-define( 'STATUS_USER_EMAIL_MALFORMED', 202 );
-define( 'STATUS_USER_EMAIL_IN_USE',    203 );
-define( 'STATUS_CANT_STORE_USER',      204 );
+// Status code
+define( __NAMESPACE__ . '\STATUS_USER_ADDED',           100 );
+define( __NAMESPACE__ . '\STATUS_NOTHING_FREE',         200 );
+define( __NAMESPACE__ . '\STATUS_USER_FIELDS_EMPTY',    201 );
+define( __NAMESPACE__ . '\STATUS_USER_EMAIL_MALFORMED', 202 );
+define( __NAMESPACE__ . '\STATUS_USER_EMAIL_IN_USE',    203 );
+define( __NAMESPACE__ . '\STATUS_CANT_STORE_USER',      204 );
 
-define( 'EXPORT_FOLDER', 'cm-kk' );
+// Folder to store export files
+define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );
 
 
-// Workaround: currently support only one event
-
-define( 'EVENT_ID', '1' );
+// Workaround: currently the plugin supports only the event with the number 1
+define(  __NAMESPACE__ . '\EVENT_ID', '1' );
 
 
 
