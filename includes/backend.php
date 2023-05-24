@@ -28,7 +28,7 @@ function admin_enqueue_scripts()
     if( 'toplevel_page_cmkk_mainpage' === $screen->id ) :
         wp_enqueue_style(
             'cm-ticketpool-backend-style',
-            plugins_url( 'assets/build/css/backend.min.css', __FILE__ )
+            plugins_url( 'assets/build/css/backend.min.css', __FILE__ ),
             array( 'jquery' ),
             PLUGIN_VERSION,
             true
