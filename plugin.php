@@ -52,7 +52,7 @@ define( __NAMESPACE__ . '\STATUS_CANT_STORE_USER',      204 );
 define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );
 
 
-// Workaround: currently the plugin supports only the CM event with the number 1
+// Workaround: currently the plugin supports only the CM event with the number 1 (Q&D)
 define(  __NAMESPACE__ . '\EVENT_ID', '1' );
 
 
