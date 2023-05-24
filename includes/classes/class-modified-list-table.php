@@ -46,7 +46,7 @@ class MDB_Modified_List_Table extends \WP_List_Table
         $this->pagination( $which );
         ?>
 
-        <br class="clear" />
+        <br class="clear">
     </div>
         <?php
     }
