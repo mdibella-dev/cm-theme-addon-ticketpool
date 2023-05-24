@@ -84,11 +84,11 @@ function plugin_activation()
 
     /// Set up options if not present
     if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, __( 'Vielen Dank für Ihre Teilnahme', 'cm-tp' ) );
+        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cm-tp' ) );
     endif;
 
     if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
-        add_option( OPTION_MAIL_MESSAGE, __( 'Ihre Teilnahme am Interdisziplinären WundCongress wurde registriert. In den kommenden Tagen erhalten Sie eine weitere E-Mails mit zusätzlichen Informationen sowie den Zugangsdaten zur Veranstaltung.<br><br>Bis dahin alles Gute,<br>Ihr Team vom IWC.<br><br>Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht hierauf.', 'cm-tp' ) );
+        add_option( OPTION_MAIL_MESSAGE, __( 'Their participation in the event was registered. In the coming days you will receive another email with additional information.<br><br>Until then all the best,<br>the team.<br><br>Attention: This mail was generated automatically, please do not reply to it.', 'cm-tp' ) );
     endif;
 
 

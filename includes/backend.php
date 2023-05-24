@@ -30,8 +30,7 @@ function admin_enqueue_scripts()
             'cm-ticketpool-backend-style',
             plugins_url( 'assets/build/css/backend.min.css', __FILE__ ),
             array( 'jquery' ),
-            PLUGIN_VERSION,
-            true
+            PLUGIN_VERSION
         );
     endif;
 }
@@ -56,7 +55,7 @@ function admin_notices()
             case '1':
             ?>
             <div class="notice notice-information is-dismissible">
-                <p><?php echo __( 'Ein neuer Teilnehmer hat sich über das Kartenkontingent angemeldet.' , 'cm-tp' ); ?></p>
+                <p><?php echo __( 'A new participant has registered via the ticket contingent.' , 'cm-tp' ); ?></p>
             </div>
             <?php
             break;
@@ -64,7 +63,7 @@ function admin_notices()
             case '2':
             ?>
             <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'E-Mail-Vorlage wurde aktualisiert.' , 'cm-tp' ); ?></p>
+                <p><?php echo __( 'Email template has been updated.' , 'cm-tp' ); ?></p>
             </div>
             <?php
             break;
@@ -72,7 +71,7 @@ function admin_notices()
             case '3':
             ?>
             <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'Das Kartenkontingent wurde erweitert.' , 'cm-tp' ); ?></p>
+                <p><?php echo __( 'The ticket contingent has been expanded.' , 'cm-tp' ); ?></p>
             </div>
             <?php
             break;

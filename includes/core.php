@@ -294,27 +294,27 @@ function cmkk_display_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED => array(
-            'notice' => __( 'Ihre Anmeldung war erfolgreich!', 'cm-tp' ),
+            'notice' => __( 'Your registration was successful!', 'cm-tp' ),
             'style'  => 'cmkk-notice-sucess',
         ),
         STATUS_NOTHING_FREE => array(
-            'notice' => __( 'Leider ist derzeit kein freier Platz im Kartenkontingent verfügbar!<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.', 'cm-tp' ),
+            'notice' => __( 'Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date.', 'cm-tp' ),
             'style'  => 'cmkk-notice-info',
         ),
         STATUS_USER_FIELDS_EMPTY => array(
-            'notice' => __( 'Ein oder mehrere Felder sind nicht ausgefüllt.', 'cm-tp' ),
+            'notice' => __( 'One or more fields are not filled in.', 'cm-tp' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_MALFORMED => array(
-            'notice' => __( 'Bitte geben Sie eine korrekte E-Mail-Adresse ein.', 'cm-tp' ),
+            'notice' => __( 'Please enter a correct email address.', 'cm-tp' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_IN_USE => array(
-            'notice' => __( 'Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht ein weiteres mal verwendet werden.', 'cm-tp' ),
+            'notice' => __( 'Your email address has already been used. It cannot be used again.', 'cm-tp' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_CANT_STORE_USER => array(
-            'notice' => __( 'Ein technischer Fehler ist aufgetreten.', 'cm-tp' ),
+            'notice' => __( 'A technical error has occurred.', 'cm-tp' ),
             'style'  => 'cmkk-notice-error',
         ),
     );

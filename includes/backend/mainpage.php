@@ -24,8 +24,8 @@ defined( 'ABSPATH' ) or exit;
 function add_mainpage()
 {
     add_menu_page(
-        __( 'Kartenkontingente', 'cm-tp' ),
-        __( 'Kartenkontingente', 'cm-tp' ),
+        __( 'Ticket Contingents', 'cm-tp' ),
+        __( 'Ticket Contingents', 'cm-tp' ),
         'manage_options',
         'cmkk_mainpage',
         __NAMESPACE__ . '\show_mainpage',
@@ -51,15 +51,15 @@ function show_mainpage()
     $tabs = array(
         'tab-01' => array(
             'callback' => "show_mainpage_tab_01",
-            'title'    => __( 'Übersicht', 'cm-tp'),
+            'title'    => __( 'Overview', 'cm-tp'),
         ),
         'tab-02' => array(
             'callback' => "show_mainpage_tab_02",
-            'title'    => __( 'Einzelne Kartenkontigente', 'cm-tp'),
+            'title'    => __( 'Individual ticket contingents', 'cm-tp'),
         ),
         'tab-03' => array(
             'callback' => "show_mainpage_tab_03",
-            'title'    => __( 'E-Mail-Benachrichtigung', 'cm-tp'),
+            'title'    => __( 'Email notification', 'cm-tp'),
         ),
     );
 

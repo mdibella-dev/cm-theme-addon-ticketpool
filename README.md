@@ -38,6 +38,7 @@ translation-ready, shortcodes
 * Improve: Translate documentation to EN
 * Improve: Change translation domain
 * Improve: Change menu icon
+* Improve: Set basic language to EN
 
 
 

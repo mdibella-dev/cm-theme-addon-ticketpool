@@ -30,9 +30,9 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
     function get_columns()
     {
         $columns = array(
-            'col_groesse'   => __( 'Kontingentgröße', 'cm-tp' ),
-            'col_anbieter'  => __( 'Bereitgestellt von', 'cm-tp' ),
-            'col_zeitpunkt' => __( 'Bereitgestellt am', 'cm-tp' ),
+            'col_groesse'   => __( 'Contingent size', 'cm-tp' ),
+            'col_anbieter'  => __( 'Provided by', 'cm-tp' ),
+            'col_zeitpunkt' => __( 'Provided on', 'cm-tp' ),
         );
 
         return $columns;
