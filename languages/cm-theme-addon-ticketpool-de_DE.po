@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-05-25 09:40+0200\n"
-"PO-Revision-Date: 2023-05-25 09:46+0200\n"
+"POT-Creation-Date: 2023-05-25 09:51+0200\n"
+"PO-Revision-Date: 2023-05-25 09:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -93,8 +93,8 @@ msgid "Ticket contingents"
 msgstr "Ticketkontingente"
 
 #: includes/backend/mainpage.php:54
-msgid "Ticket pool"
-msgstr "Ticketpool"
+msgid "Participants"
+msgstr "Teilnehmer"
 
 #: includes/backend/mainpage.php:62
 msgid "Email notification"
@@ -233,6 +233,9 @@ msgstr "Marco Di Bella"
 #. Author URI of the plugin/theme
 msgid "https://www.marcodibella.de"
 msgstr "https://www.marcodibella.de"
+
+#~ msgid "Ticket pool"
+#~ msgstr "Ticketpool"
 
 #~ msgid "Overview"
 #~ msgstr "Übersicht"

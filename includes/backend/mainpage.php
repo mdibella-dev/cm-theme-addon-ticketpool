@@ -51,7 +51,7 @@ function show_mainpage()
     $tabs = array(
         'tab-01' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_01',
-            'title'    => __( 'Ticket pool', 'cm-tp'),
+            'title'    => __( 'Participants', 'cm-tp'),
         ),
         'tab-02' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_02',
