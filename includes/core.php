@@ -30,13 +30,26 @@ defined( 'ABSPATH' ) or exit;
 
 function cmkk_create_user_export_file( $event_id = 0 )
 {
-    $uploads   = wp_upload_dir();
-    $file_name = 'kartenkontingent-export-' . date( "Y-m-d" ) . '.csv';
-    $file_info = array(
+    // Prepare variables
+    $uploads    = wp_upload_dir();
+
+    $export_dir = $uploads['basedir'] . '/' . EXPORT_FOLDER;
+    $export_url = $uploads['baseurl'] . '/' . EXPORT_FOLDER;
+
+    $file_name  = 'kartenkontingent-export-' . date( "Y-m-d" ) . '.csv';
+    $file_info  = array(
         'name' => $file_name,
-        'path' => $uploads['basedir'] . '/' . EXPORT_FOLDER . '/' . $file_name,
-        'url'  => $uploads['baseurl'] . '/' . EXPORT_FOLDER . '/' . $file_name,
+        'path' => $export_dir . '/' . $file_name,
+        'url'  => $export_url . '/' . $file_name,
     );
+
+
+    // (Re-)Create export folder if necessary
+    if( ! file_exists( $export_dir ) ) :
+        wp_mkdir_p( $export_dir );
+    endif;
+
+
 
     // Open file
     $file = fopen( $file_info['path'], 'w' );
@@ -44,6 +57,7 @@ function cmkk_create_user_export_file( $event_id = 0 )
     if( false === $file) :
         return null;
     endif;
+
 
     // Write header into file
     $row = array(
@@ -53,6 +67,7 @@ function cmkk_create_user_export_file( $event_id = 0 )
         __( 'Registration date','cmta-ticketpool' )
     );
     fputcsv( $file, $row);
+
 
     // Retrieve data and write to file
     global $wpdb;
@@ -64,6 +79,7 @@ function cmkk_create_user_export_file( $event_id = 0 )
     foreach( $table_data as $row ) :
         fputcsv( $file, $row );
     endforeach;
+
 
     // Close file
     fclose( $file );
