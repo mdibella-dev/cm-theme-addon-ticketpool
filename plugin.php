@@ -11,7 +11,6 @@
  * Requires PHP:        7
  * Version:             2.0.0
  * Text Domain:         cmta_ticketpool
- * Domain Path:         /languages
  *
  * @author  Marco Di Bella
  * @package cm-theme-addon-ticketpool
