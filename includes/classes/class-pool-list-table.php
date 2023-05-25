@@ -30,9 +30,9 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
     function get_columns()
     {
         $columns = array(
-            'col_groesse'   => __( 'Contingent size', 'cmta_ticketpool' ),
-            'col_anbieter'  => __( 'Provided by', 'cmta_ticketpool' ),
-            'col_zeitpunkt' => __( 'Provided on', 'cmta_ticketpool' ),
+            'col_groesse'   => __( 'Contingent size', 'cmta-ticketpool' ),
+            'col_anbieter'  => __( 'Provided by', 'cmta-ticketpool' ),
+            'col_zeitpunkt' => __( 'Provided on', 'cmta-ticketpool' ),
         );
 
         return $columns;

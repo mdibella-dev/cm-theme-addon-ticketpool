@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
 function plugin_init()
 {
     // Load text domain, use relative path to the plugin's language folder
-    $x = load_plugin_textdomain( 'cmta_ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
+    $x = load_plugin_textdomain( 'cmta-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
 
     error_log( 'Result: ' . ($x? 'ok' : 'null') .' at path: ' . plugin_basename( PLUGIN_DIR ) . '/languages' . ' vs ' . dirname( plugin_basename( __FILE__ ) ) . '/languages');
 }
@@ -86,16 +86,16 @@ function plugin_activation()
 
     /// Set up options if not present
     if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cmta_ticketpool' ) );
+        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cmta-ticketpool' ) );
     endif;
 
     if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
         add_option( OPTION_MAIL_MESSAGE,
-            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cmta_ticketpool' ) .
+            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cmta-ticketpool' ) .
             '<br><br>' .
-            __( 'Best regards', 'cmta_ticketpool' ) .
+            __( 'Best regards', 'cmta-ticketpool' ) .
             '<br><br>' .
-            __( 'Attention: This email was generated automatically, please do not reply.', 'cmta_ticketpool' )
+            __( 'Attention: This email was generated automatically, please do not reply.', 'cmta-ticketpool' )
         );
     endif;
 

@@ -30,9 +30,9 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
     function get_columns()
     {
         $columns = array(
-            'col_name'      => __( 'Participant', 'cmta_ticketpool' ),
-            'col_email'     => __( 'Email', 'cmta_ticketpool' ),
-            'col_zeitpunkt' => __( 'Registration date', 'cmta_ticketpool' ),
+            'col_name'      => __( 'Participant', 'cmta-ticketpool' ),
+            'col_email'     => __( 'Email', 'cmta-ticketpool' ),
+            'col_zeitpunkt' => __( 'Registration date', 'cmta-ticketpool' ),
         );
 
         return $columns;

@@ -55,7 +55,7 @@ function admin_notices()
             case '1':
             ?>
             <div class="notice notice-information is-dismissible">
-                <p><?php echo __( 'A new participant has registered via the ticket contingent.' , 'cmta_ticketpool' ); ?></p>
+                <p><?php echo __( 'A new participant has registered via the ticket contingent.' , 'cmta-ticketpool' ); ?></p>
             </div>
             <?php
             break;
@@ -63,7 +63,7 @@ function admin_notices()
             case '2':
             ?>
             <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'Email template has been updated.' , 'cmta_ticketpool' ); ?></p>
+                <p><?php echo __( 'Email template has been updated.' , 'cmta-ticketpool' ); ?></p>
             </div>
             <?php
             break;
@@ -71,7 +71,7 @@ function admin_notices()
             case '3':
             ?>
             <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'The ticket contingent has been expanded.' , 'cmta_ticketpool' ); ?></p>
+                <p><?php echo __( 'The ticket contingent has been expanded.' , 'cmta-ticketpool' ); ?></p>
             </div>
             <?php
             break;
