@@ -50,7 +50,6 @@ function cmkk_create_user_export_file( $event_id = 0 )
     endif;
 
 
-
     // Open file
     $file = fopen( $file_info['path'], 'w' );
 
