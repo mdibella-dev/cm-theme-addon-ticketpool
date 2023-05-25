@@ -29,7 +29,7 @@ class MDB_Modified_List_Table extends \WP_List_Table
             wp_nonce_field( 'bulk-' . $this->_args['plural'] );
         endif;
 
-        /* Mofification */
+        /* Modification */
         if( empty( $this->_pagination_args ) ) :
             return;
         endif;
