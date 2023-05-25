@@ -101,8 +101,12 @@ function shortcode_form( $atts, $content = null )
                     <div class="cmkk-gdpr">
                         <input type="checkbox" id="gdpr" name="gdpr">
                         <label for="gdpr"><?php echo sprintf(
-                            __( 'I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the <a href="%1$s">privacy policy</a>.', 'cm-tp' ),
-                            get_privacy_policy_url(),
+                            __( 'I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the %1$s.', 'cm-tp' ),
+                            sprintf(
+                                '<a href="%1$s">%2$s</a>',
+                                get_privacy_policy_url(),
+                                __( 'privacy policy', 'cm-tp' )
+                            )
                         );
                         ?></label>
                     </div>
