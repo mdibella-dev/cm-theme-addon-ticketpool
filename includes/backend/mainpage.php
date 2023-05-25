@@ -51,11 +51,11 @@ function show_mainpage()
     $tabs = array(
         'tab-01' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_01',
-            'title'    => __( 'Overview', 'cm-tp'),
+            'title'    => __( 'Ticket pool', 'cm-tp'),
         ),
         'tab-02' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_02',
-            'title'    => __( 'Individual ticket contingents', 'cm-tp'),
+            'title'    => __( 'Ticket contingents', 'cm-tp'),
         ),
         'tab-03' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_03',

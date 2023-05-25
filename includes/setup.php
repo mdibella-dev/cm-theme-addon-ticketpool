@@ -88,7 +88,13 @@ function plugin_activation()
     endif;
 
     if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
-        add_option( OPTION_MAIL_MESSAGE, __( 'Their participation in the event was registered. In the coming days you will receive another email with additional information.<br><br>Until then all the best,<br>the team.<br><br>Attention: This mail was generated automatically, please do not reply to it.', 'cm-tp' ) );
+        add_option( OPTION_MAIL_MESSAGE,
+            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-tp' ) .
+            '<br><br>' .
+            __( 'Best regards', 'cm-tp' ) .
+            '<br><br>' .
+            __( 'Attention: This email was generated automatically, please do not reply.', 'cm-tp' )
+        );
     endif;
 
 

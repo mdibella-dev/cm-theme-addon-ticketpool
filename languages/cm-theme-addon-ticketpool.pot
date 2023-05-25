@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-05-24 15:15+0200\n"
+"POT-Creation-Date: 2023-05-25 09:31+0200\n"
 "PO-Revision-Date: 2023-05-24 14:43+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -33,69 +33,65 @@ msgstr ""
 msgid "The ticket contingent has been expanded."
 msgstr ""
 
-#: includes/backend/mainpage-tab-01.php:41
-#: includes/backend/mainpage-tab-02.php:51
+#: includes/backend/mainpage-tab-01.php:44
+#: includes/backend/mainpage-tab-02.php:54
 msgid "There are currently no tickets available."
 msgstr ""
 
-#: includes/backend/mainpage-tab-01.php:44
+#: includes/backend/mainpage-tab-01.php:47
 #, php-format
 msgid ""
 "A total of %1$s tickets are available, of which %2$s tickets are unused."
 msgstr ""
 
-#: includes/backend/mainpage-tab-01.php:55
+#: includes/backend/mainpage-tab-01.php:58
 msgid "Export data as CSV"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:54
+#: includes/backend/mainpage-tab-02.php:57
 #, php-format
 msgid "A total of %1$s tickets are available."
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:60
-msgid "Add a new contingent"
+#: includes/backend/mainpage-tab-02.php:63
+msgid "Add new contingent"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:66
+#: includes/backend/mainpage-tab-02.php:69
 msgid "Number of tickets"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:71
+#: includes/backend/mainpage-tab-02.php:74
 msgid "Tickets are provided by"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:76
+#: includes/backend/mainpage-tab-02.php:79
 msgid "Add contingent"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:53
+#: includes/backend/mainpage-tab-03.php:57
 msgid "Email template for participants"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:60
+#: includes/backend/mainpage-tab-03.php:64
 msgid "Subject"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:67
+#: includes/backend/mainpage-tab-03.php:71
 msgid "Message"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:76
+#: includes/backend/mainpage-tab-03.php:80
 msgid "Update"
 msgstr ""
 
 #: includes/backend/mainpage.php:27 includes/backend/mainpage.php:28
-#: includes/backend/mainpage.php:78
+#: includes/backend/mainpage.php:58 includes/backend/mainpage.php:78
 msgid "Ticket contingents"
 msgstr ""
 
 #: includes/backend/mainpage.php:54
-msgid "Overview"
-msgstr ""
-
-#: includes/backend/mainpage.php:58
-msgid "Individual ticket contingents"
+msgid "Ticket pool"
 msgstr ""
 
 #: includes/backend/mainpage.php:62
@@ -167,9 +163,9 @@ msgstr ""
 #: includes/setup.php:91
 msgid ""
 "Their participation in the event was registered. In the coming days you will "
-"receive another email with additional information.<br><br>Until then all the "
-"best,<br>the team.<br><br>Attention: This mail was generated automatically, "
-"please do not reply to it."
+"receive another email with additional information.<br><br>Best regards."
+"<br><br>Attention: This email was generated automatically, please do not "
+"reply."
 msgstr ""
 
 #: includes/shortcodes/shortcode-form.php:81

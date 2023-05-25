@@ -60,7 +60,7 @@ function show_mainpage_tab_02()
         endif;
     ?></p>
     <div class="form-wrap">
-        <h2><?php echo __( 'Add a new contingent', 'cm-tp'); ?></h2>
+        <h2><?php echo __( 'Add new contingent', 'cm-tp'); ?></h2>
         <form id="cmkk-add-contingent-form" method="post" class="validate">
 
             <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">

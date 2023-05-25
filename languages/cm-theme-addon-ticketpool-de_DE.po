@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-05-24 15:15+0200\n"
-"PO-Revision-Date: 2023-05-24 15:17+0200\n"
+"POT-Creation-Date: 2023-05-25 09:32+0200\n"
+"PO-Revision-Date: 2023-05-25 09:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -33,12 +33,12 @@ msgstr "Die E-Mail-Vorlage wurde aktualisiert."
 msgid "The ticket contingent has been expanded."
 msgstr "Das Ticketkontingent wurde erweitert."
 
-#: includes/backend/mainpage-tab-01.php:41
-#: includes/backend/mainpage-tab-02.php:51
+#: includes/backend/mainpage-tab-01.php:44
+#: includes/backend/mainpage-tab-02.php:54
 msgid "There are currently no tickets available."
 msgstr "Aktuell sind keine Tickets verfügbar."
 
-#: includes/backend/mainpage-tab-01.php:44
+#: includes/backend/mainpage-tab-01.php:47
 #, php-format
 msgid ""
 "A total of %1$s tickets are available, of which %2$s tickets are unused."
@@ -46,63 +46,59 @@ msgstr ""
 "Insgesamt stehen %1$s Tickets zur Verfügung, von denen %2$s Tickets "
 "ungenutzt sind."
 
-#: includes/backend/mainpage-tab-01.php:55
+#: includes/backend/mainpage-tab-01.php:58
 msgid "Export data as CSV"
 msgstr "Daten als CSV exportieren"
 
-#: includes/backend/mainpage-tab-02.php:54
+#: includes/backend/mainpage-tab-02.php:57
 #, php-format
 msgid "A total of %1$s tickets are available."
 msgstr "Insgesamt stehen %1$s Tickets zur Verfügung."
 
-#: includes/backend/mainpage-tab-02.php:60
-msgid "Add a new contingent"
+#: includes/backend/mainpage-tab-02.php:63
+msgid "Add new contingent"
 msgstr "Neues Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-02.php:66
+#: includes/backend/mainpage-tab-02.php:69
 msgid "Number of tickets"
 msgstr "Anzahl der Tickets"
 
-#: includes/backend/mainpage-tab-02.php:71
+#: includes/backend/mainpage-tab-02.php:74
 msgid "Tickets are provided by"
 msgstr "Tickets werden zur Verfügung gestellt von"
 
-#: includes/backend/mainpage-tab-02.php:76
+#: includes/backend/mainpage-tab-02.php:79
 msgid "Add contingent"
 msgstr "Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-03.php:53
+#: includes/backend/mainpage-tab-03.php:57
 msgid "Email template for participants"
 msgstr "E-Mail-Vorlage für Teilnehmer"
 
-#: includes/backend/mainpage-tab-03.php:60
+#: includes/backend/mainpage-tab-03.php:64
 msgid "Subject"
 msgstr "Betreff"
 
-#: includes/backend/mainpage-tab-03.php:67
+#: includes/backend/mainpage-tab-03.php:71
 msgid "Message"
 msgstr "Mitteilung"
 
-#: includes/backend/mainpage-tab-03.php:76
+#: includes/backend/mainpage-tab-03.php:80
 msgid "Update"
 msgstr "Aktualisieren"
 
 #: includes/backend/mainpage.php:27 includes/backend/mainpage.php:28
-#: includes/backend/mainpage.php:78
+#: includes/backend/mainpage.php:58 includes/backend/mainpage.php:78
 msgid "Ticket contingents"
 msgstr "Ticketkontingente"
 
 #: includes/backend/mainpage.php:54
-msgid "Overview"
-msgstr "Übersicht"
-
-#: includes/backend/mainpage.php:58
-msgid "Individual ticket contingents"
-msgstr "Einzelne Ticketkontingente"
+msgid "Ticket pool"
+msgstr "Kartenpool"
 
 #: includes/backend/mainpage.php:62
 msgid "Email notification"
-msgstr "E-Mail Benachrichtigung"
+msgstr "E-Mail-Benachrichtigung"
 
 #: includes/classes/class-pool-list-table.php:33
 msgid "Contingent size"
@@ -170,17 +166,23 @@ msgstr "Es ist ein technischer Fehler aufgetreten."
 msgid "Thank you for participating"
 msgstr "Vielen Dank für Ihre Teilnahme"
 
-#: includes/setup.php:91
+#: includes/setup.php:92
 msgid ""
-"Their participation in the event was registered. In the coming days you will "
-"receive another email with additional information.<br><br>Until then all the "
-"best,<br>the team.<br><br>Attention: This mail was generated automatically, "
-"please do not reply to it."
+"Your participation in the event was registered. In the coming days you will "
+"receive another email with additional information."
 msgstr ""
 "Ihre Teilnahme an der Veranstaltung wurde registriert. In den kommenden "
 "Tagen erhalten Sie eine weitere E-Mail mit weiteren Informationen."
-"<br><br>Bis dahin alles Gute,<br>das Team.<br><br>Achtung: Diese Mail wurde "
-"automatisch generiert, bitte antworten Sie nicht darauf."
+
+#: includes/setup.php:94
+msgid "Best regards"
+msgstr "Bis dahin alles Gute"
+
+#: includes/setup.php:96
+msgid "Attention: This email was generated automatically, please do not reply."
+msgstr ""
+"Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht "
+"darauf."
 
 #: includes/shortcodes/shortcode-form.php:81
 msgid "Your first name"
@@ -228,3 +230,9 @@ msgstr "Marco Di Bella"
 #. Author URI of the plugin/theme
 msgid "https://www.marcodibella.de"
 msgstr "https://www.marcodibella.de"
+
+#~ msgid "Overview"
+#~ msgstr "Übersicht"
+
+#~ msgid "Individual ticket contingents"
+#~ msgstr "Einzelne Ticketkontingente"
