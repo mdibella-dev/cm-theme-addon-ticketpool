@@ -24,12 +24,12 @@ defined( 'ABSPATH' ) or exit;
 function admin_enqueue_scripts()
 {
     $screen = get_current_screen();
-
-    if( 'toplevel_page_cmkk_mainpage' === $screen->id ) :
+    
+    if( ( 'toplevel_page_cmkk_mainpage' === $screen->id ) ):
         wp_enqueue_style(
             'cm-ticketpool-backend-style',
-            plugins_url( 'assets/build/css/backend.min.css', __FILE__ ),
-            array( 'jquery' ),
+            PLUGIN_URL . '/assets/build/css/backend.min.css',
+            array(),
             PLUGIN_VERSION
         );
     endif;
