@@ -78,19 +78,19 @@ function shortcode_form( $atts, $content = null )
     <form class="cmkk-form" method="post" action="">
         <table>
             <tr>
-                <th><?php echo __( 'Your first name', 'cm-tp'); ?></th>
+                <th><?php echo __( 'Your first name', 'cmta_ticketpool'); ?></th>
                 <td>
                     <input id="vorname" name="cmkk_forename" type="text" value="<?php echo $user_forename; ?>">
                 </td>
             </tr>
             <tr>
-                <th><?php echo __( 'Your last name', 'cm-tp'); ?></th>
+                <th><?php echo __( 'Your last name', 'cmta_ticketpool'); ?></th>
                 <td>
                     <input id="nachname" name="cmkk_lastname" type="text"value="<?php echo $user_lastname; ?>">
                 </td>
             </tr>
             <tr>
-                <th><?php echo __( 'Your email address', 'cm-tp'); ?></th>
+                <th><?php echo __( 'Your email address', 'cmta_ticketpool'); ?></th>
                 <td>
                     <input id="email" name="cmkk_email" type="email"value="<?php echo $user_email; ?>">
                 </td>
@@ -101,11 +101,11 @@ function shortcode_form( $atts, $content = null )
                     <div class="cmkk-gdpr">
                         <input type="checkbox" id="gdpr" name="gdpr">
                         <label for="gdpr"><?php echo sprintf(
-                            __( 'I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the %1$s.', 'cm-tp' ),
+                            __( 'I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the %1$s.', 'cmta_ticketpool' ),
                             sprintf(
                                 '<a href="%1$s">%2$s</a>',
                                 get_privacy_policy_url(),
-                                __( 'privacy policy', 'cm-tp' )
+                                __( 'privacy policy', 'cmta_ticketpool' )
                             )
                         );
                         ?></label>
@@ -115,7 +115,7 @@ function shortcode_form( $atts, $content = null )
             <tr>
                 <th>
                     <div class="wp-block-button">
-                        <button id="cmkk-submit" type="submit" class="wp-block-button__link" name="action" value="add" disabled="disabled"><?php echo __( 'Request participation', 'cm-tp' );?></button>
+                        <button id="cmkk-submit" type="submit" class="wp-block-button__link" name="action" value="add" disabled="disabled"><?php echo __( 'Request participation', 'cmta_ticketpool' );?></button>
                     </div>
                 </th>
                 <td></td>

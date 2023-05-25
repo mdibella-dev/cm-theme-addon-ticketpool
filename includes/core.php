@@ -47,10 +47,10 @@ function cmkk_create_user_export_file( $event_id = 0 )
 
     // Write header into file
     $row = array(
-        __( 'Last name','cm-tp' ),
-        __( 'First name','cm-tp' ),
-        __( 'Email','cm-tp' ),
-        __( 'Registration date','cm-tp' )
+        __( 'Last name','cmta_ticketpool' ),
+        __( 'First name','cmta_ticketpool' ),
+        __( 'Email','cmta_ticketpool' ),
+        __( 'Registration date','cmta_ticketpool' )
     );
     fputcsv( $file, $row);
 
@@ -294,27 +294,27 @@ function cmkk_display_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED => array(
-            'notice' => __( 'Your registration was successful!', 'cm-tp' ),
+            'notice' => __( 'Your registration was successful!', 'cmta_ticketpool' ),
             'style'  => 'cmkk-notice-sucess',
         ),
         STATUS_NOTHING_FREE => array(
-            'notice' => __( 'Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date.', 'cm-tp' ),
+            'notice' => __( 'Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date.', 'cmta_ticketpool' ),
             'style'  => 'cmkk-notice-info',
         ),
         STATUS_USER_FIELDS_EMPTY => array(
-            'notice' => __( 'One or more fields are not filled in.', 'cm-tp' ),
+            'notice' => __( 'One or more fields are not filled in.', 'cmta_ticketpool' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_MALFORMED => array(
-            'notice' => __( 'Please enter a correct email address.', 'cm-tp' ),
+            'notice' => __( 'Please enter a correct email address.', 'cmta_ticketpool' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_IN_USE => array(
-            'notice' => __( 'Your email address has already been used. It cannot be used again.', 'cm-tp' ),
+            'notice' => __( 'Your email address has already been used. It cannot be used again.', 'cmta_ticketpool' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_CANT_STORE_USER => array(
-            'notice' => __( 'A technical error has occurred.', 'cm-tp' ),
+            'notice' => __( 'A technical error has occurred.', 'cmta_ticketpool' ),
             'style'  => 'cmkk-notice-error',
         ),
     );

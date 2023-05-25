@@ -10,7 +10,7 @@
  * Tested up to:        6.2
  * Requires PHP:        7
  * Version:             2.0.0
- * Text Domain:         cm-tp
+ * Text Domain:         cmta_ticketpool
  * Domain Path:         /languages
  *
  * @author  Marco Di Bella

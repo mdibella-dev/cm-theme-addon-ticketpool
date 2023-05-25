@@ -41,10 +41,10 @@ function show_mainpage_tab_01()
         $free_amount  = cmkk_get_free_amount( EVENT_ID );
 
         if( 0 == $total_amount ) :
-            echo __( 'There are currently no tickets available.', 'cm-tp' );
+            echo __( 'There are currently no tickets available.', 'cmta_ticketpool' );
         else :
             echo sprintf(
-                __( 'A total of %1$s tickets are available, of which %2$s tickets are unused.', 'cm-tp' ),
+                __( 'A total of %1$s tickets are available, of which %2$s tickets are unused.', 'cmta_ticketpool' ),
                 $total_amount,
                 $free_amount,
             );
@@ -55,7 +55,7 @@ function show_mainpage_tab_01()
     // Show possibility to download the export file
     if( false !== $file_info ) :
     ?>
-        <a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo __( 'Export data as CSV', 'cm-tp'); ?></a>
+        <a class="button button-primary" href="<?php echo $file_info['url']; ?>" download><?php echo __( 'Export data as CSV', 'cmta_ticketpool'); ?></a>
     <?php
     endif;
 }
