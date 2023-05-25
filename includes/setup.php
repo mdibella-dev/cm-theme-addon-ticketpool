@@ -23,10 +23,8 @@ defined( 'ABSPATH' ) or exit;
 
 function plugin_init()
 {
-    // Load text domain, use relative path to the plugin's language folder
-    $x = load_plugin_textdomain( 'cmta-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
-
-    error_log( 'Result: ' . ($x? 'ok' : 'null') .' at path: ' . plugin_basename( PLUGIN_DIR ) . '/languages' . ' vs ' . dirname( plugin_basename( __FILE__ ) ) . '/languages');
+    // Load text domain
+    load_plugin_textdomain( 'cmta-ticketpool' );
 }
 
 add_action( 'init', __NAMESPACE__ . '\plugin_init' );
@@ -99,11 +97,7 @@ function plugin_activation()
         );
     endif;
 
-
-    // Create path for export files
-    $upload_dir = wp_upload_dir();
-
-    wp_mkdir_p( $upload_dir['basedir'] . '/' . EXPORT_FOLDER );
+    // Copy language files!!
 }
 
 register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
