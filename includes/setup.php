@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
 function plugin_init()
 {
     // Load text domain
-    load_plugin_textdomain( 'cmta-ticketpool' );
+    load_plugin_textdomain( 'cmta-ticketpool', false, false );
 }
 
 add_action( 'init', __NAMESPACE__ . '\plugin_init' );
