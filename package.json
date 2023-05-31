@@ -1,11 +1,11 @@
 {
-    "name": "cm-theme-addon-ticketpool",
+    "name": "CM - Ticketpool (addon to CM theme)",
     "version": "1.0.0",
     "description": "Development Scripts",
     "config" : {
         "SASS_SRC": "./assets/src/css",
         "SASS_BLD": "./assets/build/css",
-        "PLUGIN_NAME": "cm-theme-addon-ticketpool"
+        "PLUGIN_NAME": "cm-addon-ticketpool"
     },
     "scripts": {
         "sass:front": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/frontend.scss $npm_package_config_SASS_BLD/frontend.min.css",
