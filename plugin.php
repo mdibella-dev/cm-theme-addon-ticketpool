@@ -10,7 +10,7 @@
  * Tested up to:        6.2
  * Requires PHP:        7
  * Version:             2.0.0
- * Text Domain:         cmta_ticketpool
+ * Text Domain:         cmta-ticketpool
  * Domain Path:         /languages
  *
  *
