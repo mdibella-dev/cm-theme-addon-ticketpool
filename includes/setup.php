@@ -24,10 +24,33 @@ defined( 'ABSPATH' ) or exit;
 function plugin_init()
 {
     // Load text domain
-    load_plugin_textdomain( 'cmta-ticketpool', false, false );
+    //$x = load_plugin_textdomain( 'cm-theme-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
+    $x = load_plugin_textdomain( 'cm-theme-addon-ticketpool' );
+
+
+    $domain = 'cm-theme-addon-ticketpool';
+    $locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
+    $mofile = $domain . '-' . $locale . '.mo';
+    $path   = WP_LANG_DIR . '/plugins/' . $mofile;
+
+    $y = load_textdomain( $domain, $path, $locale );
+
+    error_log( 'First run' );
+    error_log( 'Result: ' . (0 == $y? 'false' : 'true') );
+    error_log( 'Path: ' . $path );
+
+    $path = WP_PLUGIN_DIR . '/' . plugin_basename( PLUGIN_DIR ) . '/languages/' . $mofile;
+
+    $y = load_textdomain( $domain, $path, $locale );
+
+    error_log( 'Second run' );
+    error_log( 'Result: ' . (0 == $y? 'false' : 'true') );
+    error_log( 'Path: ' . $path );
 }
 
-add_action( 'init', __NAMESPACE__ . '\plugin_init' );
+//add_action( 'init', __NAMESPACE__ . '\plugin_init' );
+
+add_action( 'plugins_loaded', __NAMESPACE__ . '\plugin_init' );
 
 
 
@@ -84,16 +107,16 @@ function plugin_activation()
 
     /// Set up options if not present
     if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cmta-ticketpool' ) );
+        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cm-theme-addon-ticketpool' ) );
     endif;
 
     if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
         add_option( OPTION_MAIL_MESSAGE,
-            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cmta-ticketpool' ) .
+            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-theme-addon-ticketpool' ) .
             '<br><br>' .
-            __( 'Best regards', 'cmta-ticketpool' ) .
+            __( 'Best regards', 'cm-theme-addon-ticketpool' ) .
             '<br><br>' .
-            __( 'Attention: This email was generated automatically, please do not reply.', 'cmta-ticketpool' )
+            __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' )
         );
     endif;
 

@@ -10,8 +10,7 @@
  * Tested up to:        6.2
  * Requires PHP:        7
  * Version:             2.0.0
- * Text Domain:         cmta-ticketpool
- * Domain Path:         /languages
+ * Text Domain:         cm-theme-addon-ticketpool
  *
  *
  * @author  Marco Di Bella
@@ -38,8 +37,8 @@ define( __NAMESPACE__ . '\TABLE_POOL', 'cmkk_contingent_pool' );
 define( __NAMESPACE__ . '\TABLE_USER', 'cmkk_contingent_user' );
 
 // WordPress options
-define( __NAMESPACE__ . '\OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
-define( __NAMESPACE__ . '\OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
+define( 'OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
+define( 'OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
 
 // Status code
 define( __NAMESPACE__ . '\STATUS_USER_ADDED',           100 );

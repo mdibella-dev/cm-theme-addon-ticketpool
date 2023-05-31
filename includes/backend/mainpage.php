@@ -24,8 +24,8 @@ defined( 'ABSPATH' ) or exit;
 function add_mainpage()
 {
     add_menu_page(
-        __( 'Ticket contingents', 'cmta-ticketpool' ),
-        __( 'Ticket contingents', 'cmta-ticketpool' ),
+        __( 'Ticket contingents', 'cm-theme-addon-ticketpool' ),
+        __( 'Ticket contingents', 'cm-theme-addon-ticketpool' ),
         'manage_options',
         'cmkk_mainpage',
         __NAMESPACE__ . '\show_mainpage',
@@ -51,15 +51,15 @@ function show_mainpage()
     $tabs = array(
         'tab-01' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_01',
-            'title'    => __( 'Participants', 'cmta-ticketpool'),
+            'title'    => __( 'Participants', 'cm-theme-addon-ticketpool'),
         ),
         'tab-02' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_02',
-            'title'    => __( 'Ticket contingents', 'cmta-ticketpool'),
+            'title'    => __( 'Ticket contingents', 'cm-theme-addon-ticketpool'),
         ),
         'tab-03' => array(
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_03',
-            'title'    => __( 'Email notification', 'cmta-ticketpool'),
+            'title'    => __( 'Email notification', 'cm-theme-addon-ticketpool'),
         ),
     );
 
@@ -75,7 +75,7 @@ function show_mainpage()
 
     ?>
     <div class="wrap">
-        <h1 class="wp-heading-inline"><?php echo __( 'Ticket contingents', 'cmta-ticketpool' )?></h1>
+        <h1 class="wp-heading-inline"><?php echo __( 'Ticket contingents', 'cm-theme-addon-ticketpool' )?></h1>
         <h2 class="nav-tab-wrapper">
         <?php
         foreach( $tabs as $key => $config ) :
