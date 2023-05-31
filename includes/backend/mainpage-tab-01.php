@@ -5,7 +5,7 @@
  * @author  Marco Di Bella <mdb@marcodibella.de>
  */
 
-namespace cm_addon_ticketpool;
+namespace cm_theme_addon_ticketpool;
 
 
 /** Prevent direct access */
