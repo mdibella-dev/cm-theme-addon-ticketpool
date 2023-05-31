@@ -3,7 +3,7 @@
  * Functions to handle the backend.
  *
  * @author  Marco Di Bella
- * @package cm-addon-ticketpool
+ * @package cm-theme-addon-ticketpool
  */
 
 namespace cm_theme_addon_ticketpool;

@@ -3,7 +3,7 @@
  * Class MDB_User_List_Table
  *
  * @author  Marco Di Bella
- * @package cm-addon-ticketpool
+ * @package cm-theme-addon-ticketpool
  */
 
 namespace cm_theme_addon_ticketpool;
