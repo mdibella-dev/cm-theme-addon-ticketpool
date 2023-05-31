@@ -1,5 +1,5 @@
 <?php
-namespace cm_theme_addon_ticketpool;
+namespace cm_addon_ticketpool;
 
 
 /** Prevent direct access */
