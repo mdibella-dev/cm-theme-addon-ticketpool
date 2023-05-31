@@ -1,25 +1,39 @@
+# Copyright (C) 2023 Marco Di Bella
+# This file is distributed under the MIT License.
 msgid ""
 msgstr ""
-"Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-05-25 09:51+0200\n"
-"PO-Revision-Date: 2023-05-25 09:51+0200\n"
+"Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme) 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cm-theme-addon-"
+"ticketpool\n"
+"POT-Creation-Date: 2023-05-31T08:00:39+00:00\n"
+"PO-Revision-Date: 2023-05-31 11:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Generator: Poedit 3.3.1\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: plugin.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#. Plugin Name of the plugin
+msgid "CM &mdash; Ticketpool (addon to CM theme)"
+msgstr "CM &mdash; Ticketpool (Addon zum CM-Theme)"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/mdibella-dev/cm-theme-addon-ticketpool"
+msgstr "https://github.com/mdibella-dev/cm-theme-addon-ticketpool"
+
+#. Description of the plugin
+msgid "A system to participate from a pool of sponsored tickets."
+msgstr "Ein System, um an einem Pool von gesponserten Tickets teilzunehmen."
+
+#. Author of the plugin
+msgid "Marco Di Bella"
+msgstr "Marco Di Bella"
+
+#. Author URI of the plugin
+msgid "https://www.marcodibella.de"
+msgstr "https://www.marcodibella.de"
 
 #: includes/backend.php:58
 msgid "A new participant has registered via the ticket contingent."
@@ -39,7 +53,6 @@ msgid "There are currently no tickets available."
 msgstr "Aktuell sind keine Tickets verfügbar."
 
 #: includes/backend/mainpage-tab-01.php:47
-#, php-format
 msgid ""
 "A total of %1$s tickets are available, of which %2$s tickets are unused."
 msgstr ""
@@ -51,7 +64,6 @@ msgid "Export data as CSV"
 msgstr "Daten als CSV exportieren"
 
 #: includes/backend/mainpage-tab-02.php:57
-#, php-format
 msgid "A total of %1$s tickets are available."
 msgstr "Insgesamt stehen %1$s Tickets zur Verfügung."
 
@@ -116,51 +128,51 @@ msgstr "Bereitgestellt am"
 msgid "Participant"
 msgstr "Teilnehmer"
 
-#: includes/classes/class-user-list-table.php:34 includes/core.php:52
+#: includes/classes/class-user-list-table.php:34 includes/core.php:65
 msgid "Email"
 msgstr "E-Mail"
 
-#: includes/classes/class-user-list-table.php:35 includes/core.php:53
+#: includes/classes/class-user-list-table.php:35 includes/core.php:66
 msgid "Registration date"
 msgstr "Registrierungsdatum"
 
-#: includes/core.php:50
+#: includes/core.php:63
 msgid "Last name"
 msgstr "Nachname"
 
-#: includes/core.php:51
+#: includes/core.php:64
 msgid "First name"
 msgstr "Vorname"
 
-#: includes/core.php:297
+#: includes/core.php:312
 msgid "Your registration was successful!"
 msgstr "Ihre Registrierung war erfolgreich!"
 
-#: includes/core.php:301
+#: includes/core.php:316
 msgid ""
 "Unfortunately, there is currently no free ticket available in the ticket "
 "contingent!<br><br>Please try again at a later date."
 msgstr ""
-"Leider ist derzeit kein free Ticket im Ticketkontingent verfügbar!"
+"Leider ist derzeit kein freies Ticket im Ticketkontingent verfügbar!"
 "<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal."
 
-#: includes/core.php:305
+#: includes/core.php:320
 msgid "One or more fields are not filled in."
 msgstr "Ein oder mehrere Felder sind nicht ausgefüllt."
 
-#: includes/core.php:309
+#: includes/core.php:324
 msgid "Please enter a correct email address."
 msgstr "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
 
-#: includes/core.php:313
+#: includes/core.php:328
 msgid "Your email address has already been used. It cannot be used again."
 msgstr ""
 "Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht noch einmal "
 "verwendet werden."
 
-#: includes/core.php:317
+#: includes/core.php:332
 msgid "A technical error has occurred."
-msgstr "Es ist ein technischer Fehler aufgetreten."
+msgstr "Ein technischer Fehler ist aufgetreten."
 
 #: includes/setup.php:87
 msgid "Thank you for participating"
@@ -176,7 +188,7 @@ msgstr ""
 
 #: includes/setup.php:94
 msgid "Best regards"
-msgstr "Bis dahin alles Gute"
+msgstr "Beste Grüße"
 
 #: includes/setup.php:96
 msgid "Attention: This email was generated automatically, please do not reply."
@@ -194,10 +206,9 @@ msgstr "Ihr Nachname"
 
 #: includes/shortcodes/shortcode-form.php:93
 msgid "Your email address"
-msgstr "Ihre E-Mail Adresse"
+msgstr "Ihre E-Mail-Adresse"
 
 #: includes/shortcodes/shortcode-form.php:104
-#, php-format
 msgid ""
 "I agree that my data will be stored and processed for the purpose of "
 "contacting me. More information on this in the %1$s."
@@ -213,32 +224,3 @@ msgstr "Datenschutzerklärung"
 #: includes/shortcodes/shortcode-form.php:118
 msgid "Request participation"
 msgstr "Teilnahme anfordern"
-
-#. Plugin Name of the plugin/theme
-msgid "CM &mdash; Ticketpool (addon to CM theme)"
-msgstr "CM — Ticketpool (Addon zum CM-Theme)"
-
-#. Plugin URI of the plugin/theme
-msgid "https://github.com/mdibella-dev/cm-theme-addon-ticketpool"
-msgstr "https://github.com/mdibella-dev/cm-theme-addon-ticketpool"
-
-#. Description of the plugin/theme
-msgid "A system to participate from a pool of sponsored tickets."
-msgstr "Ein System zur Teilnahme aus einem Pool von gesponserten Tickets."
-
-#. Author of the plugin/theme
-msgid "Marco Di Bella"
-msgstr "Marco Di Bella"
-
-#. Author URI of the plugin/theme
-msgid "https://www.marcodibella.de"
-msgstr "https://www.marcodibella.de"
-
-#~ msgid "Ticket pool"
-#~ msgstr "Ticketpool"
-
-#~ msgid "Overview"
-#~ msgstr "Übersicht"
-
-#~ msgid "Individual ticket contingents"
-#~ msgstr "Einzelne Ticketkontingente"
