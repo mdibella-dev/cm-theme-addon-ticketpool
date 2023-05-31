@@ -60,10 +60,10 @@ function cmkk_create_user_export_file( $event_id = 0 )
 
     // Write header into file
     $row = array(
-        __( 'Last name','cm-addon-ticketpool' ),
-        __( 'First name','cm-addon-ticketpool' ),
-        __( 'Email','cm-addon-ticketpool' ),
-        __( 'Registration date','cm-addon-ticketpool' )
+        __( 'Last name','cm-theme-addon-ticketpool' ),
+        __( 'First name','cm-theme-addon-ticketpool' ),
+        __( 'Email','cm-theme-addon-ticketpool' ),
+        __( 'Registration date','cm-theme-addon-ticketpool' )
     );
     fputcsv( $file, $row);
 
@@ -309,27 +309,27 @@ function cmkk_display_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED => array(
-            'notice' => __( 'Your registration was successful!', 'cm-addon-ticketpool' ),
+            'notice' => __( 'Your registration was successful!', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-sucess',
         ),
         STATUS_NOTHING_FREE => array(
-            'notice' => __( 'Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date.', 'cm-addon-ticketpool' ),
+            'notice' => __( 'Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-info',
         ),
         STATUS_USER_FIELDS_EMPTY => array(
-            'notice' => __( 'One or more fields are not filled in.', 'cm-addon-ticketpool' ),
+            'notice' => __( 'One or more fields are not filled in.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_MALFORMED => array(
-            'notice' => __( 'Please enter a correct email address.', 'cm-addon-ticketpool' ),
+            'notice' => __( 'Please enter a correct email address.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_USER_EMAIL_IN_USE => array(
-            'notice' => __( 'Your email address has already been used. It cannot be used again.', 'cm-addon-ticketpool' ),
+            'notice' => __( 'Your email address has already been used. It cannot be used again.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-warning',
         ),
         STATUS_CANT_STORE_USER => array(
-            'notice' => __( 'A technical error has occurred.', 'cm-addon-ticketpool' ),
+            'notice' => __( 'A technical error has occurred.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-error',
         ),
     );

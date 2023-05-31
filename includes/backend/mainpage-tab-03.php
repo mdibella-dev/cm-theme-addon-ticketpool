@@ -54,21 +54,21 @@ function show_mainpage_tab_03()
 
     ?>
     <div class="form-wrap">
-        <h2><?php echo __( 'Email template for participants', 'cm-addon-ticketpool'); ?></h2>
+        <h2><?php echo __( 'Email template for participants', 'cm-theme-addon-ticketpool'); ?></h2>
         <form id="cmkk-mail-template-form" method="post" class="validate">
 
             <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
             <table class="form-table">
                 <tr>
-                    <th><?php echo __( 'Subject', 'cm-addon-ticketpool' ); ?></th>
+                    <th><?php echo __( 'Subject', 'cm-theme-addon-ticketpool' ); ?></th>
                     <td>
                         <input type="text" name="subject" id="subject" type="text" value="<?php echo $subject; ?>" size="40" aria-required="true">
                     </td>
                 </tr>
 
                 <tr>
-                    <th><?php echo __( 'Message', 'cm-addon-ticketpool' ); ?></th>
+                    <th><?php echo __( 'Message', 'cm-theme-addon-ticketpool' ); ?></th>
                     <td>
                         <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
                     </td>
@@ -77,7 +77,7 @@ function show_mainpage_tab_03()
                 <tr>
                     <th></th>
                     <td>
-                        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Update', 'cm-addon-ticketpool' ); ?></button>
+                        <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Update', 'cm-theme-addon-ticketpool' ); ?></button>
                     </td>
                 </tr>
             </table>
