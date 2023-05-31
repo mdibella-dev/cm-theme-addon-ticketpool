@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-05-31 13:34+0200\n"
-"PO-Revision-Date: 2023-05-31 13:39+0200\n"
+"POT-Creation-Date: 2023-05-31 15:47+0200\n"
+"PO-Revision-Date: 2023-05-31 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.3.1\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: plugin.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -29,6 +29,10 @@ msgid "Email template has been updated."
 msgstr "Die E-Mail-Vorlage wurde aktualisiert."
 
 #: includes/backend.php:74
+msgid "Email template has been reset."
+msgstr "Die E-Mail-Vorlage wurde zurückgesetzt."
+
+#: includes/backend.php:82
 msgid "The ticket contingent has been expanded."
 msgstr "Das Ticketkontingent wurde erweitert."
 
@@ -70,21 +74,47 @@ msgstr "Tickets werden zur Verfügung gestellt von"
 msgid "Add contingent"
 msgstr "Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-03.php:57
+#: includes/backend/mainpage-tab-03.php:35
+msgid "Thank you for participating"
+msgstr "Vielen Dank für Ihre Teilnahme"
+
+#: includes/backend/mainpage-tab-03.php:36
+msgid ""
+"Your participation in the event was registered. In the coming days you will "
+"receive another email with additional information."
+msgstr ""
+"Ihre Teilnahme an der Veranstaltung wurde registriert. In den kommenden "
+"Tagen erhalten Sie eine weitere E-Mail mit weiteren Informationen."
+
+#: includes/backend/mainpage-tab-03.php:38
+msgid "Best regards"
+msgstr "Beste Grüße"
+
+#: includes/backend/mainpage-tab-03.php:40
+msgid "Attention: This email was generated automatically, please do not reply."
+msgstr ""
+"Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht "
+"darauf."
+
+#: includes/backend/mainpage-tab-03.php:75
 msgid "Email template for participants"
 msgstr "E-Mail-Vorlage für Teilnehmer"
 
-#: includes/backend/mainpage-tab-03.php:64
+#: includes/backend/mainpage-tab-03.php:83
 msgid "Subject"
 msgstr "Betreff"
 
-#: includes/backend/mainpage-tab-03.php:71
+#: includes/backend/mainpage-tab-03.php:90
 msgid "Message"
 msgstr "Mitteilung"
 
-#: includes/backend/mainpage-tab-03.php:80
+#: includes/backend/mainpage-tab-03.php:99
 msgid "Update"
 msgstr "Aktualisieren"
+
+#: includes/backend/mainpage-tab-03.php:100
+msgid "Reset"
+msgstr "Zurücksetzen"
 
 #: includes/backend/mainpage.php:27 includes/backend/mainpage.php:28
 #: includes/backend/mainpage.php:58 includes/backend/mainpage.php:78
@@ -160,28 +190,6 @@ msgstr ""
 #: includes/core.php:332
 msgid "A technical error has occurred."
 msgstr "Ein technischer Fehler ist aufgetreten."
-
-#: includes/setup.php:110
-msgid "Thank you for participating"
-msgstr "Vielen Dank für Ihre Teilnahme"
-
-#: includes/setup.php:115
-msgid ""
-"Your participation in the event was registered. In the coming days you will "
-"receive another email with additional information."
-msgstr ""
-"Ihre Teilnahme an der Veranstaltung wurde registriert. In den kommenden "
-"Tagen erhalten Sie eine weitere E-Mail mit weiteren Informationen."
-
-#: includes/setup.php:117
-msgid "Best regards"
-msgstr "Beste Grüße"
-
-#: includes/setup.php:119
-msgid "Attention: This email was generated automatically, please do not reply."
-msgstr ""
-"Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht "
-"darauf."
 
 #: includes/shortcodes/shortcode-form.php:81
 msgid "Your first name"

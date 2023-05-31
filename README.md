@@ -25,6 +25,7 @@ translation-ready, shortcodes
 
 ### Latest changes to the main branch
 
+* New: Add button to reset the email template
 * New: Add README.md
 * New: Add CHANGELOG.md template
 * New: Add MIT license

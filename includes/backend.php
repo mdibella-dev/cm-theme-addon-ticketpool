@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) or exit;
 function admin_enqueue_scripts()
 {
     $screen = get_current_screen();
-    
+
     if( ( 'toplevel_page_cmkk_mainpage' === $screen->id ) ):
         wp_enqueue_style(
             'cm-ticketpool-backend-style',
@@ -64,6 +64,14 @@ function admin_notices()
             ?>
             <div class="notice notice-success is-dismissible">
                 <p><?php echo __( 'Email template has been updated.' , 'cm-theme-addon-ticketpool' ); ?></p>
+            </div>
+            <?php
+            break;
+
+            case '4':
+            ?>
+            <div class="notice notice-success is-dismissible">
+                <p><?php echo __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' ); ?></p>
             </div>
             <?php
             break;

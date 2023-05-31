@@ -54,7 +54,7 @@ function show_mainpage_tab_03()
             case 'reset-template' :
                 update_option( OPTION_MAIL_SUBJECT, $default_subject );     // or delete+add
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
-                $_GET['cmkk-status'] = '2';
+                $_GET['cmkk-status'] = '4';
                 do_action( 'admin_notices' );
             break;
 
