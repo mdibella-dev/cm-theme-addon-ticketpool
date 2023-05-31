@@ -3,7 +3,7 @@
  * Class MDB_Pool_List_Table
  *
  * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
+ * @package cm-addon-ticketpool
  */
 
 namespace cm_addon_ticketpool;

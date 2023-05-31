@@ -3,7 +3,7 @@
  * Functions to activate, initiate and deactivate the plugin.
  *
  * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
+ * @package cm-addon-ticketpool
  */
 
 namespace cm_addon_ticketpool;
