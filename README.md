@@ -29,6 +29,7 @@ translation-ready, shortcodes
 * New: Add CHANGELOG.md template
 * New: Add MIT license
 * New: Remove table and options on uninstall
+* New: package.json
 * Improve: Enqueue frontend script in a hook instead of shortcode
 * Improve: Minify frontend script
 * Improve: Assets folder and file naming
@@ -39,7 +40,6 @@ translation-ready, shortcodes
 * Improve: Change translation domain
 * Improve: Change menu icon
 * Improve: Set basic language to EN
-
 
 
 ### Previous changes
