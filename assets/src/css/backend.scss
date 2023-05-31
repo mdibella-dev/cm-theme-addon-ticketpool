@@ -39,13 +39,10 @@
 
 .toplevel_page_cmkk_mainpage  {
 
-    .wrap h1.wp-heading-inline {
-        margin-bottom: 40px;
-    }
-
-    .nav-tab-wrapper,
+    h1.nav-tab-wrapper,
     .wrap h2.nav-tab-wrapper,
-    h1.nav-tab-wrapper {
+    .nav-tab-wrapperr {
+        margin-top: 40px;
         margin-bottom: 40px;
 
         & > *:first-child {
