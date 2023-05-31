@@ -10,8 +10,7 @@
     "scripts": {
         "sass:front": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/frontend.scss $npm_package_config_SASS_BLD/frontend.min.css",
         "sass:back": "sass --style=compressed --no-source-map $npm_package_config_SASS_SRC/backend.scss $npm_package_config_SASS_BLD/backend.min.css",
-        "sass:all": "npm run sass:front && npm run sass:back",
-        "make:pot": "wp i18n make-pot . ./languages/$npm_package_config_PLUGIN_NAME.pot"
+        "sass:all": "npm run sass:front && npm run sass:back"
     },
     "devDependecies": {
         "sass": "^1.59.3"
