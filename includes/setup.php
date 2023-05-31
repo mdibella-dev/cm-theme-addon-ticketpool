@@ -24,11 +24,11 @@ defined( 'ABSPATH' ) or exit;
 function plugin_init()
 {
     // Load text domain
-    //$x = load_plugin_textdomain( 'cm-theme-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
-    $x = load_plugin_textdomain( 'cm-theme-addon-ticketpool' );
+    //$x = load_plugin_textdomain( 'cm-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
+    $x = load_plugin_textdomain( 'cm-addon-ticketpool' );
 
 
-    $domain = 'cm-theme-addon-ticketpool';
+    $domain = 'cm-addon-ticketpool';
     $locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
     $mofile = $domain . '-' . $locale . '.mo';
     $path   = WP_LANG_DIR . '/plugins/' . $mofile;
@@ -107,16 +107,16 @@ function plugin_activation()
 
     /// Set up options if not present
     if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cm-theme-addon-ticketpool' ) );
+        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cm-addon-ticketpool' ) );
     endif;
 
     if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
         add_option( OPTION_MAIL_MESSAGE,
-            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-theme-addon-ticketpool' ) .
+            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-addon-ticketpool' ) .
             '<br><br>' .
-            __( 'Best regards', 'cm-theme-addon-ticketpool' ) .
+            __( 'Best regards', 'cm-addon-ticketpool' ) .
             '<br><br>' .
-            __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' )
+            __( 'Attention: This email was generated automatically, please do not reply.', 'cm-addon-ticketpool' )
         );
     endif;
 
