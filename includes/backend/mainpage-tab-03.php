@@ -31,6 +31,15 @@ function show_mainpage_tab_03()
 {
     /** Process form if already submitted */
 
+    // Set up default values
+    $default_subject = __( 'Thank you for participating', 'cm-theme-addon-ticketpool' );
+    $default_message = __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-theme-addon-ticketpool' )
+                       . '\n\n'
+                       . __( 'Best regards', 'cm-theme-addon-ticketpool' )
+                       . '\n\n'
+                       . __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' );
+
+
     if( isset( $_POST['action'] ) ) :
 
         switch( $_POST['action'] ) :
@@ -42,12 +51,21 @@ function show_mainpage_tab_03()
                 do_action( 'admin_notices' );
             break;
 
+            case 'reset-template' :
+                update_option( OPTION_MAIL_SUBJECT, $default_subject );     // or delete+add
+                update_option( OPTION_MAIL_MESSAGE, $default_message );
+                $_GET['cmkk-status'] = '2';
+                do_action( 'admin_notices' );
+            break;
+
+
         endswitch;
 
     endif;
 
-    $subject = get_option( OPTION_MAIL_SUBJECT );
-    $message = get_option( OPTION_MAIL_MESSAGE );
+    // Get options
+    $subject = get_option( OPTION_MAIL_SUBJECT, $default_subject );
+    $message = get_option( OPTION_MAIL_MESSAGE, $default_message );
 
 
     /** Output the tab */
@@ -60,6 +78,7 @@ function show_mainpage_tab_03()
             <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
             <table class="form-table">
+
                 <tr>
                     <th><?php echo __( 'Subject', 'cm-theme-addon-ticketpool' ); ?></th>
                     <td>
@@ -78,6 +97,7 @@ function show_mainpage_tab_03()
                     <th></th>
                     <td>
                         <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Update', 'cm-theme-addon-ticketpool' ); ?></button>
+                        <button type="submit" name="action" class="button button-primary" value="reset-template"><?php echo __( 'Reset', 'cm-theme-addon-ticketpool' ); ?></button>
                     </td>
                 </tr>
             </table>
