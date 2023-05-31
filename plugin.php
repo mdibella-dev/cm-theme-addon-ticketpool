@@ -37,8 +37,10 @@ define( __NAMESPACE__ . '\TABLE_POOL', 'cmkk_contingent_pool' );
 define( __NAMESPACE__ . '\TABLE_USER', 'cmkk_contingent_user' );
 
 // WordPress options
-define( 'OPTION_MAIL_SUBJECT', 'cmkk_plugin_mail_subject' );
-define( 'OPTION_MAIL_MESSAGE', 'cmkk_plugin_mail_message' );
+//define( __NAMESPACE__ . '\OPTION_MAIL_SUBJECT', 'cm_theme_addon_ticketpool_mail_subject' );
+//define( __NAMESPACE__ . '\OPTION_MAIL_MESSAGE', 'cm_theme_addon_ticketpool_mail_message' );
+define( 'OPTION_MAIL_SUBJECT', 'cm_theme_addon_ticketpool_mail_subject' );
+define( 'OPTION_MAIL_MESSAGE', 'cm_theme_addon_ticketpool_mail_message' );
 
 // Status code
 define( __NAMESPACE__ . '\STATUS_USER_ADDED',           100 );
