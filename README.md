@@ -44,10 +44,10 @@ translation-ready, shortcodes
 
 ### Previous changes
 
-See [CHANGELOG.md](https://github.com/mdibella-dev/cm-addon-ticketpool/blob/main/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/blob/main/CHANGELOG.md).
 
 <br>
 
 ## License
 
-This package ist released under the **MIT License**. See [LICENSE.md](https://github.com/mdibella-dev/cm-addon-ticketpool/blob/main/LICENSE.md) for further details.
+This package ist released under the **MIT License**. See [LICENSE.md](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/blob/main/LICENSE.md) for further details.
