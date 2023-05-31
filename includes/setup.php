@@ -24,31 +24,8 @@ defined( 'ABSPATH' ) or exit;
 function plugin_init()
 {
     // Load text domain
-    //$x = load_plugin_textdomain( 'cm-theme-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
-    $x = load_plugin_textdomain( 'cm-theme-addon-ticketpool' );
-
-
-    $domain = 'cm-theme-addon-ticketpool';
-    $locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
-    $mofile = $domain . '-' . $locale . '.mo';
-    $path   = WP_LANG_DIR . '/plugins/' . $mofile;
-
-    $y = load_textdomain( $domain, $path, $locale );
-
-    error_log( 'First run' );
-    error_log( 'Result: ' . (0 == $y? 'false' : 'true') );
-    error_log( 'Path: ' . $path );
-
-    $path = WP_PLUGIN_DIR . '/' . plugin_basename( PLUGIN_DIR ) . '/languages/' . $mofile;
-
-    $y = load_textdomain( $domain, $path, $locale );
-
-    error_log( 'Second run' );
-    error_log( 'Result: ' . (0 == $y? 'false' : 'true') );
-    error_log( 'Path: ' . $path );
+    load_plugin_textdomain( 'cm-theme-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
 }
-
-//add_action( 'init', __NAMESPACE__ . '\plugin_init' );
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\plugin_init' );
 
@@ -106,21 +83,8 @@ function plugin_activation()
 
 
     /// Set up options if not present
-    if( false == get_option( OPTION_MAIL_SUBJECT ) ) :
-        add_option( OPTION_MAIL_SUBJECT, __( 'Thank you for participating', 'cm-theme-addon-ticketpool' ) );
-    endif;
-
-    if( false == get_option( OPTION_MAIL_MESSAGE ) ) :
-        add_option( OPTION_MAIL_MESSAGE,
-            __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-theme-addon-ticketpool' ) .
-            '<br><br>' .
-            __( 'Best regards', 'cm-theme-addon-ticketpool' ) .
-            '<br><br>' .
-            __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' )
-        );
-    endif;
-
-    // Copy language files!!
+    add_option( OPTION_MAIL_SUBJECT );
+    add_option( OPTION_MAIL_MESSAGE );
 }
 
 register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
@@ -175,14 +139,9 @@ function plugin_uninstall()
 
 
 
-    // Remove options if present
-    if( true == get_option( OPTION_MAIL_SUBJECT ) ) :
-        delete_option( OPTION_MAIL_SUBJECT );
-    endif;
-
-    if( true == get_option( OPTION_MAIL_MESSAGE ) ) :
-        delete_option( OPTION_MAIL_MESSAGE );
-    endif;
+    // Remove options
+    delete_option( OPTION_MAIL_SUBJECT );
+    delete_option( OPTION_MAIL_MESSAGE );
 }
 
 register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );
