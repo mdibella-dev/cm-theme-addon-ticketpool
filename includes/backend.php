@@ -72,9 +72,9 @@ function admin_notices()
 
         if( array_key_exists( $notice, $notices ) ) :
         ?>
-            <div class="notice <?php echo $notices[$notice]['type']; ?> is-dismissible">
-                <p><?php echo $notices[$notice]['message']; ?></p>
-            </div>
+        <div class="notice <?php echo $notices[$notice]['type']; ?> is-dismissible">
+            <p><?php echo $notices[$notice]['message']; ?></p>
+        </div>
         <?php
         endif;
 
