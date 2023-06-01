@@ -6,36 +6,56 @@
  */
 
 
+
+/** Mixins */
+
+@import 'mixins/_responsive';
+
+
+
+/** (Table) Forms */
+
+.form-table-add-contingent,
+.form-table-email-template,
+.form-table-tools {
+    width: 100%;
+
+    @include respond-to(medium) {
+        width: 60%;
+    }
+}
+
+
+.form-table-add-contingent input#groesse {
+    width: 100px;
+}
+
+
+.form-table-email-template input#subject {
+    width: 100%;
+}
+
+
+.form-table-email-template textarea#message {
+    height: 20rem;
+    width: 100%;
+}
+
+
+.form-table-tools .button-col {
+    padding: 0 2rem;
+}
+
+
+/** Some info */
+
+
 .cmkk-amount-info {
     margin-bottom: 60px;
 }
 
 
-#cmkk-add-contingent-form {
-
-    input#anbieter {
-        width: 100%;
-    }
-
-    input#groesse {
-        width: 100px;
-    }
-
-}
-
-
-#cmkk-mail-template-form {
-
-    input#subject,
-    textarea#message {
-        width: 100%;
-    }
-
-    textarea#message {
-        height: 20rem;
-    }
-
-}
+/** Navigation */
 
 .toplevel_page_cmkk_mainpage  {
 

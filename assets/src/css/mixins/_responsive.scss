@@ -1,0 +1,94 @@
+/**
+ * Helper functions for the realization of responsive websites
+ *
+ * @author  Marco Di Bella
+ * @package mdb-rechtsdepesche
+ */
+
+
+
+/**
+ *  Media breakpoints
+ *
+ * @source https://developer.wordpress.org/block-editor/packages/packages-viewport/
+ */
+
+$breakpoints: (
+    mobile: 30rem,      // = 480px
+    small:  35.5rem,    // = 600px,
+    medium: 48.875rem,  // = 782px,
+    large:  60rem,      // = 960px,
+    wide:   80rem,      // = 1280px,
+    huge:   90rem,      // = 1440px,
+) !default;
+
+
+
+/**
+ * Creates a media breakpoint
+ *
+ * @source https://davidwalsh.name/write-media-queries-sass
+ * @source https://medium.com/front-end-developers/the-solution-to-media-queries-in-sass-5493ebe16844
+ * @source https://webdesign.tutsplus.com/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+ *
+ * @param  $breakpoint  one of the following values: mobile, small, medium, large, wide, huge
+ */
+
+@mixin respond-to( $breakpoint) {
+
+    @if map-has-key( $breakpoints, $breakpoint ) {
+        $value: map-get( $breakpoints, $breakpoint );
+
+        @media screen and (min-width: #{$value}) {
+            @content;
+        }
+    }
+}
+
+
+
+/**
+ * Creates a dynamic (fluid) customization of a CSS property
+ *
+ * @source https://css-tricks.com/snippets/css/fluid-typography/
+ * @source https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+ * @source https://www.madebymike.com.au/writing/fluid-type-calc-examples/
+ * @source https://www.madebymike.com.au/writing/precise-control-responsive-typography/
+ *
+ * @param  $property   the CSS property (e.a. font-size)
+ * @param  $min-size   lower size limit (rem)
+ * @param  $max-size   upper size limit (rem)
+ */
+
+@mixin fluid-size( $property, $min-size, $max-size ) {
+
+    $min-vw: map-get( $breakpoints, mobile );
+    $max-vw: map-get( $breakpoints, huge );
+
+    & {
+        #{$property}: $min-size;
+
+        @include respond-to(mobile) {
+            #{$property}: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+
+        @include respond-to( huge ) {
+            #{$property}: $max-size;
+        }
+    }
+
+}
+
+
+
+/**
+ * Removes the unit from a value specification
+ *
+ * @source  https://css-tricks.com/snippets/sass/strip-unit-function/
+ * @param   $value  any value
+ * @return  the value without unit
+ */
+
+@function strip-unit( $value ) {
+    @return calc( #{$value} / calc( #{$value} * 0 + 1 ) );
+}
