@@ -49,10 +49,10 @@ define( __NAMESPACE__ . '\STATUS_USER_EMAIL_IN_USE',      203 );
 define( __NAMESPACE__ . '\STATUS_CANT_STORE_USER',        204 );
 
 // Notice codes
-define( __NAMESPACE__ . '\NOTICE_NEW_PARTICIPANT',        100 );
-define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_UPDATED', 101 );
-define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_RESET',   102 );
-define( __NAMESPACE__ . '\NOTICE_NEW_TICKET_CONTINGENT',  103 );
+define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_UPDATED',  100 );
+define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_RESET',    101 );
+define( __NAMESPACE__ . '\NOTICE_TICKET_CONTINGENT_ADDED', 102 );
+define( __NAMESPACE__ . '\NOTICE_TABLE_RESET',             103 );
 
 // Folder to store export files
 define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );

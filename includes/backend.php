@@ -52,21 +52,21 @@ function admin_notices()
 
         $notice  = $_GET['notice'];
         $notices = array(
-            NOTICE_NEW_PARTICIPANT => array(
-                'type'    = 'notice-information',
-                'message' = __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' )
-            ),
             NOTICE_EMAIL_TEMPLATE_UPDATED => array(
-                'type'    = 'notice-success',
-                'message' = __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' )
+                'type'    => 'notice-success',
+                'message' => __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' )
             ),
             NOTICE_EMAIL_TEMPLATE_RESET => array(
-                'type'    = 'notice-success',
-                'message' = __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' )
+                'type'    => 'notice-success',
+                'message' => __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' )
             ),
-            NOTICE_NEW_TICKET_CONTINGENT => array(
-                'type'    = 'notice-success',
-                'message' = __( 'The ticket contingent has been expanded.' , 'cm-theme-addon-ticketpool' )
+            NOTICE_TICKET_CONTINGENT_ADDED => array(
+                'type'    => 'notice-success',
+                'message' => __( 'The ticket contingent has been expanded.' , 'cm-theme-addon-ticketpool' )
+            ),
+            NOTICE_TABLE_RESET => array(
+                'type'    => 'notice-success',
+                'message' => __( 'Tables have been reset.' , 'cm-theme-addon-ticketpool' )
             ),
         );
 
