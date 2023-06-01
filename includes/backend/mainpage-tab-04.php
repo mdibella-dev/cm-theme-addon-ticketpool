@@ -72,10 +72,10 @@ function show_mainpage_tab_04()
 
                 <tr>
                     <td>
-                        <h3>E-Mail-Vorlage zurücksetzen</h3>
-                        <p>ACHTUNG: Hiermit wird die E-Mail-Vorlage wieder auf den Standardtext zurückgesetzt.
+                        <h3><?php echo __( 'Reset Email Template', 'cm-theme-addon-ticketpool'); ?></h3>
+                        <p><?php echo __( 'ATTENTION: This resets the email template to the default text.', 'cm-theme-addon-ticketpool'); ?></p>
                     </td>
-                    <td>
+                    <td class="button-col ">
                         <button type="submit" name="action" class="button button-primary" value="reset-template"><?php echo __( 'Reset', 'cm-theme-addon-ticketpool' ); ?></button>
                     </td>
                 </tr>
@@ -88,10 +88,10 @@ function show_mainpage_tab_04()
 
                 <tr>
                     <td>
-                        <h3>Tabellen zurücksetzen</h3>
-                        <p>ACHTUNG: Hiermit werden alle Tabellen unwiderruflich geleert.
+                        <h3><?php echo __( 'Reset tables', 'cm-theme-addon-ticketpool'); ?></h3>
+                        <p><?php echo __( 'ATTENTION: This clears all tables irrevocably.', 'cm-theme-addon-ticketpool'); ?></p>
                     </td>
-                    <td>
+                    <td class="button-col ">
                         <button type="submit" name="action" class="button button-primary" value="reset-table"><?php echo __( 'Reset', 'cm-theme-addon-ticketpool' ); ?></button>
                     </td>
                 </tr>

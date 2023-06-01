@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-05-31 15:47+0200\n"
-"PO-Revision-Date: 2023-05-31 15:48+0200\n"
+"POT-Creation-Date: 2023-06-01 10:50+0200\n"
+"PO-Revision-Date: 2023-06-01 10:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -20,24 +20,24 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: includes/backend.php:58
-msgid "A new participant has registered via the ticket contingent."
-msgstr "Ein neuer Teilnehmer hat sich über das Ticketkontingent angemeldet."
-
-#: includes/backend.php:66
+#: includes/backend.php:57
 msgid "Email template has been updated."
 msgstr "Die E-Mail-Vorlage wurde aktualisiert."
 
-#: includes/backend.php:74
+#: includes/backend.php:61
 msgid "Email template has been reset."
 msgstr "Die E-Mail-Vorlage wurde zurückgesetzt."
 
-#: includes/backend.php:82
+#: includes/backend.php:65
 msgid "The ticket contingent has been expanded."
 msgstr "Das Ticketkontingent wurde erweitert."
 
+#: includes/backend.php:69
+msgid "Tables have been reset."
+msgstr "Tabellen wurde zurückgesetzt."
+
 #: includes/backend/mainpage-tab-01.php:44
-#: includes/backend/mainpage-tab-02.php:54
+#: includes/backend/mainpage-tab-02.php:53
 msgid "There are currently no tickets available."
 msgstr "Derzeit sind keine Tickets verfügbar."
 
@@ -53,32 +53,34 @@ msgstr ""
 msgid "Export data as CSV"
 msgstr "Daten als CSV exportieren"
 
-#: includes/backend/mainpage-tab-02.php:57
+#: includes/backend/mainpage-tab-02.php:56
 #, php-format
 msgid "A total of %1$s tickets are available."
 msgstr "Insgesamt stehen %1$s Tickets zur Verfügung."
 
-#: includes/backend/mainpage-tab-02.php:63
+#: includes/backend/mainpage-tab-02.php:62
 msgid "Add new contingent"
 msgstr "Neues Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-02.php:69
+#: includes/backend/mainpage-tab-02.php:68
 msgid "Number of tickets"
 msgstr "Anzahl der Tickets"
 
-#: includes/backend/mainpage-tab-02.php:74
+#: includes/backend/mainpage-tab-02.php:75
 msgid "Tickets are provided by"
 msgstr "Tickets werden zur Verfügung gestellt von"
 
-#: includes/backend/mainpage-tab-02.php:79
+#: includes/backend/mainpage-tab-02.php:85
 msgid "Add contingent"
 msgstr "Kontingent hinzufügen"
 
 #: includes/backend/mainpage-tab-03.php:35
+#: includes/backend/mainpage-tab-04.php:35
 msgid "Thank you for participating"
 msgstr "Vielen Dank für Ihre Teilnahme"
 
 #: includes/backend/mainpage-tab-03.php:36
+#: includes/backend/mainpage-tab-04.php:36
 msgid ""
 "Your participation in the event was registered. In the coming days you will "
 "receive another email with additional information."
@@ -87,37 +89,57 @@ msgstr ""
 "Tagen erhalten Sie eine weitere E-Mail mit weiteren Informationen."
 
 #: includes/backend/mainpage-tab-03.php:38
+#: includes/backend/mainpage-tab-04.php:38
 msgid "Best regards"
 msgstr "Beste Grüße"
 
 #: includes/backend/mainpage-tab-03.php:40
+#: includes/backend/mainpage-tab-04.php:40
 msgid "Attention: This email was generated automatically, please do not reply."
 msgstr ""
 "Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht "
 "darauf."
 
-#: includes/backend/mainpage-tab-03.php:75
+#: includes/backend/mainpage-tab-03.php:66
 msgid "Email template for participants"
 msgstr "E-Mail-Vorlage für Teilnehmer"
 
-#: includes/backend/mainpage-tab-03.php:83
+#: includes/backend/mainpage-tab-03.php:74
 msgid "Subject"
 msgstr "Betreff"
 
-#: includes/backend/mainpage-tab-03.php:90
+#: includes/backend/mainpage-tab-03.php:81
 msgid "Message"
 msgstr "Mitteilung"
 
-#: includes/backend/mainpage-tab-03.php:99
+#: includes/backend/mainpage-tab-03.php:90
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: includes/backend/mainpage-tab-03.php:100
+#: includes/backend/mainpage-tab-04.php:75
+msgid "Reset Email Template"
+msgstr "E-Mail-Vorlage zurücksetzen"
+
+#: includes/backend/mainpage-tab-04.php:76
+msgid "ATTENTION: This resets the email template to the default text."
+msgstr ""
+"ACHTUNG: Dadurch wird die E-Mail-Vorlage auf den Standardtext zurückgesetzt."
+
+#: includes/backend/mainpage-tab-04.php:79
+#: includes/backend/mainpage-tab-04.php:95
 msgid "Reset"
 msgstr "Zurücksetzen"
 
+#: includes/backend/mainpage-tab-04.php:91
+msgid "Reset tables"
+msgstr "Tabellen zurücksetzen"
+
+#: includes/backend/mainpage-tab-04.php:92
+msgid "ATTENTION: This clears all tables irrevocably."
+msgstr "ACHTUNG: Dadurch werden alle Tabellen unwiderruflich gelöscht."
+
 #: includes/backend/mainpage.php:27 includes/backend/mainpage.php:28
-#: includes/backend/mainpage.php:58 includes/backend/mainpage.php:78
+#: includes/backend/mainpage.php:58 includes/backend/mainpage.php:82
 msgid "Ticket contingents"
 msgstr "Ticketkontingente"
 
@@ -128,6 +150,10 @@ msgstr "Teilnehmer"
 #: includes/backend/mainpage.php:62
 msgid "Email notification"
 msgstr "E-Mail-Benachrichtigung"
+
+#: includes/backend/mainpage.php:66
+msgid "Tools"
+msgstr "Tools"
 
 #: includes/classes/class-pool-list-table.php:33
 msgid "Contingent size"
@@ -240,3 +266,6 @@ msgstr "Marco Di Bella"
 #. Author URI of the plugin/theme
 msgid "https://www.marcodibella.de"
 msgstr "https://www.marcodibella.de"
+
+#~ msgid "A new participant has registered via the ticket contingent."
+#~ msgstr "Ein neuer Teilnehmer hat sich über das Ticketkontingent angemeldet."
