@@ -50,13 +50,6 @@ function show_mainpage_tab_03()
                 do_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
             break;
 
-            case 'reset-template' :
-                update_option( OPTION_MAIL_SUBJECT, $default_subject );     // or delete+add
-                update_option( OPTION_MAIL_MESSAGE, $default_message );
-                do_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
-            break;
-
-
         endswitch;
 
     endif;
@@ -95,7 +88,6 @@ function show_mainpage_tab_03()
                     <th></th>
                     <td>
                         <button type="submit" name="action" class="button button-primary" value="update-template"><?php echo __( 'Update', 'cm-theme-addon-ticketpool' ); ?></button>
-                        <button type="submit" name="action" class="button button-primary" value="reset-template"><?php echo __( 'Reset', 'cm-theme-addon-ticketpool' ); ?></button>
                     </td>
                 </tr>
             </table>
