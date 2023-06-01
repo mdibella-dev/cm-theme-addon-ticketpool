@@ -60,23 +60,34 @@ function show_mainpage_tab_02()
     ?></p>
     <div class="form-wrap">
         <h2><?php echo __( 'Add new contingent', 'cm-theme-addon-ticketpool'); ?></h2>
-        <form id="cmkk-add-contingent-form" method="post" class="validate">
+        <form method="post" class="validate">
 
-            <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
+            <table class="form-table form-table-add-contingent">
 
-            <div class="form-field form-required groesse-wrap">
-                <label for="groesse"><?php echo __( 'Number of tickets', 'cm-theme-addon-ticketpool' ); ?></label>
-                <input type="number" min="1" name="groesse" id="groesse" type="text" value="1" size="3" aria-required="true">
-            </div>
+                <tr>
+                    <th><label for="groesse"><?php echo __( 'Number of tickets', 'cm-theme-addon-ticketpool' ); ?></label></th>
+                    <td>
+                        <input type="number" min="1" name="groesse" id="groesse" type="text" value="1" size="3" aria-required="true">
+                    </td>
+                </tr>
 
-            <div class="form-field form-required bereitgestellt-von-wrap">
-                <label for="anbieter"><?php echo __( 'Tickets are provided by', 'cm-theme-addon-ticketpool' ); ?></label>
-                <input type="text" name="anbieter" id="anbieter" type="text" value="" size="40" aria-required="true">
-            </div>
+                <tr>
+                    <th><label for="anbieter"><?php echo __( 'Tickets are provided by', 'cm-theme-addon-ticketpool' ); ?></label></th>
+                    <td>
+                        <input type="text" name="anbieter" id="anbieter" type="text" value="" size="40" aria-required="true">
+                    </td>
+                </tr>
 
-            <p class="submit">
-                <button type="submit" name="action" class="button button-primary" value="add-contingent"><?php echo __( 'Add contingent', 'cm-theme-addon-ticketpool' ); ?></button>
-            </p>
+                <tr>
+                    <th></th>
+                    <td>
+                        <p class="submit">
+                            <button type="submit" name="action" class="button button-primary" value="add-contingent"><?php echo __( 'Add contingent', 'cm-theme-addon-ticketpool' ); ?></button>
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
 
         </form>
     </div>
