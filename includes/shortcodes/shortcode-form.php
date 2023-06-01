@@ -63,7 +63,7 @@ function shortcode_form( $atts, $content = null )
             $user_email = $_POST['cmkk_email'];
         endif;
 
-        $code = cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email );
+        $code = add_user( $event_id, $user_lastname, $user_forename, $user_email );
     endif;
 
 
