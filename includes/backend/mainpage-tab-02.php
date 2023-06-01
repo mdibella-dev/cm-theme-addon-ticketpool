@@ -65,14 +65,18 @@ function show_mainpage_tab_02()
             <table class="form-table form-table-add-contingent">
 
                 <tr>
-                    <th><label for="groesse"><?php echo __( 'Number of tickets', 'cm-theme-addon-ticketpool' ); ?></label></th>
+                    <th>
+                        <label for="groesse"><?php echo __( 'Number of tickets', 'cm-theme-addon-ticketpool' ); ?></label>
+                    </th>
                     <td>
                         <input type="number" min="1" name="groesse" id="groesse" type="text" value="1" size="3" aria-required="true">
                     </td>
                 </tr>
 
                 <tr>
-                    <th><label for="anbieter"><?php echo __( 'Tickets are provided by', 'cm-theme-addon-ticketpool' ); ?></label></th>
+                    <th>
+                        <label for="anbieter"><?php echo __( 'Tickets are provided by', 'cm-theme-addon-ticketpool' ); ?></label>
+                    </th>
                     <td>
                         <input type="text" name="anbieter" id="anbieter" type="text" value="" size="40" aria-required="true">
                     </td>
