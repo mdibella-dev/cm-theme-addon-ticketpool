@@ -119,24 +119,15 @@ function plugin_uninstall()
     // Remove tables if present
     global $wpdb;
 
-    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+    $table_names = array(
+        $wpdb->prefix . TABLE_POOL,
+        $wpdb->prefix . TABLE_USER
+    );
 
-    $table_name = $wpdb->prefix . TABLE_POOL;
-
-    if( $table_name == $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
-        $sql = "DROP TABLE $table_name;";
-
-        dbDelta( $sql );
-    endif;
-
-    $table_name = $wpdb->prefix . TABLE_USER;
-
-    if( $table_name == $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
-        $sql = "DROP TABLE $table_name;";
-
-        dbDelta( $sql );
-    endif;
-
+    foreach( $table_names as $table_name ) :
+        $sql = "DROP TABLE $table_name";
+        $wpdb->query( $sql );
+    endforeach;
 
 
     // Remove options
