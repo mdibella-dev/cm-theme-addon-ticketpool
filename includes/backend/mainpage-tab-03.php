@@ -21,7 +21,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.0.0
  *
- * @todo Different emails for different events?
  * @todo Do not allow empty fields
  * @todo E-mail address for notification
  */

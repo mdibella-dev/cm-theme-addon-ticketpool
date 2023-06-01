@@ -20,10 +20,6 @@ defined( 'ABSPATH' ) or exit;
  * Displays the tab.
  *
  * @since 1.0.0
- *
- * @todo Different emails for different events?
- * @todo Do not allow empty fields
- * @todo E-mail address for notification
  */
 
 function show_mainpage_tab_04()
