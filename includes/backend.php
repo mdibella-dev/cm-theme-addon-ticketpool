@@ -54,7 +54,7 @@ function admin_notices()
         $notices = array(
             NOTICE_EMAIL_TEMPLATE_UPDATED => array(
                 'type'    => 'notice-success',
-                'message' => __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' )
+                'message' => __( 'Email template has been updated.' , 'cm-theme-addon-ticketpool' )
             ),
             NOTICE_EMAIL_TEMPLATE_RESET => array(
                 'type'    => 'notice-success',
