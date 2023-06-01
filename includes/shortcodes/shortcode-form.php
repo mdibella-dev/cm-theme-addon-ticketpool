@@ -96,20 +96,17 @@ function shortcode_form( $atts, $content = null )
                 </td>
             </tr>
             <tr>
-                <th></th>
-                <td>
-                    <div class="cmkk-gdpr">
-                        <input type="checkbox" id="gdpr" name="gdpr">
-                        <label for="gdpr"><?php echo sprintf(
-                            __( 'I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the %1$s.', 'cm-theme-addon-ticketpool' ),
-                            sprintf(
-                                '<a href="%1$s">%2$s</a>',
-                                get_privacy_policy_url(),
-                                __( 'privacy policy', 'cm-theme-addon-ticketpool' )
-                            )
-                        );
-                        ?></label>
-                    </div>
+                <td colspan="2" class="gdpr">
+                    <input type="checkbox" id="gdpr" name="gdpr">
+                    <label for="gdpr"><?php echo sprintf(
+                        __( 'I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the %1$s.', 'cm-theme-addon-ticketpool' ),
+                        sprintf(
+                            '<a href="%1$s">%2$s</a>',
+                            get_privacy_policy_url(),
+                            __( 'privacy policy', 'cm-theme-addon-ticketpool' )
+                        )
+                    );
+                    ?></label>
                 </td>
             </tr>
             <tr>
