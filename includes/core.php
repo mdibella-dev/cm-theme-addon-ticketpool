@@ -36,7 +36,7 @@ function create_user_export_file( $event_id = 0 )
     $export_dir = $uploads['basedir'] . '/' . EXPORT_FOLDER;
     $export_url = $uploads['baseurl'] . '/' . EXPORT_FOLDER;
 
-    $file_name  = 'kartenkontingent-export-' . date( "Y-m-d" ) . '.csv';
+    $file_name  = 'export-' . date( "Y-m-d" ) . '.csv';
     $file_info  = array(
         'name' => $file_name,
         'path' => $export_dir . '/' . $file_name,
