@@ -47,15 +47,13 @@ function show_mainpage_tab_03()
             case 'update-template' :
                 update_option( OPTION_MAIL_SUBJECT, $_POST['subject'] );
                 update_option( OPTION_MAIL_MESSAGE, $_POST['message'] );
-                $_GET['cmkk-status'] = '2';
-                do_action( 'admin_notices' );
+                do_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
             break;
 
             case 'reset-template' :
                 update_option( OPTION_MAIL_SUBJECT, $default_subject );     // or delete+add
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
-                $_GET['cmkk-status'] = '4';
-                do_action( 'admin_notices' );
+                do_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
             break;
 
 

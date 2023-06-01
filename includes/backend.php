@@ -48,45 +48,53 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
 
 function admin_notices()
 {
-    if( isset( $_GET['cmkk-status'] ) ) :
+    if( isset( $_GET['ticketpool-notice'] ) ) :
 
-        switch( $_GET['cmkk-status'] ) :
+        $notice  = $_GET['ticketpool-notice'];
+        $notices = array(
+            NOTICE_NEW_PARTICIPANT => array(
+                'type'    = 'notice-information',
+                'message' = __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' )
+            ),
+            NOTICE_EMAIL_TEMPLATE_UPDATED => array(
+                'type'    = 'notice-success',
+                'message' = __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' )
+            ),
+            NOTICE_EMAIL_TEMPLATE_RESET => array(
+                'type'    = 'notice-success',
+                'message' = __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' )
+            ),
+            NOTICE_NEW_TICKET_CONTINGENT => array(
+                'type'    = 'notice-success',
+                'message' = __( 'The ticket contingent has been expanded.' , 'cm-theme-addon-ticketpool' )
+            ),
+        );
 
-            case '1':
-            ?>
-            <div class="notice notice-information is-dismissible">
-                <p><?php echo __( 'A new participant has registered via the ticket contingent.' , 'cm-theme-addon-ticketpool' ); ?></p>
+        if( in_array( $notice, $notices ) ) :
+        ?>
+            <div class="notice <?php echo $notices[$notice]['type']; ?> is-dismissible">
+                <p><?php echo $notices[$notice]['message']; ?></p>
             </div>
-            <?php
-            break;
-
-            case '2':
-            ?>
-            <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'Email template has been updated.' , 'cm-theme-addon-ticketpool' ); ?></p>
-            </div>
-            <?php
-            break;
-
-            case '4':
-            ?>
-            <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' ); ?></p>
-            </div>
-            <?php
-            break;
-
-            case '3':
-            ?>
-            <div class="notice notice-success is-dismissible">
-                <p><?php echo __( 'The ticket contingent has been expanded.' , 'cm-theme-addon-ticketpool' ); ?></p>
-            </div>
-            <?php
-            break;
-
-        endswitch;
+        <?php
+        endif;
 
     endif;
 }
 
 add_action( 'admin_notices', __NAMESPACE__ . '\admin_notices' );
+
+
+
+/**
+ * Initiate the display of an administrative notice.
+ *
+ * @since 2.0.0
+ *
+ * @param int $notice Code of the notice to be displayed.
+ */
+
+function do_admin_notice( $notice )
+{
+    $_GET['ticketpool-notice'] = $notice;
+    do_action( 'admin_notices' );
+}

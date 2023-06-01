@@ -41,6 +41,7 @@ translation-ready, shortcodes
 * Improve: Change translation domain
 * Improve: Change menu icon
 * Improve: Set basic language to EN
+* Improve: Add new notice procedure
 
 
 ### Previous changes

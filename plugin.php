@@ -40,13 +40,19 @@ define( __NAMESPACE__ . '\TABLE_USER', 'cmkk_contingent_user' );
 define( 'OPTION_MAIL_SUBJECT', 'cm_theme_addon_ticketpool_mail_subject' );
 define( 'OPTION_MAIL_MESSAGE', 'cm_theme_addon_ticketpool_mail_message' );
 
-// Status code
-define( __NAMESPACE__ . '\STATUS_USER_ADDED',           100 );
-define( __NAMESPACE__ . '\STATUS_NOTHING_FREE',         200 );
-define( __NAMESPACE__ . '\STATUS_USER_FIELDS_EMPTY',    201 );
-define( __NAMESPACE__ . '\STATUS_USER_EMAIL_MALFORMED', 202 );
-define( __NAMESPACE__ . '\STATUS_USER_EMAIL_IN_USE',    203 );
-define( __NAMESPACE__ . '\STATUS_CANT_STORE_USER',      204 );
+// Status codes
+define( __NAMESPACE__ . '\STATUS_USER_ADDED',             100 );
+define( __NAMESPACE__ . '\STATUS_NOTHING_FREE',           200 );
+define( __NAMESPACE__ . '\STATUS_USER_FIELDS_EMPTY',      201 );
+define( __NAMESPACE__ . '\STATUS_USER_EMAIL_MALFORMED',   202 );
+define( __NAMESPACE__ . '\STATUS_USER_EMAIL_IN_USE',      203 );
+define( __NAMESPACE__ . '\STATUS_CANT_STORE_USER',        204 );
+
+// Notice codes
+define( __NAMESPACE__ . '\NOTICE_NEW_PARTICIPANT',        100 );
+define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_UPDATED', 101 );
+define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_RESET',   102 );
+define( __NAMESPACE__ . '\NOTICE_NEW_TICKET_CONTINGENT',  103 );
 
 // Folder to store export files
 define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );
