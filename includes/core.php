@@ -285,7 +285,7 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email )
         $mail_to      = $user_email;
         $mail_subject = get_option( OPTION_MAIL_SUBJECT );
         $mail_message = get_option( OPTION_MAIL_MESSAGE );
-        $mail_headers = array( 'bcc:kongress@pwg-seminare.de' );
+        $mail_headers = array( 'bcc:m.dibella@rechtsdepesche.de' );
         $result       = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
 
         return STATUS_USER_ADDED;
