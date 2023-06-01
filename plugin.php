@@ -53,6 +53,7 @@ define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_UPDATED',  100 );
 define( __NAMESPACE__ . '\NOTICE_EMAIL_TEMPLATE_RESET',    101 );
 define( __NAMESPACE__ . '\NOTICE_TICKET_CONTINGENT_ADDED', 102 );
 define( __NAMESPACE__ . '\NOTICE_TABLE_RESET',             103 );
+define( __NAMESPACE__ . '\NOTICE_EMPTY_FIELDS',            104 );
 
 // Folder to store export files
 define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );

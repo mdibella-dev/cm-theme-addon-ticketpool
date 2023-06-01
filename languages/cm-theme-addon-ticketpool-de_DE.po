@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-06-01 10:50+0200\n"
-"PO-Revision-Date: 2023-06-01 10:52+0200\n"
+"POT-Creation-Date: 2023-06-01 12:46+0200\n"
+"PO-Revision-Date: 2023-06-01 12:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -36,8 +36,12 @@ msgstr "Das Ticketkontingent wurde erweitert."
 msgid "Tables have been reset."
 msgstr "Tabellen wurde zurückgesetzt."
 
+#: includes/backend.php:73 includes/core.php:320
+msgid "One or more fields are not filled in."
+msgstr "Ein oder mehrere Felder sind nicht ausgefüllt."
+
 #: includes/backend/mainpage-tab-01.php:44
-#: includes/backend/mainpage-tab-02.php:53
+#: includes/backend/mainpage-tab-02.php:68
 msgid "There are currently no tickets available."
 msgstr "Derzeit sind keine Tickets verfügbar."
 
@@ -53,34 +57,34 @@ msgstr ""
 msgid "Export data as CSV"
 msgstr "Daten als CSV exportieren"
 
-#: includes/backend/mainpage-tab-02.php:56
+#: includes/backend/mainpage-tab-02.php:71
 #, php-format
 msgid "A total of %1$s tickets are available."
 msgstr "Insgesamt stehen %1$s Tickets zur Verfügung."
 
-#: includes/backend/mainpage-tab-02.php:62
+#: includes/backend/mainpage-tab-02.php:77
 msgid "Add new contingent"
 msgstr "Neues Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-02.php:68
+#: includes/backend/mainpage-tab-02.php:86
 msgid "Number of tickets"
 msgstr "Anzahl der Tickets"
 
-#: includes/backend/mainpage-tab-02.php:75
+#: includes/backend/mainpage-tab-02.php:95
 msgid "Tickets are provided by"
 msgstr "Tickets werden zur Verfügung gestellt von"
 
-#: includes/backend/mainpage-tab-02.php:85
+#: includes/backend/mainpage-tab-02.php:106
 msgid "Add contingent"
 msgstr "Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-03.php:35
-#: includes/backend/mainpage-tab-04.php:35
+#: includes/backend/mainpage-tab-03.php:33
+#: includes/backend/mainpage-tab-04.php:30
 msgid "Thank you for participating"
 msgstr "Vielen Dank für Ihre Teilnahme"
 
-#: includes/backend/mainpage-tab-03.php:36
-#: includes/backend/mainpage-tab-04.php:36
+#: includes/backend/mainpage-tab-03.php:34
+#: includes/backend/mainpage-tab-04.php:31
 msgid ""
 "Your participation in the event was registered. In the coming days you will "
 "receive another email with additional information."
@@ -88,53 +92,53 @@ msgstr ""
 "Ihre Teilnahme an der Veranstaltung wurde registriert. In den kommenden "
 "Tagen erhalten Sie eine weitere E-Mail mit weiteren Informationen."
 
-#: includes/backend/mainpage-tab-03.php:38
-#: includes/backend/mainpage-tab-04.php:38
+#: includes/backend/mainpage-tab-03.php:36
+#: includes/backend/mainpage-tab-04.php:33
 msgid "Best regards"
 msgstr "Beste Grüße"
 
-#: includes/backend/mainpage-tab-03.php:40
-#: includes/backend/mainpage-tab-04.php:40
+#: includes/backend/mainpage-tab-03.php:38
+#: includes/backend/mainpage-tab-04.php:35
 msgid "Attention: This email was generated automatically, please do not reply."
 msgstr ""
 "Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht "
 "darauf."
 
-#: includes/backend/mainpage-tab-03.php:66
+#: includes/backend/mainpage-tab-03.php:64
 msgid "Email template for participants"
 msgstr "E-Mail-Vorlage für Teilnehmer"
 
-#: includes/backend/mainpage-tab-03.php:74
+#: includes/backend/mainpage-tab-03.php:70
 msgid "Subject"
 msgstr "Betreff"
 
-#: includes/backend/mainpage-tab-03.php:81
+#: includes/backend/mainpage-tab-03.php:77
 msgid "Message"
 msgstr "Mitteilung"
 
-#: includes/backend/mainpage-tab-03.php:90
+#: includes/backend/mainpage-tab-03.php:86
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: includes/backend/mainpage-tab-04.php:75
+#: includes/backend/mainpage-tab-04.php:80
 msgid "Reset Email Template"
 msgstr "E-Mail-Vorlage zurücksetzen"
 
-#: includes/backend/mainpage-tab-04.php:76
+#: includes/backend/mainpage-tab-04.php:81
 msgid "ATTENTION: This resets the email template to the default text."
 msgstr ""
 "ACHTUNG: Dadurch wird die E-Mail-Vorlage auf den Standardtext zurückgesetzt."
 
-#: includes/backend/mainpage-tab-04.php:79
-#: includes/backend/mainpage-tab-04.php:95
+#: includes/backend/mainpage-tab-04.php:84
+#: includes/backend/mainpage-tab-04.php:100
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: includes/backend/mainpage-tab-04.php:91
+#: includes/backend/mainpage-tab-04.php:96
 msgid "Reset tables"
 msgstr "Tabellen zurücksetzen"
 
-#: includes/backend/mainpage-tab-04.php:92
+#: includes/backend/mainpage-tab-04.php:97
 msgid "ATTENTION: This clears all tables irrevocably."
 msgstr "ACHTUNG: Dadurch werden alle Tabellen unwiderruflich gelöscht."
 
@@ -199,10 +203,6 @@ msgstr ""
 "Leider ist derzeit kein freies Ticket im Ticketkontingent verfügbar!"
 "<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal."
 
-#: includes/core.php:320
-msgid "One or more fields are not filled in."
-msgstr "Ein oder mehrere Felder sind nicht ausgefüllt."
-
 #: includes/core.php:324
 msgid "Please enter a correct email address."
 msgstr "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
@@ -217,19 +217,19 @@ msgstr ""
 msgid "A technical error has occurred."
 msgstr "Ein technischer Fehler ist aufgetreten."
 
-#: includes/shortcodes/shortcode-form.php:81
+#: includes/shortcodes/shortcode-form.php:80
 msgid "Your first name"
 msgstr "Ihr Vorname"
 
-#: includes/shortcodes/shortcode-form.php:87
+#: includes/shortcodes/shortcode-form.php:86
 msgid "Your last name"
 msgstr "Ihr Nachname"
 
-#: includes/shortcodes/shortcode-form.php:93
+#: includes/shortcodes/shortcode-form.php:92
 msgid "Your email address"
 msgstr "Ihre E-Mail-Adresse"
 
-#: includes/shortcodes/shortcode-form.php:104
+#: includes/shortcodes/shortcode-form.php:101
 #, php-format
 msgid ""
 "I agree that my data will be stored and processed for the purpose of "
@@ -239,11 +239,11 @@ msgstr ""
 "gespeichert und verarbeitet werden. Weitere Informationen hierzu finden Sie "
 "in der %1$s."
 
-#: includes/shortcodes/shortcode-form.php:108
+#: includes/shortcodes/shortcode-form.php:105
 msgid "privacy policy"
 msgstr "Datenschutzerklärung"
 
-#: includes/shortcodes/shortcode-form.php:118
+#: includes/shortcodes/shortcode-form.php:114
 msgid "Request participation"
 msgstr "Teilnahme anfordern"
 

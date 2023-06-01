@@ -53,26 +53,30 @@ function admin_notices()
         $notice  = $_GET['notice'];
         $notices = array(
             NOTICE_EMAIL_TEMPLATE_UPDATED => array(
-                'type'    => 'notice-success',
+                'type'    => 'notice-success is-dismissible',
                 'message' => __( 'Email template has been updated.' , 'cm-theme-addon-ticketpool' )
             ),
             NOTICE_EMAIL_TEMPLATE_RESET => array(
-                'type'    => 'notice-success',
+                'type'    => 'notice-success is-dismissible',
                 'message' => __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' )
             ),
             NOTICE_TICKET_CONTINGENT_ADDED => array(
-                'type'    => 'notice-success',
+                'type'    => 'notice-success is-dismissible',
                 'message' => __( 'The ticket contingent has been expanded.' , 'cm-theme-addon-ticketpool' )
             ),
             NOTICE_TABLE_RESET => array(
-                'type'    => 'notice-success',
+                'type'    => 'notice-success is-dismissible',
                 'message' => __( 'Tables have been reset.' , 'cm-theme-addon-ticketpool' )
+            ),
+            NOTICE_EMPTY_FIELDS => array(
+                'type'    => 'notice-error',
+                'message' => __( 'One or more fields are not filled in.' , 'cm-theme-addon-ticketpool' )
             ),
         );
 
         if( array_key_exists( $notice, $notices ) ) :
         ?>
-        <div class="notice <?php echo $notices[$notice]['type']; ?> is-dismissible">
+        <div class="notice <?php echo $notices[$notice]['type']; ?>">
             <p><?php echo $notices[$notice]['message']; ?></p>
         </div>
         <?php

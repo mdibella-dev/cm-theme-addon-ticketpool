@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-06-01 10:50+0200\n"
+"POT-Creation-Date: 2023-06-01 12:46+0200\n"
 "PO-Revision-Date: 2023-05-31 15:44+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -35,8 +35,12 @@ msgstr ""
 msgid "Tables have been reset."
 msgstr ""
 
+#: includes/backend.php:73 includes/core.php:320
+msgid "One or more fields are not filled in."
+msgstr ""
+
 #: includes/backend/mainpage-tab-01.php:44
-#: includes/backend/mainpage-tab-02.php:53
+#: includes/backend/mainpage-tab-02.php:68
 msgid "There are currently no tickets available."
 msgstr ""
 
@@ -49,81 +53,81 @@ msgstr ""
 msgid "Export data as CSV"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:56
+#: includes/backend/mainpage-tab-02.php:71
 #, php-format
 msgid "A total of %1$s tickets are available."
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:62
+#: includes/backend/mainpage-tab-02.php:77
 msgid "Add new contingent"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:68
+#: includes/backend/mainpage-tab-02.php:86
 msgid "Number of tickets"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:75
+#: includes/backend/mainpage-tab-02.php:95
 msgid "Tickets are provided by"
 msgstr ""
 
-#: includes/backend/mainpage-tab-02.php:85
+#: includes/backend/mainpage-tab-02.php:106
 msgid "Add contingent"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:35
-#: includes/backend/mainpage-tab-04.php:35
+#: includes/backend/mainpage-tab-03.php:33
+#: includes/backend/mainpage-tab-04.php:30
 msgid "Thank you for participating"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:36
-#: includes/backend/mainpage-tab-04.php:36
+#: includes/backend/mainpage-tab-03.php:34
+#: includes/backend/mainpage-tab-04.php:31
 msgid "Your participation in the event was registered. In the coming days you will receive another email with additional information."
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:38
-#: includes/backend/mainpage-tab-04.php:38
+#: includes/backend/mainpage-tab-03.php:36
+#: includes/backend/mainpage-tab-04.php:33
 msgid "Best regards"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:40
-#: includes/backend/mainpage-tab-04.php:40
+#: includes/backend/mainpage-tab-03.php:38
+#: includes/backend/mainpage-tab-04.php:35
 msgid "Attention: This email was generated automatically, please do not reply."
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:66
+#: includes/backend/mainpage-tab-03.php:64
 msgid "Email template for participants"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:74
+#: includes/backend/mainpage-tab-03.php:70
 msgid "Subject"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:81
+#: includes/backend/mainpage-tab-03.php:77
 msgid "Message"
 msgstr ""
 
-#: includes/backend/mainpage-tab-03.php:90
+#: includes/backend/mainpage-tab-03.php:86
 msgid "Update"
 msgstr ""
 
-#: includes/backend/mainpage-tab-04.php:75
+#: includes/backend/mainpage-tab-04.php:80
 msgid "Reset Email Template"
 msgstr ""
 
-#: includes/backend/mainpage-tab-04.php:76
+#: includes/backend/mainpage-tab-04.php:81
 msgid "ATTENTION: This resets the email template to the default text."
 msgstr ""
 
-#: includes/backend/mainpage-tab-04.php:79
-#: includes/backend/mainpage-tab-04.php:95
+#: includes/backend/mainpage-tab-04.php:84
+#: includes/backend/mainpage-tab-04.php:100
 msgid "Reset"
 msgstr ""
 
-#: includes/backend/mainpage-tab-04.php:91
+#: includes/backend/mainpage-tab-04.php:96
 msgid "Reset tables"
 msgstr ""
 
-#: includes/backend/mainpage-tab-04.php:92
+#: includes/backend/mainpage-tab-04.php:97
 msgid "ATTENTION: This clears all tables irrevocably."
 msgstr ""
 
@@ -184,10 +188,6 @@ msgstr ""
 msgid "Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date."
 msgstr ""
 
-#: includes/core.php:320
-msgid "One or more fields are not filled in."
-msgstr ""
-
 #: includes/core.php:324
 msgid "Please enter a correct email address."
 msgstr ""
@@ -200,28 +200,28 @@ msgstr ""
 msgid "A technical error has occurred."
 msgstr ""
 
-#: includes/shortcodes/shortcode-form.php:81
+#: includes/shortcodes/shortcode-form.php:80
 msgid "Your first name"
 msgstr ""
 
-#: includes/shortcodes/shortcode-form.php:87
+#: includes/shortcodes/shortcode-form.php:86
 msgid "Your last name"
 msgstr ""
 
-#: includes/shortcodes/shortcode-form.php:93
+#: includes/shortcodes/shortcode-form.php:92
 msgid "Your email address"
 msgstr ""
 
-#: includes/shortcodes/shortcode-form.php:104
+#: includes/shortcodes/shortcode-form.php:101
 #, php-format
 msgid "I agree that my data will be stored and processed for the purpose of contacting me. More information on this in the %1$s."
 msgstr ""
 
-#: includes/shortcodes/shortcode-form.php:108
+#: includes/shortcodes/shortcode-form.php:105
 msgid "privacy policy"
 msgstr ""
 
-#: includes/shortcodes/shortcode-form.php:118
+#: includes/shortcodes/shortcode-form.php:114
 msgid "Request participation"
 msgstr ""
 
