@@ -61,6 +61,10 @@ function show_mainpage()
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_03',
             'title'    => __( 'Email notification', 'cm-theme-addon-ticketpool'),
         ),
+        'tab-04' => array(
+            'callback' => __NAMESPACE__ . '\show_mainpage_tab_04',
+            'title'    => __( 'Tools', 'cm-theme-addon-ticketpool'),
+        ),
     );
 
     // get the current tab
