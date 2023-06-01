@@ -68,7 +68,7 @@ function show_mainpage_tab_03()
 
             <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
 
-            <table class="form-table">
+            <table class="form-table form-table-email-template">
 
                 <tr>
                     <th><?php echo __( 'Subject', 'cm-theme-addon-ticketpool' ); ?></th>
