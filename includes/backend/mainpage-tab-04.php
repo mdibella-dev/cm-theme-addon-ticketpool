@@ -44,12 +44,23 @@ function show_mainpage_tab_04()
         switch( $_POST['action'] ) :
 
             case 'reset-tables' :
+                global $wpdb;
 
-                do_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
+                $table_names = array(
+                    $wpdb->prefix . TABLE_POOL,
+                    $wpdb->prefix . TABLE_USER
+                );
+
+                foreach( $table_names as $table_name ) :
+                    $sql = "TRUNCATE TABLE $table_name";
+                    $wpdb->query( $sql );
+                endforeach;
+
+                do_admin_notice( NOTICE_TABLE_RESET );
             break;
 
             case 'reset-template' :
-                update_option( OPTION_MAIL_SUBJECT, $default_subject );     // or delete+add
+                update_option( OPTION_MAIL_SUBJECT, $default_subject );
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
                 do_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
             break;

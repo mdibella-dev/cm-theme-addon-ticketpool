@@ -62,6 +62,8 @@ function show_mainpage_tab_02()
         <h2><?php echo __( 'Add new contingent', 'cm-theme-addon-ticketpool'); ?></h2>
         <form method="post" class="validate">
 
+            <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
+
             <table class="form-table form-table-add-contingent">
 
                 <tr>
