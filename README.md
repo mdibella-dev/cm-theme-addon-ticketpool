@@ -43,6 +43,7 @@ translation-ready, shortcodes
 * Improve: Set basic language to EN
 * Improve: Add new notice procedure
 * Improve: Remove cmkk_ function prefix
+* Improve: Add table reset function
 
 
 ### Previous changes
