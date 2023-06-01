@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) or exit;
  * @todo Use of $event-id within the SQL query.
  */
 
-function cmkk_create_user_export_file( $event_id = 0 )
+function create_user_export_file( $event_id = 0 )
 {
     // Prepare variables
     $uploads    = wp_upload_dir();
@@ -98,7 +98,7 @@ function cmkk_create_user_export_file( $event_id = 0 )
  * @return int The total number of tickets.
  */
 
-function cmkk_get_total_amount( $event_id )
+function get_total_amount( $event_id )
 {
     global $wpdb;
            $amount = 0;
@@ -128,7 +128,7 @@ function cmkk_get_total_amount( $event_id )
  * @return int The tickets used.
  */
 
-function cmkk_get_used_amount( $event_id )
+function get_used_amount( $event_id )
 {
     global $wpdb;
 
@@ -155,12 +155,12 @@ function cmkk_get_used_amount( $event_id )
  * @return int The tickets that are still free (in doubt 0).
  */
 
-function cmkk_get_free_amount( $event_id )
+function get_free_amount( $event_id )
 {
     global $wpdb;
 
-    $total = cmkk_get_total_amount( $event_id );
-    $used  = cmkk_get_used_amount( $event_id );
+    $total = get_total_amount( $event_id );
+    $used  = get_used_amount( $event_id );
 
     return max( 0, $total - $used );
 }
@@ -179,7 +179,7 @@ function cmkk_get_free_amount( $event_id )
  * @return bool true/false depending on the outcome.
  */
 
-function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider )
+function add_contingent( $event_id, $contingent_size, $contingent_provider )
 {
     if( ( $contingent_size > 0 ) and ! empty( $contingent_provider) ) :
         global $wpdb;
@@ -214,7 +214,7 @@ function cmkk_add_contingent( $event_id, $contingent_size, $contingent_provider 
  *              - false: any other case.
  */
 
-function cmkk_is_email_in_use( $event_id, $user_email )
+function is_email_in_use( $event_id, $user_email )
 {
     global $wpdb;
 
@@ -240,10 +240,10 @@ function cmkk_is_email_in_use( $event_id, $user_email )
  * @return int A status code.
  */
 
-function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
+function add_user( $event_id, $user_lastname, $user_forename, $user_email )
 {
     // Is there still a ticket available?
-    if( 0 === cmkk_get_free_amount( $event_id ) ) :
+    if( 0 === get_free_amount( $event_id ) ) :
         return STATUS_NOTHING_FREE;
     endif;
 
@@ -261,7 +261,7 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
 
 
     // Is the email already in use?
-    if( true === cmkk_is_email_in_use( $event_id, $user_email ) ) :
+    if( true === is_email_in_use( $event_id, $user_email ) ) :
         return STATUS_USER_EMAIL_IN_USE;
     endif;
 
@@ -305,7 +305,7 @@ function cmkk_add_user( $event_id, $user_lastname, $user_forename, $user_email )
  * @param int The status code.
  */
 
-function cmkk_display_notice( $code )
+function display_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED => array(

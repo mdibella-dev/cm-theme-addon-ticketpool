@@ -30,7 +30,7 @@ function show_mainpage_tab_02()
         switch( $_POST['action'] ) :
 
             case 'add-contingent' :
-                cmkk_add_contingent( $_POST['event_id'], $_POST['groesse'], $_POST['anbieter'] );
+                add_contingent( $_POST['event_id'], $_POST['groesse'], $_POST['anbieter'] );
                 do_admin_notice( NOTICE_TICKET_CONTINGENT_ADDED );
             break;
 
@@ -47,7 +47,7 @@ function show_mainpage_tab_02()
 
     ?>
     <p class="cmkk-amount-info"><?php
-        $total_amount = cmkk_get_total_amount( EVENT_ID );
+        $total_amount = get_total_amount( EVENT_ID );
 
         if( 0 == $total_amount) :
             echo __( 'There are currently no tickets available.', 'cm-theme-addon-ticketpool' );

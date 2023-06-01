@@ -42,6 +42,7 @@ translation-ready, shortcodes
 * Improve: Change menu icon
 * Improve: Set basic language to EN
 * Improve: Add new notice procedure
+* Improve: Remove cmkk_ function prefix
 
 
 ### Previous changes

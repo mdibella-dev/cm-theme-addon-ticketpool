@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) or exit;
 
 function show_mainpage_tab_01()
 {
-    $file_info = cmkk_create_user_export_file( EVENT_ID );
+    $file_info = create_user_export_file( EVENT_ID );
 
     if( false === $file_info ) :
         // error message?;
@@ -37,8 +37,8 @@ function show_mainpage_tab_01()
 
     ?>
     <p class="cmkk-amount-info"><?php
-        $total_amount = cmkk_get_total_amount( EVENT_ID ); // $_POST[ 'event_id' ]
-        $free_amount  = cmkk_get_free_amount( EVENT_ID );
+        $total_amount = get_total_amount( EVENT_ID ); // $_POST[ 'event_id' ]
+        $free_amount  = get_free_amount( EVENT_ID );
 
         if( 0 == $total_amount ) :
             echo __( 'There are currently no tickets available.', 'cm-theme-addon-ticketpool' );
