@@ -48,9 +48,9 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
 
 function admin_notices()
 {
-    if( isset( $_GET['ticketpool-notice'] ) ) :
+    if( isset( $_GET['notice'] ) ) :
 
-        $notice  = $_GET['ticketpool-notice'];
+        $notice  = $_GET['notice'];
         $notices = array(
             NOTICE_NEW_PARTICIPANT => array(
                 'type'    = 'notice-information',
@@ -95,6 +95,6 @@ add_action( 'admin_notices', __NAMESPACE__ . '\admin_notices' );
 
 function do_admin_notice( $notice )
 {
-    $_GET['ticketpool-notice'] = $notice;
+    $_GET['notice'] = $notice;
     do_action( 'admin_notices' );
 }
