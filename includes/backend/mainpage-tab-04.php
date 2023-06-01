@@ -23,7 +23,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @todo Different emails for different events?
  * @todo Do not allow empty fields
- * @todo Reset to default text
  * @todo E-mail address for notification
  */
 
@@ -45,8 +44,7 @@ function show_mainpage_tab_04()
         switch( $_POST['action'] ) :
 
             case 'reset-tables' :
-                update_option( OPTION_MAIL_SUBJECT, $_POST['subject'] );
-                update_option( OPTION_MAIL_MESSAGE, $_POST['message'] );
+
                 do_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
             break;
 
@@ -92,7 +90,7 @@ function show_mainpage_tab_04()
                         <p><?php echo __( 'ATTENTION: This clears all tables irrevocably.', 'cm-theme-addon-ticketpool'); ?></p>
                     </td>
                     <td class="button-col ">
-                        <button type="submit" name="action" class="button button-primary" value="reset-table"><?php echo __( 'Reset', 'cm-theme-addon-ticketpool' ); ?></button>
+                        <button type="submit" name="action" class="button button-primary" value="reset-tables"><?php echo __( 'Reset', 'cm-theme-addon-ticketpool' ); ?></button>
                     </td>
                 </tr>
 

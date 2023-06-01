@@ -23,7 +23,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @todo Different emails for different events?
  * @todo Do not allow empty fields
- * @todo Reset to default text
  * @todo E-mail address for notification
  */
 
