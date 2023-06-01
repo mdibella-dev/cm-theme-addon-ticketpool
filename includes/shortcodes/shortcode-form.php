@@ -28,12 +28,6 @@ defined( 'ABSPATH' ) or exit;
 
 function shortcode_form( $atts, $content = null )
 {
-    $code          = 0;
-    $user_lastname = '';
-    $user_forename = '';
-    $user_email    = '';
-
-
     /** Process passed parameters */
 
     $default_atts  = array(
@@ -49,21 +43,26 @@ function shortcode_form( $atts, $content = null )
 
     /** Process form if already submitted */
 
+    $code          = 0;
+    $user_lastname = '';
+    $user_firstname = '';
+    $user_email    = '';
+
     if( isset( $_POST['action'] ) ) :
 
-        if( true === isset( $_POST['cmkk_lastname'] ) ) :
-            $user_lastname = $_POST['cmkk_lastname'];
+        if( true === isset( $_POST['user_lastname'] ) ) :
+            $user_lastname = trim( $_POST['user_lastname'] );
         endif;
 
-        if( true === isset( $_POST['cmkk_forename'] ) ) :
-            $user_forename = $_POST['cmkk_forename'];
+        if( true === isset( $_POST['user_firstname'] ) ) :
+            $user_firstname = trim(  $_POST['user_firstname'] );
         endif;
 
-        if( true === isset( $_POST['cmkk_email'] ) ) :
-            $user_email = $_POST['cmkk_email'];
+        if( true === isset( $_POST['user_email'] ) ) :
+            $user_email = trim( strtolower( $_POST['user_email'] ) );
         endif;
 
-        $code = add_user( $event_id, $user_lastname, $user_forename, $user_email );
+        $code = add_user( $event_id, $user_lastname, $user_firstname, $user_email );
     endif;
 
 
@@ -80,19 +79,19 @@ function shortcode_form( $atts, $content = null )
             <tr>
                 <th><?php echo __( 'Your first name', 'cm-theme-addon-ticketpool'); ?></th>
                 <td>
-                    <input id="vorname" name="cmkk_forename" type="text" value="<?php echo $user_forename; ?>">
+                    <input id="firstname" name="user_firstname" type="text" value="<?php echo $user_firstname; ?>">
                 </td>
             </tr>
             <tr>
                 <th><?php echo __( 'Your last name', 'cm-theme-addon-ticketpool'); ?></th>
                 <td>
-                    <input id="nachname" name="cmkk_lastname" type="text"value="<?php echo $user_lastname; ?>">
+                    <input id="lastname" name="user_lastname" type="text"value="<?php echo $user_lastname; ?>">
                 </td>
             </tr>
             <tr>
                 <th><?php echo __( 'Your email address', 'cm-theme-addon-ticketpool'); ?></th>
                 <td>
-                    <input id="email" name="cmkk_email" type="email"value="<?php echo $user_email; ?>">
+                    <input id="email" name="user_email" type="email"value="<?php echo $user_email; ?>">
                 </td>
             </tr>
             <tr>
