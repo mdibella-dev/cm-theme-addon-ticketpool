@@ -65,6 +65,8 @@ function show_mainpage_tab_03()
         <h2><?php echo __( 'Email template for participants', 'cm-theme-addon-ticketpool'); ?></h2>
         <form id="cmkk-mail-template-form" method="post" class="validate">
 
+            <input type="hidden" name="event_id" value="<?php echo EVENT_ID; ?>">
+
             <table class="form-table form-table-email-template">
 
                 <tr>
