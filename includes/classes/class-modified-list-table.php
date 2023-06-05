@@ -33,21 +33,22 @@ class MDB_Modified_List_Table extends \WP_List_Table
         if( empty( $this->_pagination_args ) ) :
             return;
         endif;
-        ?>
-    <div class="tablenav <?php echo esc_attr( $which ); ?>">
-        <?php if( $this->has_items() ) : ?>
 
-        <div class="alignleft actions bulkactions">
-            <?php $this->bulk_actions( $which ); ?>
+        ?>
+        <div class="tablenav <?php echo esc_attr( $which ); ?>">
+            <?php if( $this->has_items() ) : ?>
+
+            <div class="alignleft actions bulkactions">
+                <?php $this->bulk_actions( $which ); ?>
+            </div>
+            <?php
+            endif;
+            $this->extra_tablenav( $which );
+            $this->pagination( $which );
+            ?>
+
+            <br class="clear">
         </div>
-        <?php
-        endif;
-        $this->extra_tablenav( $which );
-        $this->pagination( $which );
-        ?>
-
-        <br class="clear">
-    </div>
         <?php
     }
 }
