@@ -30,9 +30,9 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
     function get_columns()
     {
         $columns = array(
-            'col_name'  => __( 'Participant', 'cm-theme-addon-ticketpool' ),
-            'col_email' => __( 'Email', 'cm-theme-addon-ticketpool' ),
-            'col_time'  => __( 'Registration date', 'cm-theme-addon-ticketpool' ),
+            'col_name'       => __( 'Participant', 'cm-theme-addon-ticketpool' ),
+            'col_email'      => __( 'Email', 'cm-theme-addon-ticketpool' ),
+            'col_registered' => __( 'Registration date', 'cm-theme-addon-ticketpool' ),
         );
 
         return $columns;
@@ -70,7 +70,7 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
                 return $item['user_email'];
             break;
 
-            case 'col_time':
+            case 'col_registered':
                 return $item['user_registered'];
             break;
 
