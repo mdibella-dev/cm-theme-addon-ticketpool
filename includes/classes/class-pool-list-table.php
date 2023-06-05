@@ -76,6 +76,7 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
 
             default:
                 return print_r( $item, true );
+            break;
         endswitch;
     }
 
