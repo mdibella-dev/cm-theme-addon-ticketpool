@@ -71,7 +71,10 @@ class MDB_User_List_Table extends MDB_Modified_List_Table
             break;
 
             case 'col_registered':
-                return $item['user_registered'];
+                return date(
+                    __( 'Y-m-d H:i', 'cm-theme-addon-ticketpool' ),
+                    strtotime( $item['user_registered'] )
+                );
             break;
 
             default:

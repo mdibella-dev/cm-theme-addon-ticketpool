@@ -71,7 +71,10 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
             break;
 
             case 'col_provided':
-                return $item['contingent_provided'];
+                return date(
+                    __( 'Y-m-d H:i', 'cm-theme-addon-ticketpool' ),
+                    strtotime( $item['contingent_provided'] )
+                );
             break;
 
             default:

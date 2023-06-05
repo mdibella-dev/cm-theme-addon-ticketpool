@@ -44,6 +44,7 @@ translation-ready, shortcodes
 * Improve: Add new notice procedure
 * Improve: Remove cmkk_ function prefix
 * Improve: Add table reset function
+* Bugfix: Registration date need to be localized [#1](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/issues/1)
 
 
 ### Previous changes

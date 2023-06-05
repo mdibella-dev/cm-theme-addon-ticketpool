@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-06-01 12:46+0200\n"
-"PO-Revision-Date: 2023-06-01 12:47+0200\n"
+"POT-Creation-Date: 2023-06-05 10:48+0200\n"
+"PO-Revision-Date: 2023-06-05 10:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -170,6 +170,11 @@ msgstr "Bereitgestellt von"
 #: includes/classes/class-pool-list-table.php:35
 msgid "Provided on"
 msgstr "Bereitgestellt am"
+
+#: includes/classes/class-pool-list-table.php:75
+#: includes/classes/class-user-list-table.php:75
+msgid "Y-m-d H:i"
+msgstr "d.m.Y H:i"
 
 #: includes/classes/class-user-list-table.php:33
 msgid "Participant"
