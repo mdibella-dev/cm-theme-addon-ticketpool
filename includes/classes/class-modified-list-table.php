@@ -35,7 +35,7 @@ class MDB_Modified_List_Table extends \WP_List_Table
         endif;
         ?>
     <div class="tablenav <?php echo esc_attr( $which ); ?>">
-        <?php if ( $this->has_items() ) : ?>
+        <?php if( $this->has_items() ) : ?>
 
         <div class="alignleft actions bulkactions">
             <?php $this->bulk_actions( $which ); ?>
