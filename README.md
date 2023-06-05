@@ -45,6 +45,7 @@ translation-ready, shortcodes
 * Improve: Remove cmkk_ function prefix
 * Improve: Add table reset function
 * Bugfix: Registration date need to be localized [#1](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/issues/1)
+* Bugfix: Default message needs preformatted line breaks [#3](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/issues/3) 
 
 
 ### Previous changes

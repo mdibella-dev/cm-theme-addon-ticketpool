@@ -29,9 +29,9 @@ function show_mainpage_tab_04()
     // Set up default values
     $default_subject = __( 'Thank you for participating', 'cm-theme-addon-ticketpool' );
     $default_message = __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-theme-addon-ticketpool' )
-                       . '\n\n'
+                       . '&#013;&#010;&#013;&#010;'
                        . __( 'Best regards', 'cm-theme-addon-ticketpool' )
-                       . '\n\n'
+                       . '&#013;&#010;&#013;&#010;'
                        . __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' );
 
 

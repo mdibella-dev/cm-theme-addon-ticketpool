@@ -32,9 +32,9 @@ function show_mainpage_tab_03()
     // Set up default values
     $default_subject = __( 'Thank you for participating', 'cm-theme-addon-ticketpool' );
     $default_message = __( 'Your participation in the event was registered. In the coming days you will receive another email with additional information.', 'cm-theme-addon-ticketpool' )
-                       . '\n\n'
+                       . '&#013;&#010;&#013;&#010;'
                        . __( 'Best regards', 'cm-theme-addon-ticketpool' )
-                       . '\n\n'
+                       . '&#013;&#010;&#013;&#010;'
                        . __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' );
 
 
@@ -76,7 +76,7 @@ function show_mainpage_tab_03()
                 <tr>
                     <th><?php echo __( 'Message', 'cm-theme-addon-ticketpool' ); ?></th>
                     <td>
-                        <textarea name="message" id="message" type="text" row="20" cols"40" aria-required="true"><?php echo $message; ?></textarea>
+                        <textarea name="message" id="message" type="text" row="20" cols="40" aria-required="true" style="white-space: pre-wrap"><?php echo nl2br($message); ?></textarea>
                     </td>
                 </tr>
 
