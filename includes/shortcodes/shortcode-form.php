@@ -71,7 +71,7 @@ function shortcode_form( $atts, $content = null )
     ob_start();
 
     if( 0 !== $code ) :
-        display_notice( $code );
+        display_user_notice( $code );
     endif;
     ?>
     <form class="cmkk-form" method="post" action="">

@@ -52,13 +52,13 @@ function show_mainpage_tab_04()
                     $wpdb->query( $sql );
                 endforeach;
 
-                do_admin_notice( NOTICE_TABLE_RESET );
+                display_admin_notice( NOTICE_TABLE_RESET );
             break;
 
             case 'reset-template' :
                 update_option( OPTION_MAIL_SUBJECT, $default_subject );
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
-                do_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
+                display_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
             break;
 
 

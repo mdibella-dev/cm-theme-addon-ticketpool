@@ -43,9 +43,9 @@ function show_mainpage_tab_02()
 
                 if( ! empty( $size ) and ! empty( $provider ) ) :
                     add_contingent( $_POST['event_id'], $_POST['size'], $_POST['provider'] );
-                    do_admin_notice( NOTICE_TICKET_CONTINGENT_ADDED );
+                    display_admin_notice( NOTICE_TICKET_CONTINGENT_ADDED );
                 else :
-                    do_admin_notice( NOTICE_EMPTY_FIELDS );
+                    display_admin_notice( NOTICE_EMPTY_FIELDS );
                 endif;
             break;
 

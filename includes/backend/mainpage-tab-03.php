@@ -45,7 +45,7 @@ function show_mainpage_tab_03()
             case 'update-template' :
                 update_option( OPTION_MAIL_SUBJECT, $_POST['subject'] );
                 update_option( OPTION_MAIL_MESSAGE, $_POST['message'] );
-                do_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
+                display_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
             break;
 
         endswitch;

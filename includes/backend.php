@@ -97,7 +97,7 @@ add_action( 'admin_notices', __NAMESPACE__ . '\admin_notices' );
  * @param int $notice Code of the notice to be displayed.
  */
 
-function do_admin_notice( $notice )
+function display_admin_notice( $notice )
 {
     $_GET['notice'] = $notice;
     do_action( 'admin_notices' );

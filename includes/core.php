@@ -305,7 +305,7 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email )
  * @param int The status code.
  */
 
-function display_notice( $code )
+function display_user_notice( $code )
 {
     $status = array(
         STATUS_USER_ADDED => array(
