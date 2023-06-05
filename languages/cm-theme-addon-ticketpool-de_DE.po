@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
 "POT-Creation-Date: 2023-06-05 10:48+0200\n"
-"PO-Revision-Date: 2023-06-05 10:50+0200\n"
+"PO-Revision-Date: 2023-06-05 11:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -90,7 +90,7 @@ msgid ""
 "receive another email with additional information."
 msgstr ""
 "Ihre Teilnahme an der Veranstaltung wurde registriert. In den kommenden "
-"Tagen erhalten Sie eine weitere E-Mail mit weiteren Informationen."
+"Tagen erhalten Sie eine weitere E-Mail mit zusätzlichen Informationen."
 
 #: includes/backend/mainpage-tab-03.php:36
 #: includes/backend/mainpage-tab-04.php:33
