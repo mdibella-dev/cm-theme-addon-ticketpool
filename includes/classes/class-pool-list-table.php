@@ -30,9 +30,9 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
     function get_columns()
     {
         $columns = array(
-            'col_groesse'   => __( 'Contingent size', 'cm-theme-addon-ticketpool' ),
-            'col_anbieter'  => __( 'Provided by', 'cm-theme-addon-ticketpool' ),
-            'col_zeitpunkt' => __( 'Provided on', 'cm-theme-addon-ticketpool' ),
+            'col_size'     => __( 'Contingent size', 'cm-theme-addon-ticketpool' ),
+            'col_provider' => __( 'Provided by', 'cm-theme-addon-ticketpool' ),
+            'col_provided' => __( 'Provided on', 'cm-theme-addon-ticketpool' ),
         );
 
         return $columns;
@@ -62,15 +62,15 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
                 return $item['event_id'];
             break;
 
-            case 'col_groesse':
+            case 'col_size':
                 return $item['contingent_size'];
             break;
 
-            case 'col_anbieter':
+            case 'col_provider':
                 return $item['contingent_provider'];
             break;
 
-            case 'col_zeitpunkt':
+            case 'col_provided':
                 return $item['contingent_provided'];
             break;
 
