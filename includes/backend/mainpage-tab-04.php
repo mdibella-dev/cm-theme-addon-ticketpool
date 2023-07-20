@@ -42,10 +42,10 @@ function show_mainpage_tab_04()
             case 'reset-tables' :
                 global $wpdb;
 
-                $table_names = array(
+                $table_names = [
                     $wpdb->prefix . TABLE_POOL,
                     $wpdb->prefix . TABLE_USER
-                );
+                ];
 
                 foreach( $table_names as $table_name ) :
                     $sql = "TRUNCATE TABLE $table_name";
