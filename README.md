@@ -25,6 +25,8 @@ translation-ready, shortcodes
 
 ### Latest changes to the main branch
 
+* Improve: Change array notation.
+
 ### Previous changes
 
 See [CHANGELOG.md](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/blob/main/CHANGELOG.md).
