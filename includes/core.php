@@ -335,7 +335,7 @@ function display_user_notice( $code )
             'notice' => __( 'A technical error has occurred.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-error',
         ],
-    );
+    ];
 
     if( array_key_exists( $code, $status ) ) :
     ?>
