@@ -48,24 +48,24 @@ add_action( 'admin_menu', __NAMESPACE__ . '\add_mainpage' );
 function show_mainpage()
 {
     // setup all tabs
-    $tabs = array(
-        'tab-01' => array(
+    $tabs = [
+        'tab-01' => [
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_01',
             'title'    => __( 'Participants', 'cm-theme-addon-ticketpool'),
-        ),
-        'tab-02' => array(
+        ],
+        'tab-02' => [
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_02',
             'title'    => __( 'Ticket contingents', 'cm-theme-addon-ticketpool'),
-        ),
-        'tab-03' => array(
+        ],
+        'tab-03' => [
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_03',
             'title'    => __( 'Email notification', 'cm-theme-addon-ticketpool'),
-        ),
-        'tab-04' => array(
+        ],
+        'tab-04' => [
             'callback' => __NAMESPACE__ . '\show_mainpage_tab_04',
             'title'    => __( 'Tools', 'cm-theme-addon-ticketpool'),
-        ),
-    );
+        ]
+    ];
 
     // get the current tab
     if( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) :
