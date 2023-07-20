@@ -28,7 +28,6 @@ function show_mainpage_tab_02()
     if( isset( $_POST['action'] ) ) :
 
         switch( $_POST['action'] ) :
-
             case 'add-contingent' :
                 $size     = 0;
                 $provider = '';
@@ -48,7 +47,6 @@ function show_mainpage_tab_02()
                     display_admin_notice( NOTICE_EMPTY_FIELDS );
                 endif;
             break;
-
         endswitch;
 
     endif;

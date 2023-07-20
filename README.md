@@ -1,4 +1,4 @@
-#  CM &mdash; Ticketpool (addon to CM theme)
+#  CM theme &mdash; Addon: Ticketpool
 This plugin is an addon to the WordPress based [CM theme](https://github.com/mdibella-dev/cm).
 
 <br>
@@ -24,6 +24,9 @@ translation-ready, shortcodes
 ## Changelog
 
 ### Latest changes to the main branch
+
+* Improve: Change array notation
+* Improve: Change title
 
 ### Previous changes
 

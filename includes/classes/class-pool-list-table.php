@@ -29,11 +29,11 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
 
     function get_columns()
     {
-        $columns = array(
+        $columns = [
             'col_size'     => __( 'Contingent size', 'cm-theme-addon-ticketpool' ),
             'col_provider' => __( 'Provided by', 'cm-theme-addon-ticketpool' ),
             'col_provided' => __( 'Provided on', 'cm-theme-addon-ticketpool' ),
-        );
+        ];
 
         return $columns;
     }
@@ -41,11 +41,11 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
 
     function prepare_items()
     {
-        $this->_column_headers = array(
-            $this->get_columns(),    // columns
-            array(),                 // hidden,
-            array(),                 // sortable
-        );
+        $this->_column_headers = [
+            $this->get_columns(),   // columns
+            [],                     // hidden
+            [],                     // sortable
+        ];
 
         global $wpdb;
 

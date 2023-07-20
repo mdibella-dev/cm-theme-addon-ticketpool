@@ -38,14 +38,13 @@ function show_mainpage_tab_04()
     if( isset( $_POST['action'] ) ) :
 
         switch( $_POST['action'] ) :
-
             case 'reset-tables' :
                 global $wpdb;
 
-                $table_names = array(
+                $table_names = [
                     $wpdb->prefix . TABLE_POOL,
                     $wpdb->prefix . TABLE_USER
-                );
+                ];
 
                 foreach( $table_names as $table_name ) :
                     $sql = "TRUNCATE TABLE $table_name";
@@ -60,8 +59,6 @@ function show_mainpage_tab_04()
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
                 display_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
             break;
-
-
         endswitch;
 
     endif;

@@ -29,7 +29,7 @@ function admin_enqueue_scripts()
         wp_enqueue_style(
             'cm-ticketpool-backend-style',
             PLUGIN_URL . '/assets/build/css/backend.min.css',
-            array(),
+            [],
             PLUGIN_VERSION
         );
     endif;
@@ -51,28 +51,28 @@ function admin_notices()
     if( isset( $_GET['notice'] ) ) :
 
         $notice  = $_GET['notice'];
-        $notices = array(
-            NOTICE_EMAIL_TEMPLATE_UPDATED => array(
+        $notices = [
+            NOTICE_EMAIL_TEMPLATE_UPDATED => [
                 'type'    => 'notice-success is-dismissible',
                 'message' => __( 'Email template has been updated.' , 'cm-theme-addon-ticketpool' )
-            ),
-            NOTICE_EMAIL_TEMPLATE_RESET => array(
+            ],
+            NOTICE_EMAIL_TEMPLATE_RESET => [
                 'type'    => 'notice-success is-dismissible',
                 'message' => __( 'Email template has been reset.' , 'cm-theme-addon-ticketpool' )
-            ),
-            NOTICE_TICKET_CONTINGENT_ADDED => array(
+            ],
+            NOTICE_TICKET_CONTINGENT_ADDED => [
                 'type'    => 'notice-success is-dismissible',
                 'message' => __( 'The ticket contingent has been expanded.' , 'cm-theme-addon-ticketpool' )
-            ),
-            NOTICE_TABLE_RESET => array(
+            ],
+            NOTICE_TABLE_RESET => [
                 'type'    => 'notice-success is-dismissible',
                 'message' => __( 'Tables have been reset.' , 'cm-theme-addon-ticketpool' )
-            ),
-            NOTICE_EMPTY_FIELDS => array(
+            ],
+            NOTICE_EMPTY_FIELDS => [
                 'type'    => 'notice-error',
                 'message' => __( 'One or more fields are not filled in.' , 'cm-theme-addon-ticketpool' )
-            ),
-        );
+            ],
+        ];
 
         if( array_key_exists( $notice, $notices ) ) :
         ?>

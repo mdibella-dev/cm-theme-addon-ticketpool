@@ -150,7 +150,9 @@ function plugin_enqueue_scripts()
     wp_enqueue_script(
         'cm-ticketpool-frontend-script',
         PLUGIN_URL . '/assets/build/js/frontend.min.js',
-        array( 'jquery' ),
+        [
+            'jquery'
+        ],
         PLUGIN_VERSION,
         true
     );

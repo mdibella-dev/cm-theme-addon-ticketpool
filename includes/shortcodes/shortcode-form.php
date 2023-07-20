@@ -30,9 +30,9 @@ function shortcode_form( $atts, $content = null )
 {
     /** Process passed parameters */
 
-    $default_atts  = array(
+    $default_atts  = [
         'event_id' => '',
-    );
+    ];
 
     extract( shortcode_atts( $default_atts, $atts ) );
 
@@ -43,10 +43,10 @@ function shortcode_form( $atts, $content = null )
 
     /** Process form if already submitted */
 
-    $code          = 0;
-    $user_lastname = '';
+    $code           = 0;
+    $user_lastname  = '';
     $user_firstname = '';
-    $user_email    = '';
+    $user_email     = '';
 
     if( isset( $_POST['action'] ) ) :
 
@@ -55,7 +55,7 @@ function shortcode_form( $atts, $content = null )
         endif;
 
         if( true === isset( $_POST['user_firstname'] ) ) :
-            $user_firstname = trim(  $_POST['user_firstname'] );
+            $user_firstname = trim( $_POST['user_firstname'] );
         endif;
 
         if( true === isset( $_POST['user_email'] ) ) :
