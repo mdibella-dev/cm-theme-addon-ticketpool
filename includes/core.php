@@ -37,11 +37,11 @@ function create_user_export_file( $event_id = 0 )
     $export_url = $uploads['baseurl'] . '/' . EXPORT_FOLDER;
 
     $file_name  = 'export-' . date( "Y-m-d" ) . '.csv';
-    $file_info  = array(
+    $file_info  = [
         'name' => $file_name,
         'path' => $export_dir . '/' . $file_name,
         'url'  => $export_url . '/' . $file_name,
-    );
+    ];
 
 
     // (Re-)Create export folder if necessary
@@ -59,12 +59,12 @@ function create_user_export_file( $event_id = 0 )
 
 
     // Write header into file
-    $row = array(
+    $row = [
         __( 'Last name','cm-theme-addon-ticketpool' ),
         __( 'First name','cm-theme-addon-ticketpool' ),
         __( 'Email','cm-theme-addon-ticketpool' ),
         __( 'Registration date','cm-theme-addon-ticketpool' )
-    );
+    ];
     fputcsv( $file, $row);
 
 
@@ -185,11 +185,11 @@ function add_contingent( $event_id, $contingent_size, $contingent_provider )
         global $wpdb;
 
         $table_name = $wpdb->prefix . TABLE_POOL;
-        $table_data = array(
+        $table_data = [
             'event_id'            => $event_id,
             'contingent_size'     => $contingent_size,
             'contingent_provider' => $contingent_provider,
-        );
+        ];
 
         if( 1 == $wpdb->insert( $table_name, $table_data ) ) :
             return true;
@@ -270,12 +270,12 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email )
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_USER;
-    $table_data = array(
+    $table_data = [
         'event_id'      => $event_id,
         'user_lastname' => $user_lastname,
         'user_forename' => $user_forename,
         'user_email'    => $user_email,
-    );
+    ];
 
 
     // Was the user's registration successful?
@@ -285,8 +285,11 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email )
         $mail_to      = $user_email;
         $mail_subject = get_option( OPTION_MAIL_SUBJECT );
         $mail_message = get_option( OPTION_MAIL_MESSAGE );
-        $mail_headers = array( 'bcc:m.dibella@rechtsdepesche.de' );
-        $result       = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
+        $mail_headers = [
+            'bcc:m.dibella@rechtsdepesche.de'
+        ];
+
+        $result = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
 
         return STATUS_USER_ADDED;
 
@@ -307,31 +310,31 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email )
 
 function display_user_notice( $code )
 {
-    $status = array(
-        STATUS_USER_ADDED => array(
+    $status = [
+        STATUS_USER_ADDED => [
             'notice' => __( 'Your registration was successful!', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-sucess',
-        ),
-        STATUS_NOTHING_FREE => array(
+        ],
+        STATUS_NOTHING_FREE => [
             'notice' => __( 'Unfortunately, there is currently no free ticket available in the ticket contingent!<br><br>Please try again at a later date.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-info',
-        ),
-        STATUS_USER_FIELDS_EMPTY => array(
+        ],
+        STATUS_USER_FIELDS_EMPTY => [
             'notice' => __( 'One or more fields are not filled in.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-warning',
-        ),
-        STATUS_USER_EMAIL_MALFORMED => array(
+        ],
+        STATUS_USER_EMAIL_MALFORMED => [
             'notice' => __( 'Please enter a correct email address.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-warning',
-        ),
-        STATUS_USER_EMAIL_IN_USE => array(
+        ],
+        STATUS_USER_EMAIL_IN_USE => [
             'notice' => __( 'Your email address has already been used. It cannot be used again.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-warning',
-        ),
-        STATUS_CANT_STORE_USER => array(
+        ],
+        STATUS_CANT_STORE_USER => [
             'notice' => __( 'A technical error has occurred.', 'cm-theme-addon-ticketpool' ),
             'style'  => 'cmkk-notice-error',
-        ),
+        ],
     );
 
     if( array_key_exists( $code, $status ) ) :
