@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CM &mdash; Ticketpool (addon to CM theme)\n"
-"POT-Creation-Date: 2023-06-05 10:48+0200\n"
-"PO-Revision-Date: 2023-06-05 11:59+0200\n"
+"POT-Creation-Date: 2023-07-21 11:04+0200\n"
+"PO-Revision-Date: 2023-07-21 11:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: plugin.php\n"
@@ -36,12 +36,12 @@ msgstr "Das Ticketkontingent wurde erweitert."
 msgid "Tables have been reset."
 msgstr "Tabellen wurde zurückgesetzt."
 
-#: includes/backend.php:73 includes/core.php:320
+#: includes/backend.php:73 includes/core.php:323
 msgid "One or more fields are not filled in."
 msgstr "Ein oder mehrere Felder sind nicht ausgefüllt."
 
 #: includes/backend/mainpage-tab-01.php:44
-#: includes/backend/mainpage-tab-02.php:68
+#: includes/backend/mainpage-tab-02.php:66
 msgid "There are currently no tickets available."
 msgstr "Derzeit sind keine Tickets verfügbar."
 
@@ -57,24 +57,24 @@ msgstr ""
 msgid "Export data as CSV"
 msgstr "Daten als CSV exportieren"
 
-#: includes/backend/mainpage-tab-02.php:71
+#: includes/backend/mainpage-tab-02.php:69
 #, php-format
 msgid "A total of %1$s tickets are available."
 msgstr "Insgesamt stehen %1$s Tickets zur Verfügung."
 
-#: includes/backend/mainpage-tab-02.php:77
+#: includes/backend/mainpage-tab-02.php:75
 msgid "Add new contingent"
 msgstr "Neues Kontingent hinzufügen"
 
-#: includes/backend/mainpage-tab-02.php:86
+#: includes/backend/mainpage-tab-02.php:84
 msgid "Number of tickets"
 msgstr "Anzahl der Tickets"
 
-#: includes/backend/mainpage-tab-02.php:95
+#: includes/backend/mainpage-tab-02.php:93
 msgid "Tickets are provided by"
 msgstr "Tickets werden zur Verfügung gestellt von"
 
-#: includes/backend/mainpage-tab-02.php:106
+#: includes/backend/mainpage-tab-02.php:104
 msgid "Add contingent"
 msgstr "Kontingent hinzufügen"
 
@@ -104,41 +104,41 @@ msgstr ""
 "Achtung: Diese Mail wurde automatisch generiert, bitte antworten Sie nicht "
 "darauf."
 
-#: includes/backend/mainpage-tab-03.php:64
+#: includes/backend/mainpage-tab-03.php:62
 msgid "Email template for participants"
 msgstr "E-Mail-Vorlage für Teilnehmer"
 
-#: includes/backend/mainpage-tab-03.php:70
+#: includes/backend/mainpage-tab-03.php:68
 msgid "Subject"
 msgstr "Betreff"
 
-#: includes/backend/mainpage-tab-03.php:77
+#: includes/backend/mainpage-tab-03.php:75
 msgid "Message"
 msgstr "Mitteilung"
 
-#: includes/backend/mainpage-tab-03.php:86
+#: includes/backend/mainpage-tab-03.php:84
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: includes/backend/mainpage-tab-04.php:80
+#: includes/backend/mainpage-tab-04.php:77
 msgid "Reset Email Template"
 msgstr "E-Mail-Vorlage zurücksetzen"
 
-#: includes/backend/mainpage-tab-04.php:81
+#: includes/backend/mainpage-tab-04.php:78
 msgid "ATTENTION: This resets the email template to the default text."
 msgstr ""
 "ACHTUNG: Dadurch wird die E-Mail-Vorlage auf den Standardtext zurückgesetzt."
 
-#: includes/backend/mainpage-tab-04.php:84
-#: includes/backend/mainpage-tab-04.php:100
+#: includes/backend/mainpage-tab-04.php:81
+#: includes/backend/mainpage-tab-04.php:97
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: includes/backend/mainpage-tab-04.php:96
+#: includes/backend/mainpage-tab-04.php:93
 msgid "Reset tables"
 msgstr "Tabellen zurücksetzen"
 
-#: includes/backend/mainpage-tab-04.php:97
+#: includes/backend/mainpage-tab-04.php:94
 msgid "ATTENTION: This clears all tables irrevocably."
 msgstr "ACHTUNG: Dadurch werden alle Tabellen unwiderruflich gelöscht."
 
@@ -196,11 +196,11 @@ msgstr "Nachname"
 msgid "First name"
 msgstr "Vorname"
 
-#: includes/core.php:312
+#: includes/core.php:315
 msgid "Your registration was successful!"
 msgstr "Ihre Registrierung war erfolgreich!"
 
-#: includes/core.php:316
+#: includes/core.php:319
 msgid ""
 "Unfortunately, there is currently no free ticket available in the ticket "
 "contingent!<br><br>Please try again at a later date."
@@ -208,17 +208,17 @@ msgstr ""
 "Leider ist derzeit kein freies Ticket im Ticketkontingent verfügbar!"
 "<br><br>Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal."
 
-#: includes/core.php:324
+#: includes/core.php:327
 msgid "Please enter a correct email address."
 msgstr "Bitte geben Sie eine korrekte E-Mail-Adresse ein."
 
-#: includes/core.php:328
+#: includes/core.php:331
 msgid "Your email address has already been used. It cannot be used again."
 msgstr ""
 "Ihre E-Mail-Adresse wurde bereits verwendet. Sie kann nicht noch einmal "
 "verwendet werden."
 
-#: includes/core.php:332
+#: includes/core.php:335
 msgid "A technical error has occurred."
 msgstr "Ein technischer Fehler ist aufgetreten."
 
@@ -253,8 +253,8 @@ msgid "Request participation"
 msgstr "Teilnahme anfordern"
 
 #. Plugin Name of the plugin/theme
-msgid "CM &mdash; Ticketpool (addon to CM theme)"
-msgstr "CM &mdash; Ticketpool (Addon zum CM-Theme)"
+msgid "CM Theme &mdash; Addon: Ticketpool"
+msgstr "CM Theme &mdash; Addon: Ticketpool"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/mdibella-dev/cm-theme-addon-ticketpool"
@@ -271,6 +271,9 @@ msgstr "Marco Di Bella"
 #. Author URI of the plugin/theme
 msgid "https://www.marcodibella.de"
 msgstr "https://www.marcodibella.de"
+
+#~ msgid "CM &mdash; Ticketpool (addon to CM theme)"
+#~ msgstr "CM &mdash; Ticketpool (Addon zum CM-Theme)"
 
 #~ msgid "A new participant has registered via the ticket contingent."
 #~ msgstr "Ein neuer Teilnehmer hat sich über das Ticketkontingent angemeldet."

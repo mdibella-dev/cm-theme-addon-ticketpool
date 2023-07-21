@@ -1,5 +1,6 @@
-#  CM theme &mdash; Addon: Ticketpool
-This plugin is an addon to the WordPress based [CM theme](https://github.com/mdibella-dev/cm).
+#  CM Theme &mdash; Addon: Ticketpool
+This plugin is an addon to the WordPress based [CM Theme](https://github.com/mdibella-dev/cm).
+It provides a system to participate from a pool of sponsored tickets.
 
 <br>
 

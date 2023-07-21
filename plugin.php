@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:         CM theme &mdash; Addon: Ticketpool
+ * Plugin Name:         CM Theme &mdash; Addon: Ticketpool
  * Plugin URI:          https://github.com/mdibella-dev/cm-theme-addon-ticketpool
  * Description:         A system to participate from a pool of sponsored tickets.
  * Author:              Marco Di Bella
