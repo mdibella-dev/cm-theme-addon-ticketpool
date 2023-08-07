@@ -24,11 +24,9 @@ defined( 'ABSPATH' ) or exit;
  * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  */
 
-class MDB_Pool_List_Table extends MDB_Modified_List_Table
-{
+class MDB_Pool_List_Table extends MDB_Modified_List_Table {
 
-    function get_columns()
-    {
+    function get_columns() {
         $columns = [
             'col_size'     => __( 'Contingent size', 'cm-theme-addon-ticketpool' ),
             'col_provider' => __( 'Provided by', 'cm-theme-addon-ticketpool' ),
@@ -39,8 +37,7 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
     }
 
 
-    function prepare_items()
-    {
+    function prepare_items() {
         $this->_column_headers = [
             $this->get_columns(),   // columns
             [],                     // hidden
@@ -55,9 +52,10 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
     }
 
 
-    function column_default( $item, $column_name )
-    {
+    function column_default( $item, $column_name ) {
+
         switch( $column_name ) :
+
             case 'event_id':
                 return $item['event_id'];
             break;
@@ -80,6 +78,7 @@ class MDB_Pool_List_Table extends MDB_Modified_List_Table
             default:
                 return print_r( $item, true );
             break;
+            
         endswitch;
     }
 

@@ -28,8 +28,8 @@ defined( 'ABSPATH' ) or exit;
  * @todo Use of $event-id within the SQL query.
  */
 
-function create_user_export_file( $event_id = 0 )
-{
+function create_user_export_file( $event_id = 0 ) {
+
     // Prepare variables
     $uploads    = wp_upload_dir();
 
@@ -98,11 +98,10 @@ function create_user_export_file( $event_id = 0 )
  * @return int The total number of tickets.
  */
 
-function get_total_amount( $event_id )
-{
+function get_total_amount( $event_id ) {
     global $wpdb;
-           $amount = 0;
 
+    $amount     = 0;
     $table_name = $wpdb->prefix . TABLE_POOL;
     $sql        = "SELECT contingent_size FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
@@ -128,8 +127,7 @@ function get_total_amount( $event_id )
  * @return int The tickets used.
  */
 
-function get_used_amount( $event_id )
-{
+function get_used_amount( $event_id ) {
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_USER;
@@ -155,8 +153,7 @@ function get_used_amount( $event_id )
  * @return int The tickets that are still free (in doubt 0).
  */
 
-function get_free_amount( $event_id )
-{
+function get_free_amount( $event_id ) {
     global $wpdb;
 
     $total = get_total_amount( $event_id );
@@ -179,8 +176,7 @@ function get_free_amount( $event_id )
  * @return bool true/false depending on the outcome.
  */
 
-function add_contingent( $event_id, $contingent_size, $contingent_provider )
-{
+function add_contingent( $event_id, $contingent_size, $contingent_provider ) {
     if( ( $contingent_size > 0 ) and ! empty( $contingent_provider) ) :
         global $wpdb;
 
@@ -214,8 +210,7 @@ function add_contingent( $event_id, $contingent_size, $contingent_provider )
  *              - false: any other case.
  */
 
-function is_email_in_use( $event_id, $user_email )
-{
+function is_email_in_use( $event_id, $user_email ) {
     global $wpdb;
 
     $table_name = $wpdb->prefix . TABLE_USER;
@@ -240,8 +235,7 @@ function is_email_in_use( $event_id, $user_email )
  * @return int A status code.
  */
 
-function add_user( $event_id, $user_lastname, $user_forename, $user_email )
-{
+function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
     // Is there still a ticket available?
     if( 0 === get_free_amount( $event_id ) ) :
         return STATUS_NOTHING_FREE;
@@ -308,8 +302,7 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email )
  * @param int The status code.
  */
 
-function display_user_notice( $code )
-{
+function display_user_notice( $code ) {
     $status = [
         STATUS_USER_ADDED => [
             'notice' => __( 'Your registration was successful!', 'cm-theme-addon-ticketpool' ),

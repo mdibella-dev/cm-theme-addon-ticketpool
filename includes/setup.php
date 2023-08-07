@@ -21,8 +21,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function plugin_init()
-{
+function plugin_init() {
     // Load text domain
     load_plugin_textdomain( 'cm-theme-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
 }
@@ -37,8 +36,7 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\plugin_init' );
  * @since 1.0.0
  */
 
-function plugin_activation()
-{
+function plugin_activation() {
     // Set up tables if they do not exist
     global $wpdb;
 
@@ -97,8 +95,7 @@ register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
  * @since 1.0.0
  */
 
-function plugin_deactivation()
-{
+function plugin_deactivation() {
     // Do something!
 }
 
@@ -114,15 +111,14 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
  * @todo remove export files and folder
  */
 
-function plugin_uninstall()
-{
+function plugin_uninstall() {
     // Remove tables if present
     global $wpdb;
 
-    $table_names = array(
+    $table_names = [
         $wpdb->prefix . TABLE_POOL,
         $wpdb->prefix . TABLE_USER
-    );
+    ];
 
     foreach( $table_names as $table_name ) :
         $sql = "DROP TABLE $table_name";
@@ -145,8 +141,7 @@ register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );
  * @since 1.0.0
  */
 
-function plugin_enqueue_scripts()
-{
+function plugin_enqueue_scripts() {
     wp_enqueue_script(
         'cm-ticketpool-frontend-script',
         PLUGIN_URL . '/assets/build/js/frontend.min.js',

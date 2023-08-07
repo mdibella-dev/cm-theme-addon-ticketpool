@@ -28,6 +28,7 @@ translation-ready, shortcodes
 
 * Improve: Change array notation
 * Improve: Change title
+* Improve: Change clamping style
 
 ### Previous changes
 

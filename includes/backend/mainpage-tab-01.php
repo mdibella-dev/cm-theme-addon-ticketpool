@@ -20,8 +20,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function show_mainpage_tab_01()
-{
+function show_mainpage_tab_01() {
     $file_info = create_user_export_file( EVENT_ID );
 
     if( false === $file_info ) :

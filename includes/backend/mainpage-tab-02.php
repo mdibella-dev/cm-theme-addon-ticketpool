@@ -21,8 +21,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function show_mainpage_tab_02()
-{
+function show_mainpage_tab_02() {
     /** Process form if already submitted */
 
     if( isset( $_POST['action'] ) ) :

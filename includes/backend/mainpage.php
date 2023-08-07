@@ -21,8 +21,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function add_mainpage()
-{
+function add_mainpage() {
     add_menu_page(
         __( 'Ticket contingents', 'cm-theme-addon-ticketpool' ),
         __( 'Ticket contingents', 'cm-theme-addon-ticketpool' ),
@@ -45,8 +44,7 @@ add_action( 'admin_menu', __NAMESPACE__ . '\add_mainpage' );
  * @source http://qnimate.com/add-tabs-using-wordpress-settings-api/
  */
 
-function show_mainpage()
-{
+function show_mainpage() {
     // setup all tabs
     $tabs = [
         'tab-01' => [

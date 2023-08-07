@@ -22,8 +22,7 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function show_mainpage_tab_04()
-{
+function show_mainpage_tab_04() {
     /** Process form if already submitted */
 
     // Set up default values

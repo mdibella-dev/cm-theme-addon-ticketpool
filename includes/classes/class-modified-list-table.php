@@ -21,10 +21,10 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-class MDB_Modified_List_Table extends \WP_List_Table
-{
-    function display_tablenav( $which )
-    {
+class MDB_Modified_List_Table extends \WP_List_Table {
+
+    
+    function display_tablenav( $which ) {
         if( 'top' === $which ) :
             wp_nonce_field( 'bulk-' . $this->_args['plural'] );
         endif;

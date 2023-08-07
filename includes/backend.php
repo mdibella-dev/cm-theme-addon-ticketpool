@@ -21,8 +21,8 @@ defined( 'ABSPATH' ) or exit;
  * @since 1.0.0
  */
 
-function admin_enqueue_scripts()
-{
+function admin_enqueue_scripts() {
+
     $screen = get_current_screen();
 
     if( ( 'toplevel_page_cmkk_mainpage' === $screen->id ) ):
@@ -46,8 +46,8 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
  * @see   https://digwp.com/2016/05/wordpress-admin-notices/
  */
 
-function admin_notices()
-{
+function admin_notices() {
+    
     if( isset( $_GET['notice'] ) ) :
 
         $notice  = $_GET['notice'];
