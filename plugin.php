@@ -66,9 +66,9 @@ define(  __NAMESPACE__ . '\EVENT_ID', '1' );
 
 /** Include files */
 
-require_once( PLUGIN_DIR . 'includes/shortcodes/shortcode-form.php' );
-require_once( PLUGIN_DIR . 'includes/classes/index.php' );
-require_once( PLUGIN_DIR . 'includes/backend/index.php' );
-require_once( PLUGIN_DIR . 'includes/core.php' );
-require_once( PLUGIN_DIR . 'includes/backend.php' );
-require_once( PLUGIN_DIR . 'includes/setup.php' );
+require_once PLUGIN_DIR . 'includes/shortcodes/shortcode-form.php';
+require_once PLUGIN_DIR . 'includes/classes/index.php';
+require_once PLUGIN_DIR . 'includes/backend/index.php';
+require_once PLUGIN_DIR . 'includes/core.php';
+require_once PLUGIN_DIR . 'includes/backend.php';
+require_once PLUGIN_DIR . 'includes/setup.php';
