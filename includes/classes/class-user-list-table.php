@@ -63,23 +63,23 @@ class MDB_User_List_Table extends MDB_Modified_List_Table {
                     $item['user_forename'],
                     $item['user_lastname']
                 );
-            break;
+                break;
 
             case 'col_email':
                 return $item['user_email'];
-            break;
+                break;
 
             case 'col_registered':
                 return date(
                     __( 'Y-m-d H:i', 'cm-theme-addon-ticketpool' ),
                     strtotime( $item['user_registered'] )
                 );
-            break;
+                break;
 
             default:
                 return print_r( $item, true );
-            break;
-            
+                break;
+
         endswitch;
     }
 }
