@@ -14,11 +14,11 @@ translation-ready, shortcodes
 
 ### Requires at least
 
-* WordPress 5
+- WordPress 5
 
 ### Tested up to
 
-* WordPress 6.2
+- WordPress 6.2
 
 <br>
 
@@ -26,9 +26,9 @@ translation-ready, shortcodes
 
 ### Latest changes to the main branch
 
-* Improve: Change array notation
-* Improve: Change title
-* Improve: Change clamping style
+- Improve: Change array notation
+- Improve: Change title
+- Improve: Change clamping style
 
 ### Previous changes
 
