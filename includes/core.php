@@ -45,17 +45,17 @@ function create_user_export_file( $event_id = 0 ) {
 
 
     // (Re-)Create export folder if necessary
-    if( ! file_exists( $export_dir ) ) :
+    if ( ! file_exists( $export_dir ) ) {
         wp_mkdir_p( $export_dir );
-    endif;
+    }
 
 
     // Open file
     $file = fopen( $file_info['path'], 'w' );
 
-    if( false === $file) :
+    if ( false === $file) {
         return null;
-    endif;
+    }
 
 
     // Write header into file
@@ -75,9 +75,9 @@ function create_user_export_file( $event_id = 0 ) {
     $sql        = "SELECT user_lastname, user_forename, user_email, user_registered FROM $table_name";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_A' );
 
-    foreach( $table_data as $row ) :
+    foreach ( $table_data as $row ) {
         fputcsv( $file, $row );
-    endforeach;
+    }
 
 
     // Close file
@@ -106,11 +106,11 @@ function get_total_amount( $event_id ) {
     $sql        = "SELECT contingent_size FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
-    if( null != $table_data ) :
-        foreach( $table_data as $size ) :
+    if ( null != $table_data ) {
+        foreach ( $table_data as $size ) {
             $amount += $size[0];
-        endforeach;
-    endif;
+        }
+    }
 
     return $amount;
 }
@@ -134,11 +134,11 @@ function get_used_amount( $event_id ) {
     $sql        = "SELECT COUNT(*) FROM $table_name WHERE event_id=$event_id";
     $table_data = $wpdb->get_results( $sql, 'ARRAY_N' );
 
-    if( null != $table_data ) :
+    if ( null != $table_data ) {
         return $table_data[0][0];
-    else :
+    } else {
         return 0;
-    endif;
+    }
 }
 
 
@@ -177,7 +177,7 @@ function get_free_amount( $event_id ) {
  */
 
 function add_contingent( $event_id, $contingent_size, $contingent_provider ) {
-    if( ( $contingent_size > 0 ) and ! empty( $contingent_provider) ) :
+    if ( ( $contingent_size > 0 ) and ! empty( $contingent_provider) ) {
         global $wpdb;
 
         $table_name = $wpdb->prefix . TABLE_POOL;
@@ -187,10 +187,10 @@ function add_contingent( $event_id, $contingent_size, $contingent_provider ) {
             'contingent_provider' => $contingent_provider,
         ];
 
-        if( 1 == $wpdb->insert( $table_name, $table_data ) ) :
+        if ( 1 == $wpdb->insert( $table_name, $table_data ) ) {
             return true;
-        endif;
-    endif;
+        }
+    }
 
     return false;
 }
@@ -237,27 +237,24 @@ function is_email_in_use( $event_id, $user_email ) {
 
 function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
     // Is there still a ticket available?
-    if( 0 === get_free_amount( $event_id ) ) :
+    if ( 0 === get_free_amount( $event_id ) ) {
         return STATUS_NOTHING_FREE;
-    endif;
-
+    }
 
     // Pass empty fields?
-    if( empty( $user_forename ) or empty( $user_lastname ) or empty( $user_email ) ):
+    if ( empty( $user_forename ) or empty( $user_lastname ) or empty( $user_email ) ) {
         return STATUS_USER_FIELDS_EMPTY;
-    endif;
-
+    }
 
     // Is the format of the email valid?
-    if( ! filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) :
+    if ( ! filter_var( $user_email, FILTER_VALIDATE_EMAIL ) ) {
         return STATUS_USER_EMAIL_MALFORMED;
-    endif;
-
+    }
 
     // Is the email already in use?
-    if( true === is_email_in_use( $event_id, $user_email ) ) :
+    if ( true === is_email_in_use( $event_id, $user_email ) ) {
         return STATUS_USER_EMAIL_IN_USE;
-    endif;
+    }
 
 
     // Register user
@@ -273,7 +270,7 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
 
 
     // Was the user's registration successful?
-    if( 0 !== $wpdb->insert( $table_name, $table_data ) ) :
+    if ( 0 !== $wpdb->insert( $table_name, $table_data ) ) {
 
         // Send confirmation mail to user
         $mail_to      = $user_email;
@@ -287,7 +284,7 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
 
         return STATUS_USER_ADDED;
 
-    endif;
+    }
 
     return STATUS_CANT_STORE_USER;
 }
@@ -330,11 +327,11 @@ function display_user_notice( $code ) {
         ],
     ];
 
-    if( array_key_exists( $code, $status ) ) :
+    if ( array_key_exists( $code, $status ) ) {
     ?>
     <div class="cmkk-notice <?php echo $status[$code]['style']; ?>">
         <p><?php echo $status[$code]['notice']; ?></p>
     </div>
     <?php
-    endif;
+    }
 }

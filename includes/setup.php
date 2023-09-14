@@ -45,8 +45,7 @@ function plugin_activation() {
     $table_charset_collate = $wpdb->get_charset_collate();
     $table_name            = $wpdb->prefix . TABLE_POOL;
 
-    if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
-
+    if ( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) {
         $sql = "CREATE TABLE $table_name (
             event_id            INT UNSIGNED NOT NULL,
             contingent_id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -58,13 +57,11 @@ function plugin_activation() {
             COLLATE $table_charset_collate;";
 
         dbDelta( $sql );
-
-    endif;
+    }
 
     $table_name = $wpdb->prefix . TABLE_USER;
 
-    if( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) :
-
+    if ( $table_name != $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) ) {
         $sql = "CREATE TABLE $table_name (
             event_id            INT UNSIGNED NOT NULL,
             user_id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -77,7 +74,7 @@ function plugin_activation() {
             COLLATE $table_charset_collate;";
 
         dbDelta( $sql );
-    endif;
+    }
 
 
     /// Set up options if not present
@@ -120,10 +117,10 @@ function plugin_uninstall() {
         $wpdb->prefix . TABLE_USER
     ];
 
-    foreach( $table_names as $table_name ) :
+    foreach ( $table_names as $table_name ) {
         $sql = "DROP TABLE $table_name";
         $wpdb->query( $sql );
-    endforeach;
+    }
 
 
     // Remove options

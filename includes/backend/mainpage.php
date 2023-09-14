@@ -66,11 +66,11 @@ function show_mainpage() {
     ];
 
     // get the current tab
-    if( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) :
+    if ( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) {
         $tab_active = $_GET['tab'];
-    else :
+    } else {
         $tab_active = 'tab-01';
-    endif;
+    }
 
 
     /** Output the main page */
@@ -80,13 +80,13 @@ function show_mainpage() {
         <h1 class="wp-heading-inline"><?php echo __( 'Ticket contingents', 'cm-theme-addon-ticketpool' )?></h1>
         <h2 class="nav-tab-wrapper">
         <?php
-        foreach( $tabs as $key => $config ) :
+        foreach ( $tabs as $key => $config ) {
 
-            if( $tab_active == $key ) :
+            if ( $tab_active == $key ) {
                 $nav_tab_class = 'nav-tab-active';
-            else :
+            } else {
                 $nav_tab_class = '';
-            endif;
+            }
 
             echo sprintf(
                 '<a href="?page=cmkk_mainpage&tab=%1$s" class="nav-tab %2$s">%3$s</a>',
@@ -94,8 +94,7 @@ function show_mainpage() {
                 $nav_tab_class,
                 $config['title'],
             );
-
-        endforeach;
+        }
         ?>
         </h2>
         <?php

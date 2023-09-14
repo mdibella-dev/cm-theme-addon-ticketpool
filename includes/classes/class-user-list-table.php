@@ -38,6 +38,7 @@ class MDB_User_List_Table extends MDB_Modified_List_Table {
     }
 
 
+
     function prepare_items() {
         $this->_column_headers = [
             $this->get_columns(),    // columns
@@ -53,10 +54,10 @@ class MDB_User_List_Table extends MDB_Modified_List_Table {
     }
 
 
+
     function column_default( $item, $column_name ) {
 
-        switch( $column_name ) :
-
+        switch ( $column_name ) {
             case 'col_name':
                 return sprintf(
                     '%1$s %2$s',
@@ -79,7 +80,6 @@ class MDB_User_List_Table extends MDB_Modified_List_Table {
             default:
                 return print_r( $item, true );
                 break;
-
-        endswitch;
+        }
     }
 }

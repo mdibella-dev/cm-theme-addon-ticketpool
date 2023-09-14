@@ -36,9 +36,9 @@ function shortcode_form( $atts, $content = null ) {
 
     extract( shortcode_atts( $default_atts, $atts ) );
 
-    if( empty( $event_id ) ) :      // move to output?
+    if ( empty( $event_id ) ) {      // move to output?
         return '';
-    endif;
+    }
 
 
     /** Process form if already submitted */
@@ -48,31 +48,31 @@ function shortcode_form( $atts, $content = null ) {
     $user_firstname = '';
     $user_email     = '';
 
-    if( isset( $_POST['action'] ) ) :
+    if ( isset( $_POST['action'] ) ) {
 
-        if( true === isset( $_POST['user_lastname'] ) ) :
+        if ( true === isset( $_POST['user_lastname'] ) ) {
             $user_lastname = trim( $_POST['user_lastname'] );
-        endif;
+        }
 
-        if( true === isset( $_POST['user_firstname'] ) ) :
+        if ( true === isset( $_POST['user_firstname'] ) ) {
             $user_firstname = trim( $_POST['user_firstname'] );
-        endif;
+        }
 
-        if( true === isset( $_POST['user_email'] ) ) :
+        if ( true === isset( $_POST['user_email'] ) ) {
             $user_email = trim( strtolower( $_POST['user_email'] ) );
-        endif;
+        }
 
         $code = add_user( $event_id, $user_lastname, $user_firstname, $user_email );
-    endif;
+    }
 
 
     /** Output the shortcode */
 
     ob_start();
 
-    if( 0 !== $code ) :
+    if ( 0 !== $code ) {
         display_user_notice( $code );
-    endif;
+    }
     ?>
     <form class="cmkk-form" method="post" action="">
         <table>

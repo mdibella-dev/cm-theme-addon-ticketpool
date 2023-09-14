@@ -24,31 +24,31 @@ defined( 'ABSPATH' ) or exit;
 function show_mainpage_tab_02() {
     /** Process form if already submitted */
 
-    if( isset( $_POST['action'] ) ) :
+    if ( isset( $_POST['action'] ) ) {
 
-        switch( $_POST['action'] ) :
+        switch ( $_POST['action'] ) {
             case 'add-contingent' :
                 $size     = 0;
                 $provider = '';
 
-                if( true === isset( $_POST['size'] ) ) :
+                if ( true === isset( $_POST['size'] ) ) {
                     $size = (int) trim( $_POST['size'] );
-                endif;
+                }
 
-                if( true === isset( $_POST['provider'] ) ) :
+                if ( true === isset( $_POST['provider'] ) ) {
                     $provider = trim( $_POST['provider'] );
-                endif;
+                }
 
-                if( ! empty( $size ) and ! empty( $provider ) ) :
+                if ( ! empty( $size ) and ! empty( $provider ) ) {
                     add_contingent( $_POST['event_id'], $_POST['size'], $_POST['provider'] );
                     display_admin_notice( NOTICE_TICKET_CONTINGENT_ADDED );
-                else :
+                } else {
                     display_admin_notice( NOTICE_EMPTY_FIELDS );
-                endif;
-            break;
-        endswitch;
+                }
+                break;
+        }
+    }
 
-    endif;
 
 
     /** Output the tab */
@@ -61,14 +61,14 @@ function show_mainpage_tab_02() {
     <p class="cmkk-amount-info"><?php
         $total_amount = get_total_amount( EVENT_ID );
 
-        if( 0 == $total_amount) :
+        if ( 0 == $total_amount) {
             echo __( 'There are currently no tickets available.', 'cm-theme-addon-ticketpool' );
-        else :
+        } else {
             echo sprintf(
                 __( 'A total of %1$s tickets are available.', 'cm-theme-addon-ticketpool' ),
                 $total_amount
             );
-        endif;
+        }
     ?></p>
     <div class="form-wrap">
         <h2><?php echo __( 'Add new contingent', 'cm-theme-addon-ticketpool'); ?></h2>

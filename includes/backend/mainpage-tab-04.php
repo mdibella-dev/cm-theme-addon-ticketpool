@@ -34,9 +34,8 @@ function show_mainpage_tab_04() {
                        . __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' );
 
 
-    if( isset( $_POST['action'] ) ) :
-
-        switch( $_POST['action'] ) :
+    if ( isset( $_POST['action'] ) ) {
+        switch ( $_POST['action'] ) {
             case 'reset-tables' :
                 global $wpdb;
 
@@ -45,22 +44,21 @@ function show_mainpage_tab_04() {
                     $wpdb->prefix . TABLE_USER
                 ];
 
-                foreach( $table_names as $table_name ) :
+                foreach ( $table_names as $table_name ) {
                     $sql = "TRUNCATE TABLE $table_name";
                     $wpdb->query( $sql );
-                endforeach;
+                }
 
                 display_admin_notice( NOTICE_TABLE_RESET );
-            break;
+                break;
 
             case 'reset-template' :
                 update_option( OPTION_MAIL_SUBJECT, $default_subject );
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
                 display_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );
-            break;
-        endswitch;
-
-    endif;
+                break;
+        }
+    }
 
 
     /** Output the tab */

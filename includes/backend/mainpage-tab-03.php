@@ -37,17 +37,16 @@ function show_mainpage_tab_03() {
                        . __( 'Attention: This email was generated automatically, please do not reply.', 'cm-theme-addon-ticketpool' );
 
 
-    if( isset( $_POST['action'] ) ) :
+    if ( isset( $_POST['action'] ) ) {
 
-        switch( $_POST['action'] ) :
+        switch ( $_POST['action'] ) {
             case 'update-template' :
                 update_option( OPTION_MAIL_SUBJECT, $_POST['subject'] );
                 update_option( OPTION_MAIL_MESSAGE, $_POST['message'] );
                 display_admin_notice( NOTICE_EMAIL_TEMPLATE_UPDATED );
-            break;
-        endswitch;
-
-    endif;
+                break;
+        }
+    }
 
     // Get options
     $subject = get_option( OPTION_MAIL_SUBJECT, $default_subject );
