@@ -36,7 +36,7 @@ function show_mainpage_tab_04() {
 
     if ( isset( $_POST['action'] ) ) {
         switch ( $_POST['action'] ) {
-            case 'reset-tables' :
+            case 'reset-tables':
                 global $wpdb;
 
                 $table_names = [
@@ -52,7 +52,7 @@ function show_mainpage_tab_04() {
                 display_admin_notice( NOTICE_TABLE_RESET );
                 break;
 
-            case 'reset-template' :
+            case 'reset-template':
                 update_option( OPTION_MAIL_SUBJECT, $default_subject );
                 update_option( OPTION_MAIL_MESSAGE, $default_message );
                 display_admin_notice( NOTICE_EMAIL_TEMPLATE_RESET );

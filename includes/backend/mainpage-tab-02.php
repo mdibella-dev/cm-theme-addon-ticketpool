@@ -27,7 +27,7 @@ function show_mainpage_tab_02() {
     if ( isset( $_POST['action'] ) ) {
 
         switch ( $_POST['action'] ) {
-            case 'add-contingent' :
+            case 'add-contingent':
                 $size     = 0;
                 $provider = '';
 
