@@ -109,12 +109,11 @@ function shortcode_form( $atts, $content = null ) {
                 </td>
             </tr>
             <tr>
-                <th>
+                <td colspan="2" class="send" >
                     <div class="wp-block-button">
                         <button id="cmkk-submit" type="submit" class="wp-block-button__link" name="action" value="add" disabled="disabled"><?php echo __( 'Request participation', 'cm-theme-addon-ticketpool' );?></button>
                     </div>
-                </th>
-                <td></td>
+                </td>
             </tr>
         </table>
         <input id="event-id" name="event-id" type="hidden" value="<?php echo $event_id; ?>">
