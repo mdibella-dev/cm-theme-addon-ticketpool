@@ -277,7 +277,7 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
         $mail_subject = get_option( OPTION_MAIL_SUBJECT );
         $mail_message = get_option( OPTION_MAIL_MESSAGE );
         $mail_headers = [
-            'bcc:m.dibella@rechtsdepesche.de'
+            'bcc:' . TARGET_MAIL
         ];
 
         $result = wp_mail( $mail_to, $mail_subject, $mail_message, $mail_headers );
