@@ -9,7 +9,7 @@
  * Requires at least:   5
  * Tested up to:        6.3
  * Requires PHP:        7
- * Version:             2.0.1
+ * Version:             2.0.2
  * Text Domain:         cm-theme-addon-ticketpool
  *
  *
@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) or exit;
 
 /** Variables and definitions */
 
-define( __NAMESPACE__ . '\PLUGIN_VERSION', '2.0.1' );
+define( __NAMESPACE__ . '\PLUGIN_VERSION', '2.0.2' );
 define( __NAMESPACE__ . '\PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( __NAMESPACE__ . '\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -61,6 +61,9 @@ define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );
 
 // Workaround: currently the plugin supports only the CM event with the number 1 (Q&D)
 define(  __NAMESPACE__ . '\EVENT_ID', '1' );
+
+// Workaround
+define(  __NAMESPACE__ . '\TARGET_MAIL', 'kongress@pwg-seminare.de' );
 
 
 
