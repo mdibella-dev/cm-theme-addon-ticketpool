@@ -24,14 +24,6 @@ translation-ready, shortcodes
 
 ## Changelog
 
-### Latest changes to the main branch
-
-- Improve: Change array notation
-- Improve: Change title
-- Improve: Change clamping style
-
-### Previous changes
-
 See [CHANGELOG.md](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/blob/main/CHANGELOG.md).
 
 <br>

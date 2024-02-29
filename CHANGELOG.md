@@ -4,6 +4,14 @@ _New / Improve / Bugfix_
 
 <br>
 
+### Latest changes to the main branch
+
+- Improve: Change array notation
+- Improve: Change title
+- Improve: Change clamping style
+
+<br>
+
 ### 2.0
 Released: 2023-06-05
 
@@ -28,6 +36,7 @@ Released: 2023-06-05
 - Improve: Add table reset function
 - Bugfix: Registration date need to be localized [#1](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/issues/1)
 - Bugfix: Default message needs preformatted line breaks [#3](https://github.com/mdibella-dev/cm-theme-addon-ticketpool/issues/3)
+
 
 ### 1.0
 Released: 2020-11-06
