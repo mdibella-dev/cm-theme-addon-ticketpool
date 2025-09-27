@@ -58,7 +58,6 @@ define( __NAMESPACE__ . '\NOTICE_EMPTY_FIELDS',            104 );
 // Folder to store export files
 define( __NAMESPACE__ . '\EXPORT_FOLDER', 'cm-kk' );
 
-
 // Workaround: currently the plugin supports only the CM event with the number 1 (Q&D)
 define(  __NAMESPACE__ . '\EVENT_ID', '1' );
 
@@ -75,3 +74,11 @@ require_once PLUGIN_DIR . 'includes/backend/index.php';
 require_once PLUGIN_DIR . 'includes/core.php';
 require_once PLUGIN_DIR . 'includes/backend.php';
 require_once PLUGIN_DIR . 'includes/setup.php';
+
+
+
+/** Add hooks */
+
+register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
+register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
+register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );
