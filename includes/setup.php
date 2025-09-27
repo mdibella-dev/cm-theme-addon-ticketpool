@@ -37,6 +37,11 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\plugin_init' );
  */
 
 function plugin_activation() {
+
+    if ( ! current_user_can( 'activate_plugins' ) ) {
+        return;
+    }
+
     // Set up tables if they do not exist
     global $wpdb;
 
@@ -76,13 +81,11 @@ function plugin_activation() {
         dbDelta( $sql );
     }
 
-
     /// Set up options if not present
     add_option( OPTION_MAIL_SUBJECT );
     add_option( OPTION_MAIL_MESSAGE );
 }
 
-register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
 
 
 
@@ -93,10 +96,13 @@ register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
  */
 
 function plugin_deactivation() {
+
+    if ( ! current_user_can( 'activate_plugins' ) ) {
+        return;
+    }
+
     // Do something!
 }
-
-register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
 
 
 
@@ -109,6 +115,11 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
  */
 
 function plugin_uninstall() {
+
+    if ( ! current_user_can( 'delete_plugins' ) ) {
+        return;
+    }
+
     // Remove tables if present
     global $wpdb;
 
@@ -122,13 +133,10 @@ function plugin_uninstall() {
         $wpdb->query( $sql );
     }
 
-
     // Remove options
     delete_option( OPTION_MAIL_SUBJECT );
     delete_option( OPTION_MAIL_MESSAGE );
 }
-
-register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );
 
 
 
