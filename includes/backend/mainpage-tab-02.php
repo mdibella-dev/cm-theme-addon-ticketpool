@@ -42,8 +42,7 @@ function show_mainpage_tab_02() {
                 if ( ! empty( $size ) and ! empty( $provider ) ) {
                     add_contingent( $_POST['event_id'], $_POST['size'], $_POST['provider'] );
                     display_admin_notice( NOTICE_TICKET_CONTINGENT_ADDED );
-                }
-                else {
+                } else {
                     display_admin_notice( NOTICE_EMPTY_FIELDS );
                 }
                 break;
@@ -64,8 +63,7 @@ function show_mainpage_tab_02() {
 
         if ( 0 == $total_amount) {
             echo __( 'There are currently no tickets available.', 'cm-theme-addon-ticketpool' );
-        }
-        else {
+        } else {
             echo sprintf(
                 __( 'A total of %1$s tickets are available.', 'cm-theme-addon-ticketpool' ),
                 $total_amount

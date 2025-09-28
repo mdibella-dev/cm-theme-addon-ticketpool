@@ -41,8 +41,7 @@ function show_mainpage_tab_01() {
 
         if ( 0 == $total_amount ) {
             echo __( 'There are currently no tickets available.', 'cm-theme-addon-ticketpool' );
-        }
-        else {
+        } else {
             echo sprintf(
                 __( 'A total of %1$s tickets are available, of which %2$s tickets are unused.', 'cm-theme-addon-ticketpool' ),
                 $total_amount,
