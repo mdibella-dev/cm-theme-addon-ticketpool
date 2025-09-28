@@ -68,7 +68,8 @@ function show_mainpage() {
     // get the current tab
     if ( isset( $_GET['tab'] ) and array_key_exists( $_GET['tab'], $tabs ) ) {
         $tab_active = $_GET['tab'];
-    } else {
+    }
+    else {
         $tab_active = 'tab-01';
     }
 
@@ -84,7 +85,8 @@ function show_mainpage() {
 
             if ( $tab_active == $key ) {
                 $nav_tab_class = 'nav-tab-active';
-            } else {
+            }
+            else {
                 $nav_tab_class = '';
             }
 

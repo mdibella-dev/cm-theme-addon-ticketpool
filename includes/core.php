@@ -136,7 +136,8 @@ function get_used_amount( $event_id ) {
 
     if ( null != $table_data ) {
         return $table_data[0][0];
-    } else {
+    }
+    else {
         return 0;
     }
 }
