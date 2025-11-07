@@ -18,7 +18,7 @@ translation-ready, shortcodes
 
 ### Tested up to
 
-- WordPress 6.2
+- WordPress 6.8
 
 <br>
 

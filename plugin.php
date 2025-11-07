@@ -7,7 +7,7 @@
  * Author URI:          https://www.marcodibella.de
  * License:             MIT License
  * Requires at least:   5
- * Tested up to:        6.3
+ * Tested up to:        6.8
  * Requires PHP:        7
  * Version:             2.0.2
  * Text Domain:         cm-theme-addon-ticketpool
