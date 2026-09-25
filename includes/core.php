@@ -1,16 +1,9 @@
 <?php
-/**
- * Core functions.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,16 +11,15 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Exports the list of participants as CSV.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $event_id The ID of the event.
+ * @param   int $event_id The ID of the event.
  *
- * @return bool  In case of error: false.
- * @return array In case of success Information about the export file.
+ * @return  bool  In case of error: false.
+ * @return  array In case of success Information about the export file.
  *
- * @todo Use of $event-id within the SQL query.
+ * @todo    Use of $event-id within the SQL query.
  */
-
 function create_user_export_file( $event_id = 0 ) {
 
     // Prepare variables
@@ -43,12 +35,10 @@ function create_user_export_file( $event_id = 0 ) {
         'url'  => $export_url . '/' . $file_name,
     ];
 
-
     // (Re-)Create export folder if necessary
     if ( ! file_exists( $export_dir ) ) {
         wp_mkdir_p( $export_dir );
     }
-
 
     // Open file
     $file = fopen( $file_info['path'], 'w' );
@@ -56,7 +46,6 @@ function create_user_export_file( $event_id = 0 ) {
     if ( false === $file) {
         return null;
     }
-
 
     // Write header into file
     $row = [
@@ -66,7 +55,6 @@ function create_user_export_file( $event_id = 0 ) {
         __( 'Registration date','cm-theme-addon-ticketpool' )
     ];
     fputcsv( $file, $row);
-
 
     // Retrieve data and write to file
     global $wpdb;
@@ -79,7 +67,6 @@ function create_user_export_file( $event_id = 0 ) {
         fputcsv( $file, $row );
     }
 
-
     // Close file
     fclose( $file );
 
@@ -91,13 +78,12 @@ function create_user_export_file( $event_id = 0 ) {
 /**
  * Returns the total number of tickets available.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $event_id The ID of the event.
+ * @param   int $event_id The ID of the event.
  *
- * @return int The total number of tickets.
+ * @return  int The total number of tickets.
  */
-
 function get_total_amount( $event_id ) {
     global $wpdb;
 
@@ -120,13 +106,12 @@ function get_total_amount( $event_id ) {
 /**
  * Determines the number of tickets already used from the total quota.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $event_id The ID of the event.
+ * @param   int $event_id The ID of the event.
  *
- * @return int The tickets used.
+ * @return  int The tickets used.
  */
-
 function get_used_amount( $event_id ) {
     global $wpdb;
 
@@ -146,13 +131,12 @@ function get_used_amount( $event_id ) {
 /**
  * Determines the number of tickets still available from the total quota.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $event_id The ID of the event.
+ * @param   int $event_id The ID of the event.
  *
- * @return int The tickets that are still free (in doubt 0).
+ * @return  int The tickets that are still free (in doubt 0).
  */
-
 function get_free_amount( $event_id ) {
     global $wpdb;
 
@@ -167,15 +151,14 @@ function get_free_amount( $event_id ) {
 /**
  * Expands the ticket pool by adding a ticket contingent.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int    $event_id            The ID of the event.
- * @param int    $contingent_size     The number of tickets in the ticket contingent.
- * @param string $contingent_provider Name of the sponsor of the ticket quota.
+ * @param   int    $event_id            The ID of the event.
+ * @param   int    $contingent_size     The number of tickets in the ticket contingent.
+ * @param   string $contingent_provider Name of the sponsor of the ticket quota.
  *
- * @return bool true/false depending on the outcome.
+ * @return  bool true/false depending on the outcome.
  */
-
 function add_contingent( $event_id, $contingent_size, $contingent_provider ) {
     if ( ( $contingent_size > 0 ) and ! empty( $contingent_provider) ) {
         global $wpdb;
@@ -200,16 +183,15 @@ function add_contingent( $event_id, $contingent_size, $contingent_provider ) {
 /**
  * Checks if the given $user_email has already been used for a given event ($event_id).
  *
- * @since  1.0.0
+ * @since   1.0.0
  *
- * @param  int    $event_id   The ID of the event.
- * @param  string $user_email The specified email.
+ * @param   int    $event_id   The ID of the event.
+ * @param   string $user_email The specified email.
  *
- * @return bool The check result
- *              - true:  the email is already in use.
- *              - false: any other case.
+ * @return  bool The check result
+ *               - true:  the email is already in use.
+ *               - false: any other case.
  */
-
 function is_email_in_use( $event_id, $user_email ) {
     global $wpdb;
 
@@ -225,14 +207,14 @@ function is_email_in_use( $event_id, $user_email ) {
 /**
  * Adds a user.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int    $event_id      The ID of the event.
- * @param string $user_lastname The given last name.
- * @param string $user_forename The given fore name.
- * @param string $user_email    The given email.
+ * @param   int    $event_id      The ID of the event.
+ * @param   string $user_lastname The given last name.
+ * @param   string $user_forename The given fore name.
+ * @param   string $user_email    The given email.
  *
- * @return int A status code.
+ * @return  int A status code.
  */
 
 function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
@@ -256,7 +238,6 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
         return STATUS_USER_EMAIL_IN_USE;
     }
 
-
     // Register user
     global $wpdb;
 
@@ -267,7 +248,6 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
         'user_forename' => $user_forename,
         'user_email'    => $user_email,
     ];
-
 
     // Was the user's registration successful?
     if ( 0 !== $wpdb->insert( $table_name, $table_data ) ) {
@@ -294,11 +274,12 @@ function add_user( $event_id, $user_lastname, $user_forename, $user_email ) {
 /**
  * Outputs a message matching the respective status code.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int The status code.
+ * @param   int The status code.
+ *
+ * @return  void
  */
-
 function display_user_notice( $code ) {
     $status = [
         STATUS_USER_ADDED => [

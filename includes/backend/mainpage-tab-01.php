@@ -1,15 +1,9 @@
 <?php
-/**
- * The first tab of the main page.
- *
- * @author  Marco Di Bella <mdb@marcodibella.de>
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -17,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Displays the tab.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function show_mainpage_tab_01() {
     $file_info = create_user_export_file( EVENT_ID );
 
@@ -29,7 +26,6 @@ function show_mainpage_tab_01() {
 
 
     /** Output the tab */
-
     $user_table = new MDB_User_List_Table();
     $user_table->prepare_items();
     $user_table->display();

@@ -1,16 +1,9 @@
 <?php
-/**
- * Main page of the plugin.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Creates a menu item in the backend for the main page.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function add_mainpage() {
     add_menu_page(
         __( 'Ticket contingents', 'cm-theme-addon-ticketpool' ),
@@ -40,10 +36,14 @@ add_action( 'admin_menu', __NAMESPACE__ . '\add_mainpage' );
 /**
  * Displays the main page.
  *
- * @since  1.0.0
  * @source http://qnimate.com/add-tabs-using-wordpress-settings-api/
+ *
+ * @since  1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function show_mainpage() {
     // setup all tabs
     $tabs = [
@@ -72,9 +72,7 @@ function show_mainpage() {
         $tab_active = 'tab-01';
     }
 
-
     /** Output the main page */
-
     ?>
     <div class="wrap">
         <h1 class="wp-heading-inline"><?php echo __( 'Ticket contingents', 'cm-theme-addon-ticketpool' )?></h1>
@@ -98,8 +96,8 @@ function show_mainpage() {
         ?>
         </h2>
         <?php
-        /** Output the specific tab */
 
+        /** Output the specific tab */
         call_user_func( (string) $tabs[$tab_active]['callback'] );
         ?>
     </div>

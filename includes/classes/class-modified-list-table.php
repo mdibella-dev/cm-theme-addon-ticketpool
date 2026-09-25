@@ -1,16 +1,9 @@
 <?php
-/**
- * Class MDB_Modified_List_Table
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,9 +11,8 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Table with modified output of TableNav.
  *
- * @since 1.0.0
+ * @since   1.0.0
  */
-
 class MDB_Modified_List_Table extends \WP_List_Table {
 
     function display_tablenav( $which ) {

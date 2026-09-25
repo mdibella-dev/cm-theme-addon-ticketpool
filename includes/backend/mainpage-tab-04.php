@@ -1,27 +1,22 @@
 <?php
-/**
- * The fourth tab of the main page.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
+
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
-
 
 
 
 /**
  * Displays the tab.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function show_mainpage_tab_04() {
     /** Process form if already submitted */
 
@@ -60,9 +55,7 @@ function show_mainpage_tab_04() {
         }
     }
 
-
     /** Output the tab */
-
     ?>
     <div class="form-wrap">
         <form method="post" class="validate">

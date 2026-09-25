@@ -1,16 +1,9 @@
 <?php
-/**
- * Class MDB_User_List_Table
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,16 +11,14 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Displays the participants who have cards from the card pool.
  *
- * @since 1.0.0
+ * @see     http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
+ * @see     https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
  *
- * @see http://wpengineer.com/2426/wp_list_table-a-step-by-step-guide/
- * @see https://wp.smashingmagazine.com/2011/11/native-admin-tables-wordpress/
+ * @since   1.0.0
  */
-
 class MDB_User_List_Table extends MDB_Modified_List_Table {
 
     function get_columns() {
-
         $columns = [
             'col_name'       => __( 'Participant', 'cm-theme-addon-ticketpool' ),
             'col_email'      => __( 'Email', 'cm-theme-addon-ticketpool' ),

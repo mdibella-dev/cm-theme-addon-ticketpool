@@ -11,23 +11,18 @@
  * Requires PHP:        7
  * Version:             2.0.2
  * Text Domain:         cm-theme-addon-ticketpool
- *
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
  */
 
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
 
 /** Variables and definitions */
-
 define( __NAMESPACE__ . '\PLUGIN_VERSION', '2.0.2' );
 define( __NAMESPACE__ . '\PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( __NAMESPACE__ . '\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -67,18 +62,16 @@ define(  __NAMESPACE__ . '\TARGET_MAIL', 'kongress@pwg-seminare.de' );
 
 
 /** Include files */
-
-require_once PLUGIN_DIR . 'includes/shortcodes/shortcode-form.php';
-require_once PLUGIN_DIR . 'includes/classes/index.php';
-require_once PLUGIN_DIR . 'includes/backend/index.php';
-require_once PLUGIN_DIR . 'includes/core.php';
-require_once PLUGIN_DIR . 'includes/backend.php';
-require_once PLUGIN_DIR . 'includes/setup.php';
+require_once 'includes/shortcodes/shortcode-form.php';
+require_once 'includes/classes/index.php';
+require_once 'includes/backend/index.php';
+require_once 'includes/core.php';
+require_once 'includes/backend.php';
+require_once 'includes/setup.php';
 
 
 
 /** Add hooks */
-
 register_activation_hook( __FILE__, __NAMESPACE__ . '\plugin_activation' );
 register_deactivation_hook( __FILE__, __NAMESPACE__ . '\plugin_deactivation' );
 register_uninstall_hook( __FILE__, __NAMESPACE__ . '\plugin_uninstall' );

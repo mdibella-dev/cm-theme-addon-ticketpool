@@ -1,16 +1,9 @@
 <?php
-/**
- * Functions to activate, initiate and deactivate the plugin.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * The init function for the plugin.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function plugin_init() {
     // Load text domain
     load_plugin_textdomain( 'cm-theme-addon-ticketpool', false, plugin_basename( PLUGIN_DIR ) . '/languages' );
@@ -33,9 +29,12 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\plugin_init' );
 /**
  * The activation function for the plugin.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function plugin_activation() {
 
     if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -88,13 +87,15 @@ function plugin_activation() {
 
 
 
-
 /**
  * The deactivation function for the plugin.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function plugin_deactivation() {
 
     if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -109,11 +110,14 @@ function plugin_deactivation() {
 /**
  * The uninstall function for the plugin.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  *
  * @todo remove export files and folder
  */
-
 function plugin_uninstall() {
 
     if ( ! current_user_can( 'delete_plugins' ) ) {
@@ -143,9 +147,12 @@ function plugin_uninstall() {
 /**
  * Load the frontend scripts and styles.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function plugin_enqueue_scripts() {
     wp_enqueue_script(
         'cm-ticketpool-frontend-script',

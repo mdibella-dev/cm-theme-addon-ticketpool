@@ -1,16 +1,9 @@
 <?php
-/**
- * The second tab of the main page.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,12 +11,14 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Displays the tab.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function show_mainpage_tab_02() {
     /** Process form if already submitted */
-
     if ( isset( $_POST['action'] ) ) {
 
         switch ( $_POST['action'] ) {
@@ -49,10 +44,7 @@ function show_mainpage_tab_02() {
         }
     }
 
-
-
     /** Output the tab */
-
     $pool_table = new MDB_Pool_List_Table();
     $pool_table->prepare_items();
     $pool_table->display();

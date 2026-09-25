@@ -1,18 +1,10 @@
 <?php
-/**
- * The third tab of the main page.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
+
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
-
 
 
 
@@ -21,10 +13,13 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 1.0.0
  *
+ * @param   void
+ *
+ * @return  void
+ *
  * @todo Do not allow empty fields
  * @todo E-mail address for notification
  */
-
 function show_mainpage_tab_03() {
     /** Process form if already submitted */
 
@@ -52,9 +47,7 @@ function show_mainpage_tab_03() {
     $subject = get_option( OPTION_MAIL_SUBJECT, $default_subject );
     $message = get_option( OPTION_MAIL_MESSAGE, $default_message );
 
-
     /** Output the tab */
-
     ?>
     <div class="form-wrap">
         <h2><?php echo __( 'Email template for participants', 'cm-theme-addon-ticketpool'); ?></h2>

@@ -1,16 +1,9 @@
 <?php
-/**
- * Functions to handle the backend.
- *
- * @author  Marco Di Bella
- * @package cm-theme-addon-ticketpool
- */
-
 namespace cm_theme_addon_ticketpool;
 
 
-/** Prevent direct access */
 
+/** Prevent direct access */
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Load the backend scripts and styles.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function admin_enqueue_scripts() {
 
     $screen = get_current_screen();
@@ -42,10 +38,14 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
 /**
  * Display of the administrative notices.
  *
- * @since 1.0.0
- * @see   https://digwp.com/2016/05/wordpress-admin-notices/
+ * @see     https://digwp.com/2016/05/wordpress-admin-notices/
+ *
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function admin_notices() {
 
     if ( isset( $_GET['notice'] ) ) {
@@ -92,11 +92,12 @@ add_action( 'admin_notices', __NAMESPACE__ . '\admin_notices' );
 /**
  * Initiate the display of an administrative notice.
  *
- * @since 2.0.0
+ * @since   2.0.0
  *
- * @param int $notice Code of the notice to be displayed.
+ * @param   int $notice Code of the notice to be displayed.
+ *
+ * @return  void
  */
-
 function display_admin_notice( $notice ) {
     $_GET['notice'] = $notice;
     do_action( 'admin_notices' );
